@@ -40,3 +40,4 @@ Library
                    Geo.GPX.Trkseg
                    Geo.GPX.Trk
                    Geo.GPX.Rte
+                   Geo.GPX.Metadata

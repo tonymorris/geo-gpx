@@ -15,7 +15,8 @@ module Geo.GPX(
                 module Geo.GPX.Wpt,
                 module Geo.GPX.Trkseg,
                 module Geo.GPX.Trk,
-                module Geo.GPX.Rte
+                module Geo.GPX.Rte,
+                module Geo.GPX.Metadata
               ) where
 
 import Geo.GPX.DgpsStation
@@ -35,3 +36,4 @@ import Geo.GPX.Wpt
 import Geo.GPX.Trkseg
 import Geo.GPX.Trk
 import Geo.GPX.Rte
+import Geo.GPX.Metadata
