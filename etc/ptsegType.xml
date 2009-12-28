@@ -7,4 +7,4 @@
     <ele>-6</ele>
   </pt>
 </ptsegType>
-<!-- xpElem "ptsegType" (xpickle :: PU Ptseg) -->
+<!-- xpElem "ptsegType" (xpickle :: PU PtsegType) -->

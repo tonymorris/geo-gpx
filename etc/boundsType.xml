@@ -1,2 +1,2 @@
 <boundsType minlat='27.35' minlon='152.87' maxlat='33.5' maxlon='90.3'/>
-<!-- xpElem "boundsType" (xpickle :: PU Bounds) -->
+<!-- xpElem "boundsType" (xpickle :: PU BoundsType) -->

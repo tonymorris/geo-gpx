@@ -1,2 +1,2 @@
 <fixType>dgps</fixType>
-<!-- xpElem "fixType" (xpickle :: PU Fix) -->
+<!-- xpElem "fixType" (xpickle :: PU FixType) -->
