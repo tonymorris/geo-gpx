@@ -25,3 +25,6 @@ Library
   Exposed-Modules: Geo.GPX
                    Geo.GPX.DgpsStation
                    Geo.GPX.FixType
+                   Geo.GPX.Degrees
+                   Geo.GPX.Longitude
+                   Geo.GPX.Latitude

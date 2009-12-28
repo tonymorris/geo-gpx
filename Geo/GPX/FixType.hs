@@ -4,11 +4,11 @@ data FixType = None | Twod | Threed | Dgps | Pps
   deriving Eq
 
 foldFixType :: a -> a -> a -> a -> a -> FixType -> a
-foldFixType none _ _ _ _ None = none
-foldFixType _ twod _ _ _ Twod = twod
-foldFixType _ _ threed _ _ Threed = threed
-foldFixType _ _ _ dgps _ Dgps = dgps
-foldFixType _ _ _ _ pps Pps = pps
+foldFixType n _ _ _ _ None = n
+foldFixType _ t _ _ _ Twod = t
+foldFixType _ _ t _ _ Threed = t
+foldFixType _ _ _ d _ Dgps = d
+foldFixType _ _ _ _ p Pps = p
 
 none :: FixType
 none = None
