@@ -6,10 +6,10 @@ import Geo.GPX.Rte
 import Geo.GPX.Trk
 import Geo.GPX.Extensions
 
-data Gpx = Gpx (Maybe String) (Maybe Metadata) [Wpt] [Rte] [Trk] (Maybe Extensions)
+data Gpx = Gpx String (Maybe Metadata) [Wpt] [Rte] [Trk] (Maybe Extensions)
   deriving Eq
 
-gpx :: Maybe String
+gpx :: String
     -> Maybe Metadata
     -> [Wpt]
     -> [Rte]
