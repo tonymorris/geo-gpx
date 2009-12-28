@@ -28,3 +28,4 @@ Library
                    Geo.GPX.Degrees
                    Geo.GPX.Longitude
                    Geo.GPX.Latitude
+                   Geo.GPX.Bounds
