@@ -41,3 +41,4 @@ Library
                    Geo.GPX.Trk
                    Geo.GPX.Rte
                    Geo.GPX.Metadata
+                   Geo.GPX.Gpx
