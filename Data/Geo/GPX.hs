@@ -45,7 +45,19 @@ module Data.Geo.GPX(
                 module Data.Geo.GPX.Accessor.Link,
                 module Data.Geo.GPX.Accessor.Time,
                 module Data.Geo.GPX.Accessor.Keywords,
-                module Data.Geo.GPX.Accessor.Bounds
+                module Data.Geo.GPX.Accessor.Bounds,
+                module Data.Geo.GPX.Accessor.Lat,
+                module Data.Geo.GPX.Accessor.Lon,
+                module Data.Geo.GPX.Accessor.Ele,
+                module Data.Geo.GPX.Accessor.Magvar,
+                module Data.Geo.GPX.Accessor.Geoidheight,
+                module Data.Geo.GPX.Accessor.Cmt,
+                module Data.Geo.GPX.Accessor.Src,
+                module Data.Geo.GPX.Accessor.Hdop,
+                module Data.Geo.GPX.Accessor.Vdop,
+                module Data.Geo.GPX.Accessor.Pdop,
+                module Data.Geo.GPX.Accessor.Ageofdgpsdata,
+                module Data.Geo.GPX.Accessor.Dgpsid
               ) where
 
 import Data.Geo.GPX.DgpsStationType
@@ -95,3 +107,18 @@ import Data.Geo.GPX.Accessor.Link
 import Data.Geo.GPX.Accessor.Time
 import Data.Geo.GPX.Accessor.Keywords
 import Data.Geo.GPX.Accessor.Bounds
+import Data.Geo.GPX.Accessor.Lat
+import Data.Geo.GPX.Accessor.Lon
+import Data.Geo.GPX.Accessor.Ele
+import Data.Geo.GPX.Accessor.Magvar
+import Data.Geo.GPX.Accessor.Geoidheight
+import Data.Geo.GPX.Accessor.Cmt
+import Data.Geo.GPX.Accessor.Src
+import Data.Geo.GPX.Accessor.Sym
+import Data.Geo.GPX.Accessor.Fix
+import Data.Geo.GPX.Accessor.Sat
+import Data.Geo.GPX.Accessor.Hdop
+import Data.Geo.GPX.Accessor.Vdop
+import Data.Geo.GPX.Accessor.Pdop
+import Data.Geo.GPX.Accessor.Ageofdgpsdata
+import Data.Geo.GPX.Accessor.Dgpsid

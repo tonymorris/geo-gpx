@@ -7,6 +7,27 @@ import Data.Geo.GPX.LinkType
 import Data.Geo.GPX.FixType
 import Data.Geo.GPX.DgpsStationType
 import Data.Geo.GPX.ExtensionsType
+import Data.Geo.GPX.Accessor.Lat
+import Data.Geo.GPX.Accessor.Lon
+import Data.Geo.GPX.Accessor.Ele
+import Data.Geo.GPX.Accessor.Time
+import Data.Geo.GPX.Accessor.Magvar
+import Data.Geo.GPX.Accessor.Geoidheight
+import Data.Geo.GPX.Accessor.Name
+import Data.Geo.GPX.Accessor.Cmt
+import Data.Geo.GPX.Accessor.Desc
+import Data.Geo.GPX.Accessor.Src
+import Data.Geo.GPX.Accessor.Link
+import Data.Geo.GPX.Accessor.Sym
+import Data.Geo.GPX.Accessor.Type
+import Data.Geo.GPX.Accessor.Fix
+import Data.Geo.GPX.Accessor.Sat
+import Data.Geo.GPX.Accessor.Hdop
+import Data.Geo.GPX.Accessor.Vdop
+import Data.Geo.GPX.Accessor.Pdop
+import Data.Geo.GPX.Accessor.Ageofdgpsdata
+import Data.Geo.GPX.Accessor.Dgpsid
+import Data.Geo.GPX.Accessor.Extensions
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 
@@ -81,3 +102,66 @@ instance XmlPickler WptType where
                     (xpOption (xpElem "ageofdgpsdata" xpPrim))
                     (xpOption (xpElem "dgpsid" xpickle))
                     (xpOption (xpElem "extensions" xpickle)))
+
+instance Lat WptType where
+  lat (WptType x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+
+instance Lon WptType where
+  lon (WptType _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+
+instance Ele WptType where
+  ele (WptType _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+
+instance Time WptType where
+  time (WptType _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+
+instance Magvar WptType where
+  magvar (WptType _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+
+instance Geoidheight WptType where
+  geoidheight (WptType _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+
+instance Name WptType where
+  name (WptType _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+
+instance Cmt WptType where
+  cmt (WptType _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+
+instance Desc WptType where
+  desc (WptType _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _) = x
+
+instance Src WptType where
+  src (WptType _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _) = x
+
+instance Link WptType where
+  link (WptType _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _) = x
+
+instance Sym WptType where
+  sym (WptType _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _) = x
+
+instance Type WptType where
+  type' (WptType _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _) = x
+
+instance Fix WptType where
+  fix (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _) = x
+
+instance Sat WptType where
+  sat (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _) = x
+
+instance Hdop WptType where
+  hdop (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _) = x
+
+instance Vdop WptType where
+  vdop (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _) = x
+
+instance Pdop WptType where
+  pdop (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _ _) = x
+
+instance Ageofdgpsdata WptType where
+  ageofdgpsdata (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _) = x
+
+instance Dgpsid WptType where
+  dgpsid (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _) = x
+
+instance Extensions WptType where
+  extensions (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x) = x

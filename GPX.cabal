@@ -70,3 +70,18 @@ Library
                    Data.Geo.GPX.Accessor.Time
                    Data.Geo.GPX.Accessor.Keywords
                    Data.Geo.GPX.Accessor.Bounds
+                   Data.Geo.GPX.Accessor.Lat
+                   Data.Geo.GPX.Accessor.Lon
+                   Data.Geo.GPX.Accessor.Ele
+                   Data.Geo.GPX.Accessor.Magvar
+                   Data.Geo.GPX.Accessor.Geoidheight
+                   Data.Geo.GPX.Accessor.Cmt
+                   Data.Geo.GPX.Accessor.Src
+                   Data.Geo.GPX.Accessor.Sym
+                   Data.Geo.GPX.Accessor.Fix
+                   Data.Geo.GPX.Accessor.Sat
+                   Data.Geo.GPX.Accessor.Hdop
+                   Data.Geo.GPX.Accessor.Vdop
+                   Data.Geo.GPX.Accessor.Pdop
+                   Data.Geo.GPX.Accessor.Ageofdgpsdata
+                   Data.Geo.GPX.Accessor.Dgpsid
