@@ -23,7 +23,7 @@ Library
 
   GHC-Options:    -Wall
   Exposed-Modules: Geo.GPX
-                   Geo.GPX.Dgpsid
+                   Geo.GPX.DgpsStation
                    Geo.GPX.Fix
                    Geo.GPX.Degrees
                    Geo.GPX.Longitude
