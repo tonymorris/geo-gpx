@@ -5,6 +5,8 @@ import Geo.GPX.Longitude
 import Geo.GPX.Degrees
 import Geo.GPX.Link
 import Geo.GPX.Fix
+import Geo.GPX.DgpsStation
+import Geo.GPX.Extensions
 
 data Wpt = Wpt Latitude
                Longitude
@@ -19,4 +21,11 @@ data Wpt = Wpt Latitude
                (Maybe String)
                (Maybe String)
                (Maybe Fix)
+               (Maybe Int)
+               (Maybe Double)
+               (Maybe Double)
+               (Maybe Double)
+               (Maybe Double)
+               (Maybe DgpsStation)
+               (Maybe Extensions)
   deriving Eq
