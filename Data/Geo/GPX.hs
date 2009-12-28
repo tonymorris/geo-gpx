@@ -22,7 +22,10 @@ module Data.Geo.GPX(
                 module Data.Geo.GPX.Accessor.Minlat,
                 module Data.Geo.GPX.Accessor.Maxlat,
                 module Data.Geo.GPX.Accessor.Minlon,
-                module Data.Geo.GPX.Accessor.Maxlon
+                module Data.Geo.GPX.Accessor.Maxlon,
+                module Data.Geo.GPX.Accessor.Author,
+                module Data.Geo.GPX.Accessor.Year,
+                module Data.Geo.GPX.Accessor.License
               ) where
 
 import Data.Geo.GPX.DgpsStationType
@@ -49,3 +52,6 @@ import Data.Geo.GPX.Accessor.Minlat
 import Data.Geo.GPX.Accessor.Maxlat
 import Data.Geo.GPX.Accessor.Minlon
 import Data.Geo.GPX.Accessor.Maxlon
+import Data.Geo.GPX.Accessor.Author
+import Data.Geo.GPX.Accessor.Year
+import Data.Geo.GPX.Accessor.License

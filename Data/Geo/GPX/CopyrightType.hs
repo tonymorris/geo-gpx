@@ -1,5 +1,8 @@
 module Data.Geo.GPX.CopyrightType where
 
+import Data.Geo.GPX.Accessor.Author
+import Data.Geo.GPX.Accessor.Year
+import Data.Geo.GPX.Accessor.License
 import Text.XML.HXT.Arrow
 
 data CopyrightType = CopyrightType String (Maybe String) (Maybe String)
@@ -13,3 +16,12 @@ instance XmlPickler CopyrightType where
               (xpAttr "author" xpText)
               (xpOption (xpElem "year" xpText))
               (xpOption (xpElem "license" xpText)))
+
+instance Author CopyrightType where
+  author (CopyrightType x _ _) = x
+
+instance Year CopyrightType where
+  year (CopyrightType _ x _) = x
+
+instance License CopyrightType where
+  license (CopyrightType _ _ x) = x
