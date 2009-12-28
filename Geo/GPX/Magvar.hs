@@ -11,7 +11,7 @@ magvar :: Double -> Magvar
 magvar n = Magvar (n `mod'` 360)
 
 instance XmlPickler Magvar where
-  xpickle = undefined
+  xpickle = xpElem "magvar" (xpWrap (Magvar, \(Magvar n) -> n) xpPrim)
 
 instance Show Magvar where
   show = showPickled []
