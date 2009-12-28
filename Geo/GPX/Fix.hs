@@ -1,5 +1,7 @@
 module Geo.GPX.Fix where
 
+import Text.XML.HXT.Arrow
+
 data Fix = None | Twod | Threed | Dgps | Pps
   deriving (Eq, Enum)
 
@@ -33,5 +35,8 @@ fix "dgps" = Just dgps
 fix "pps" = Just pps
 fix _ = Nothing
 
-fix' :: Fix -> String
-fix' = foldFix "none" "2d" "3d" "dgps" "pps"
+instance XmlPickler Fix where
+  xpickle = xpWrapMaybe (fix, show) xpText
+
+instance Show Fix where
+  show = foldFix "none" "2d" "3d" "dgps" "pps"
