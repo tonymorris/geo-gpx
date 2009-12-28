@@ -29,3 +29,26 @@ data Wpt = Wpt Latitude
                (Maybe DgpsStation)
                (Maybe Extensions)
   deriving Eq
+
+wpt :: Latitude
+    -> Longitude
+    -> Maybe Double
+    -> Maybe Degrees
+    -> Maybe Double
+    -> Maybe String
+    -> Maybe String
+    -> Maybe String
+    -> Maybe String
+    -> [Link]
+    -> Maybe String
+    -> Maybe String
+    -> Maybe Fix
+    -> Maybe Int
+    -> Maybe Double
+    -> Maybe Double
+    -> Maybe Double
+    -> Maybe Double
+    -> Maybe DgpsStation
+    -> Maybe Extensions
+    -> Wpt
+wpt a b c d e f g h i j k l m n o = Wpt a b c d e f g h i j k l m n (fmap abs o)
