@@ -1,0 +1,21 @@
+<metadataType>
+  <name>Cruise P&amp;O Pacific Sun 10/10/2009 to 24/10/2009 (N932)</name>
+  <desc>Track Log using Garmin 60Cx device</desc>
+  <author>
+    <name>Tony Morris</name>
+    <email id="code" domain="tmorris.net"/>
+    <link href="http://tmorris.net/">
+      <text>Tony Morris</text>
+      <type>HTTP</type>
+    </link>
+  </author>
+  <copyright author="Tony Morris">
+    <year>2009</year>
+    <license>http://en.wikipedia.org/wiki/Beerware</license>
+  </copyright>
+  <link href="http://www.pocruises.com.au/html/n932-south-pacific.cfm">
+    <text>Fiji Adventure, Pacific Sun</text>
+    <type>HTTP</type>
+  </link>
+</metadataType>
+<!-- xpElem "metadataType" (xpickle :: PU MetadataType) -->
