@@ -24,7 +24,7 @@ Library
   GHC-Options:    -Wall
   Exposed-Modules: Geo.GPX
                    Geo.GPX.DgpsStation
-                   Geo.GPX.FixType
+                   Geo.GPX.Fix
                    Geo.GPX.Degrees
                    Geo.GPX.Longitude
                    Geo.GPX.Latitude
