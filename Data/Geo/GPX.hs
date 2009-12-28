@@ -18,7 +18,11 @@ module Data.Geo.GPX(
                 module Data.Geo.GPX.RteType,
                 module Data.Geo.GPX.MetadataType,
                 module Data.Geo.GPX.GpxType,
-                module Data.Geo.GPX.Gpx
+                module Data.Geo.GPX.Gpx,
+                module Data.Geo.GPX.Accessor.Minlat,
+                module Data.Geo.GPX.Accessor.Maxlat,
+                module Data.Geo.GPX.Accessor.Minlon,
+                module Data.Geo.GPX.Accessor.Maxlon
               ) where
 
 import Data.Geo.GPX.DgpsStationType
@@ -41,3 +45,7 @@ import Data.Geo.GPX.RteType
 import Data.Geo.GPX.MetadataType
 import Data.Geo.GPX.GpxType
 import Data.Geo.GPX.Gpx
+import Data.Geo.GPX.Accessor.Minlat
+import Data.Geo.GPX.Accessor.Maxlat
+import Data.Geo.GPX.Accessor.Minlon
+import Data.Geo.GPX.Accessor.Maxlon
