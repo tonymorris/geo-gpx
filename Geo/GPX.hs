@@ -1,5 +1,5 @@
 module Geo.GPX(
-                module Geo.GPX.DgpsStation,
+                module Geo.GPX.Dgpsid,
                 module Geo.GPX.Fix,
                 module Geo.GPX.Degrees,
                 module Geo.GPX.Longitude,
@@ -20,7 +20,7 @@ module Geo.GPX(
                 module Geo.GPX.Gpx
               ) where
 
-import Geo.GPX.DgpsStation
+import Geo.GPX.Dgpsid
 import Geo.GPX.Fix
 import Geo.GPX.Degrees
 import Geo.GPX.Longitude
