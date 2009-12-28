@@ -13,7 +13,8 @@ module Geo.GPX(
                 module Geo.GPX.Person,
                 module Geo.GPX.Copyright,
                 module Geo.GPX.Wpt,
-                module Geo.GPX.Trkseg
+                module Geo.GPX.Trkseg,
+                module Geo.GPX.Trk
               ) where
 
 import Geo.GPX.DgpsStation
@@ -31,3 +32,4 @@ import Geo.GPX.Person
 import Geo.GPX.Copyright
 import Geo.GPX.Wpt
 import Geo.GPX.Trkseg
+import Geo.GPX.Trk

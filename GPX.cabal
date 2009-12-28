@@ -36,3 +36,6 @@ Library
                    Geo.GPX.Link
                    Geo.GPX.Person
                    Geo.GPX.Copyright
+                   Geo.GPX.Wpt
+                   Geo.GPX.Trkseg
+                   Geo.GPX.Trk
