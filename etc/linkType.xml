@@ -1,0 +1,5 @@
+<linkType href="boo.com">
+  <text>Boo</text>
+  <type>HTTP</type>
+</linkType>
+<!-- xpElem "linkType" (xpickle :: PU LinkType) -->

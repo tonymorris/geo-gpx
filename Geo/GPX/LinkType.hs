@@ -9,4 +9,7 @@ linkType :: String -> Maybe String -> Maybe String -> LinkType
 linkType = LinkType
 
 instance XmlPickler LinkType where
-  xpickle = undefined
+  xpickle = xpWrap (\(href, text, type') -> linkType href text type', \(LinkType href text type') -> (href, text, type')) (xpTriple
+              (xpAttr "href" xpText)
+              (xpOption (xpElem "text" xpText))
+              (xpOption (xpElem "type" xpText)))
