@@ -85,3 +85,10 @@ Library
                    Data.Geo.GPX.Accessor.Pdop
                    Data.Geo.GPX.Accessor.Ageofdgpsdata
                    Data.Geo.GPX.Accessor.Dgpsid
+                   Data.Geo.GPX.Accessor.Email
+                   Data.Geo.GPX.Accessor.Link
+                   Data.Geo.GPX.Accessor.Pts
+                   Data.Geo.GPX.Accessor.Number
+                   Data.Geo.GPX.Accessor.Rtepts
+                   Data.Geo.GPX.Accessor.Trkpts
+                   Data.Geo.GPX.Accessor.Trksegs

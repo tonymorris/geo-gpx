@@ -1,6 +1,7 @@
 module Data.Geo.GPX.PtsegType where
 
 import Data.Geo.GPX.PtType
+import Data.Geo.GPX.Accessor.Pts
 import Text.XML.HXT.Arrow
 
 newtype PtsegType = PtsegType [PtType]
@@ -11,3 +12,6 @@ ptsegType = PtsegType
 
 instance XmlPickler PtsegType where
   xpickle = xpWrap (ptsegType, \(PtsegType k) -> k) (xpList (xpElem "pt" xpickle))
+
+instance Pts PtsegType where
+  pts (PtsegType x) = x

@@ -57,7 +57,14 @@ module Data.Geo.GPX(
                 module Data.Geo.GPX.Accessor.Vdop,
                 module Data.Geo.GPX.Accessor.Pdop,
                 module Data.Geo.GPX.Accessor.Ageofdgpsdata,
-                module Data.Geo.GPX.Accessor.Dgpsid
+                module Data.Geo.GPX.Accessor.Dgpsid,
+                module Data.Geo.GPX.Accessor.Email,
+                module Data.Geo.GPX.Accessor.Link,
+                module Data.Geo.GPX.Accessor.Pts,
+                module Data.Geo.GPX.Accessor.Number,
+                module Data.Geo.GPX.Accessor.Rtepts,
+                module Data.Geo.GPX.Accessor.Trkpts,
+                module Data.Geo.GPX.Accessor.Trksegs
               ) where
 
 import Data.Geo.GPX.DgpsStationType
@@ -122,3 +129,10 @@ import Data.Geo.GPX.Accessor.Vdop
 import Data.Geo.GPX.Accessor.Pdop
 import Data.Geo.GPX.Accessor.Ageofdgpsdata
 import Data.Geo.GPX.Accessor.Dgpsid
+import Data.Geo.GPX.Accessor.Email
+import Data.Geo.GPX.Accessor.Link
+import Data.Geo.GPX.Accessor.Pts
+import Data.Geo.GPX.Accessor.Number
+import Data.Geo.GPX.Accessor.Rtepts
+import Data.Geo.GPX.Accessor.Trkpts
+import Data.Geo.GPX.Accessor.Trksegs
