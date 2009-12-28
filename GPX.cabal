@@ -30,3 +30,9 @@ Library
                    Geo.GPX.Latitude
                    Geo.GPX.Bounds
                    Geo.GPX.Extensions
+                   Geo.GPX.Pt
+                   Geo.GPX.Ptseg
+                   Geo.GPX.Email
+                   Geo.GPX.Link
+                   Geo.GPX.Person
+                   Geo.GPX.Copyright

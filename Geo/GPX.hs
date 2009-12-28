@@ -7,7 +7,11 @@ module Geo.GPX(
                 module Geo.GPX.Bounds,
                 module Geo.GPX.Extensions,
                 module Geo.GPX.Pt,
-                module Geo.GPX.Ptseg
+                module Geo.GPX.Ptseg,
+                module Geo.GPX.Email,
+                module Geo.GPX.Link,
+                module Geo.GPX.Person,
+                module Geo.GPX.Copyright
               ) where
 
 import Geo.GPX.DgpsStation
@@ -19,3 +23,7 @@ import Geo.GPX.Bounds
 import Geo.GPX.Extensions
 import Geo.GPX.Pt
 import Geo.GPX.Ptseg
+import Geo.GPX.Email
+import Geo.GPX.Link
+import Geo.GPX.Person
+import Geo.GPX.Copyright
