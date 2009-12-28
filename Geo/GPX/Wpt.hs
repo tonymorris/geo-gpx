@@ -2,7 +2,7 @@ module Geo.GPX.Wpt where
 
 import Geo.GPX.Latitude
 import Geo.GPX.Longitude
-import Geo.GPX.Magvar
+import Geo.GPX.Degrees
 import Geo.GPX.Link
 import Geo.GPX.Fix
 import Geo.GPX.Dgpsid
@@ -13,7 +13,7 @@ import Text.XML.HXT.Arrow
 data Wpt = Wpt Latitude
                Longitude
                (Maybe Double)
-               (Maybe Magvar)
+               (Maybe Degrees)
                (Maybe Double)
                (Maybe String)
                (Maybe String)
@@ -35,7 +35,7 @@ data Wpt = Wpt Latitude
 wpt :: Latitude
     -> Longitude
     -> Maybe Double
-    -> Maybe Magvar
+    -> Maybe Degrees
     -> Maybe Double
     -> Maybe String
     -> Maybe String

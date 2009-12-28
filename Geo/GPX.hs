@@ -1,7 +1,7 @@
 module Geo.GPX(
                 module Geo.GPX.Dgpsid,
                 module Geo.GPX.Fix,
-                module Geo.GPX.Magvar,
+                module Geo.GPX.Degrees,
                 module Geo.GPX.Longitude,
                 module Geo.GPX.Latitude,
                 module Geo.GPX.Bounds,
@@ -22,7 +22,7 @@ module Geo.GPX(
 
 import Geo.GPX.Dgpsid
 import Geo.GPX.Fix
-import Geo.GPX.Magvar
+import Geo.GPX.Degrees
 import Geo.GPX.Longitude
 import Geo.GPX.Latitude
 import Geo.GPX.Bounds
