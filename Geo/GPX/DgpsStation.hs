@@ -6,7 +6,7 @@ newtype DgpsStation = DgpsStation Int
   deriving Eq
 
 dgpsStation :: Int -> DgpsStation
-dgpsStation n = if n >= 0 && n <= 1023 then Dgpsid n else error ("0 <= " ++ show n ++ " <= 1023")
+dgpsStation n = if inRange (0, 1023) n then DgpsStation n else error ("0 <= " ++ show n ++ " <= 1023")
 
-instance Show Dgpsid where
+instance Show DgpsStation where
   show (DgpsStation n) = show n
