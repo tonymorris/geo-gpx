@@ -7,3 +7,6 @@ newtype ExtensionsType = ExtensionsType XmlTree
 
 instance XmlPickler ExtensionsType where
   xpickle = xpWrap (ExtensionsType, \(ExtensionsType t) -> t) xpTree
+
+extensionsType :: XmlTree -> ExtensionsType
+extensionsType = ExtensionsType

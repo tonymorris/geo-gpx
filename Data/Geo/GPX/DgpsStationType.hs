@@ -1,5 +1,8 @@
+{-# LANGUAGE MultiParamTypeClasses #-}
+
 module Data.Geo.GPX.DgpsStationType where
 
+import Data.Geo.GPX.Accessor.Value
 import Data.Ix
 import Text.XML.HXT.Arrow
 
@@ -14,3 +17,6 @@ instance Show DgpsStationType where
 
 instance XmlPickler DgpsStationType where
   xpickle = xpWrapMaybe (dgpsStationType, \(DgpsStationType n) -> n) xpickle
+
+instance Value DgpsStationType Int where
+  value (DgpsStationType x) = x
