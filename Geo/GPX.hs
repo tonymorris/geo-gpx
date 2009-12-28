@@ -17,7 +17,8 @@ module Geo.GPX(
                 module Geo.GPX.TrkType,
                 module Geo.GPX.RteType,
                 module Geo.GPX.MetadataType,
-                module Geo.GPX.GpxType
+                module Geo.GPX.GpxType,
+                module Geo.GPX.Gpx
               ) where
 
 import Geo.GPX.DgpsStationType
@@ -39,3 +40,4 @@ import Geo.GPX.TrkType
 import Geo.GPX.RteType
 import Geo.GPX.MetadataType
 import Geo.GPX.GpxType
+import Geo.GPX.Gpx

@@ -42,3 +42,4 @@ Library
                    Geo.GPX.RteType
                    Geo.GPX.MetadataType
                    Geo.GPX.GpxType
+                   Geo.GPX.Gpx
