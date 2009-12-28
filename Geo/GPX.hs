@@ -1,41 +1,41 @@
 module Geo.GPX(
-                module Geo.GPX.DgpsStation,
-                module Geo.GPX.Fix,
-                module Geo.GPX.Degrees,
-                module Geo.GPX.Longitude,
-                module Geo.GPX.Latitude,
-                module Geo.GPX.Bounds,
-                module Geo.GPX.Extensions,
-                module Geo.GPX.Pt,
-                module Geo.GPX.Ptseg,
-                module Geo.GPX.Email,
-                module Geo.GPX.Link,
-                module Geo.GPX.Person,
-                module Geo.GPX.Copyright,
-                module Geo.GPX.Wpt,
-                module Geo.GPX.Trkseg,
-                module Geo.GPX.Trk,
-                module Geo.GPX.Rte,
-                module Geo.GPX.Metadata,
-                module Geo.GPX.Gpx
+                module Geo.GPX.DgpsStationType,
+                module Geo.GPX.FixType,
+                module Geo.GPX.DegreesType,
+                module Geo.GPX.LongitudeType,
+                module Geo.GPX.LatitudeType,
+                module Geo.GPX.BoundsType,
+                module Geo.GPX.ExtensionsType,
+                module Geo.GPX.PtType,
+                module Geo.GPX.PtsegType,
+                module Geo.GPX.EmailType,
+                module Geo.GPX.LinkType,
+                module Geo.GPX.PersonType,
+                module Geo.GPX.CopyrightType,
+                module Geo.GPX.WptType,
+                module Geo.GPX.TrksegType,
+                module Geo.GPX.TrkType,
+                module Geo.GPX.RteType,
+                module Geo.GPX.MetadataType,
+                module Geo.GPX.GpxType
               ) where
 
-import Geo.GPX.DgpsStation
-import Geo.GPX.Fix
-import Geo.GPX.Degrees
-import Geo.GPX.Longitude
-import Geo.GPX.Latitude
-import Geo.GPX.Bounds
-import Geo.GPX.Extensions
-import Geo.GPX.Pt
-import Geo.GPX.Ptseg
-import Geo.GPX.Email
-import Geo.GPX.Link
-import Geo.GPX.Person
-import Geo.GPX.Copyright
-import Geo.GPX.Wpt
-import Geo.GPX.Trkseg
-import Geo.GPX.Trk
-import Geo.GPX.Rte
-import Geo.GPX.Metadata
-import Geo.GPX.Gpx
+import Geo.GPX.DgpsStationType
+import Geo.GPX.FixType
+import Geo.GPX.DegreesType
+import Geo.GPX.LongitudeType
+import Geo.GPX.LatitudeType
+import Geo.GPX.BoundsType
+import Geo.GPX.ExtensionsType
+import Geo.GPX.PtType
+import Geo.GPX.PtsegType
+import Geo.GPX.EmailType
+import Geo.GPX.LinkType
+import Geo.GPX.PersonType
+import Geo.GPX.CopyrightType
+import Geo.GPX.WptType
+import Geo.GPX.TrksegType
+import Geo.GPX.TrkType
+import Geo.GPX.RteType
+import Geo.GPX.MetadataType
+import Geo.GPX.GpxType
