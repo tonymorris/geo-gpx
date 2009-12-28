@@ -23,3 +23,5 @@ Library
 
   GHC-Options:    -Wall
   Exposed-Modules: Geo.GPX
+                   Geo.GPX.DgpsStation
+                   Geo.GPX.FixType
