@@ -11,7 +11,8 @@ module Geo.GPX(
                 module Geo.GPX.Email,
                 module Geo.GPX.Link,
                 module Geo.GPX.Person,
-                module Geo.GPX.Copyright
+                module Geo.GPX.Copyright,
+                module Geo.GPX.Wpt
               ) where
 
 import Geo.GPX.DgpsStation
@@ -27,3 +28,4 @@ import Geo.GPX.Email
 import Geo.GPX.Link
 import Geo.GPX.Person
 import Geo.GPX.Copyright
+import Geo.GPX.Wpt
