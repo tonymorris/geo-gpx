@@ -11,4 +11,3 @@ ptsegType = PtsegType
 
 instance XmlPickler PtsegType where
   xpickle = xpWrap (ptsegType, \(PtsegType k) -> k) (xpList (xpElem "pt" xpickle))
-

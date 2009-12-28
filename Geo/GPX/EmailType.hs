@@ -9,4 +9,5 @@ emailType :: String -> String -> EmailType
 emailType = EmailType
 
 instance XmlPickler EmailType where
-  xpickle = undefined
+  xpickle = xpWrap (uncurry emailType, \(EmailType id domain) -> (id, domain))
+              (xpPair (xpAttr "id" xpText) (xpAttr "domain" xpText))
