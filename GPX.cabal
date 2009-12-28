@@ -39,3 +39,4 @@ Library
                    Geo.GPX.Wpt
                    Geo.GPX.Trkseg
                    Geo.GPX.Trk
+                   Geo.GPX.Rte
