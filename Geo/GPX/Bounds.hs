@@ -12,7 +12,7 @@ bounds :: (Latitude, Longitude) -> (Latitude, Longitude) -> Bounds
 bounds = Bounds
 
 instance XmlPickler Bounds where
-  xpickle = undefined
+  xpickle = xpWrap (\(minlat, minlon, maxlat, maxlon) -> bounds (minlat, minlon) (maxlat, maxlon), \(Bounds (minlat, minlon) (maxlat, maxlon)) -> (minlat, minlon, maxlat, maxlon)) (xp4Tuple (xpAttr "minlat" xpickle) (xpAttr "minlon" xpickle) (xpAttr "maxlat" xpickle) (xpAttr "maxlon" xpickle))
 
 instance Show Bounds where
   show = showPickled []
