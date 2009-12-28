@@ -1,3 +1,4 @@
+-- | GPX 1.1 Schema <http://www.topografix.com/GPX/1/1/>
 module Data.Geo.GPX(
                 module Data.Geo.GPX.DgpsStationType,
                 module Data.Geo.GPX.FixType,
