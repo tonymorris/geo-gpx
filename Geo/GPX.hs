@@ -5,7 +5,9 @@ module Geo.GPX(
                 module Geo.GPX.Longitude,
                 module Geo.GPX.Latitude,
                 module Geo.GPX.Bounds,
-                module Geo.GPX.Extensions
+                module Geo.GPX.Extensions,
+                module Geo.GPX.Pt,
+                module Geo.GPX.Ptseg
               ) where
 
 import Geo.GPX.DgpsStation
@@ -15,3 +17,5 @@ import Geo.GPX.Longitude
 import Geo.GPX.Latitude
 import Geo.GPX.Bounds
 import Geo.GPX.Extensions
+import Geo.GPX.Pt
+import Geo.GPX.Ptseg
