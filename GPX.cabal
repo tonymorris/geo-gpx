@@ -25,7 +25,7 @@ Library
   Exposed-Modules: Geo.GPX
                    Geo.GPX.Dgpsid
                    Geo.GPX.Fix
-                   Geo.GPX.Degrees
+                   Geo.GPX.Magvar
                    Geo.GPX.Longitude
                    Geo.GPX.Latitude
                    Geo.GPX.Bounds
