@@ -25,7 +25,8 @@ module Data.Geo.GPX(
                 module Data.Geo.GPX.Accessor.Maxlon,
                 module Data.Geo.GPX.Accessor.Author,
                 module Data.Geo.GPX.Accessor.Year,
-                module Data.Geo.GPX.Accessor.License
+                module Data.Geo.GPX.Accessor.License,
+                module Data.Geo.GPX.Accessor.Value
               ) where
 
 import Data.Geo.GPX.DgpsStationType
@@ -55,3 +56,4 @@ import Data.Geo.GPX.Accessor.Maxlon
 import Data.Geo.GPX.Accessor.Author
 import Data.Geo.GPX.Accessor.Year
 import Data.Geo.GPX.Accessor.License
+import Data.Geo.GPX.Accessor.Value
