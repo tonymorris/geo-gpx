@@ -1,0 +1,137 @@
+<gpx version="1.1" creator="me">
+  <metadata>
+    <name>Cruise P&amp;O Pacific Sun 10/10/2009 to 24/10/2009 (N932)</name>
+    <desc>Track Log using Garmin 60Cx device</desc>
+    <author>
+      <name>Tony Morris</name>
+      <email id="code" domain="tmorris.net"/>
+      <link href="http://tmorris.net/">
+        <text>Tony Morris</text>
+        <type>HTTP</type>
+      </link>
+    </author>
+    <copyright author="Tony Morris">
+      <year>2009</year>
+      <license>http://en.wikipedia.org/wiki/Beerware</license>
+    </copyright>
+    <link href="http://www.pocruises.com.au/html/n932-south-pacific.cfm">
+      <text>Fiji Adventure, Pacific Sun</text>
+      <type>HTTP</type>
+    </link>
+  </metadata>
+  <wpt lat="27.6" lon="152.76">
+    <ele>6.7</ele>
+    <time>2001-10-26T19:32:52Z</time>
+    <magvar>120.5</magvar>
+    <geoidheight>65.6</geoidheight>
+    <name>A Waypoint</name>
+    <cmt>A Comment</cmt>
+    <desc>A Description</desc>
+    <src>A Source</src>
+    <link href="boo.com">
+      <text>Boo</text>
+      <type>HTTP</type>
+    </link>
+    <sym>A Symbol</sym>
+    <type>A Type</type>
+    <fix>3d</fix>
+    <sat>77</sat>
+    <hdop>56.5</hdop>
+    <vdop>34.4</vdop>
+    <pdop>12.1</pdop>
+    <ageofdgpsdata>56.89</ageofdgpsdata>
+    <dgpsid>12</dgpsid>
+    <extensions>
+      <an-extension>e</an-extension>
+    </extensions>
+  </wpt>
+  <rte>
+    <rtept lat="27.6" lon="152.76">
+      <ele>6.7</ele>
+      <time>2001-10-26T19:32:52Z</time>
+      <magvar>120.5</magvar>
+      <geoidheight>65.6</geoidheight>
+      <name>A Waypoint</name>
+      <cmt>A Comment</cmt>
+      <desc>A Description</desc>
+      <src>A Source</src>
+      <link href="boo.com">
+        <text>Boo</text>
+        <type>HTTP</type>
+      </link>
+      <sym>A Symbol</sym>
+      <type>A Type</type>
+      <fix>3d</fix>
+      <sat>77</sat>
+      <hdop>56.5</hdop>
+      <vdop>34.4</vdop>
+      <pdop>12.1</pdop>
+      <ageofdgpsdata>56.89</ageofdgpsdata>
+      <dgpsid>12</dgpsid>
+      <extensions>
+        <an-extension>e</an-extension>
+      </extensions>
+    </rtept>
+  </rte>
+  <trk>
+    <name>A Waypoint</name>
+    <cmt>A Comment</cmt>
+    <desc>A Description</desc>
+    <src>A Source</src>
+    <link href="boo.com">
+      <text>Boo</text>
+      <type>HTTP</type>
+    </link>
+    <number>9</number>
+    <type>A Type</type>
+    <extensions>
+      <an-extension>e</an-extension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="27.6" lon="152.76">
+        <ele>6.7</ele>
+        <time>2001-10-26T19:32:52Z</time>
+        <magvar>120.5</magvar>
+        <geoidheight>65.6</geoidheight>
+        <name>A Waypoint</name>
+        <cmt>A Comment</cmt>
+        <desc>A Description</desc>
+        <src>A Source</src>
+        <link href="boo.com">
+          <text>Boo</text>
+          <type>HTTP</type>
+        </link>
+        <sym>A Symbol</sym>
+        <type>A Type</type>
+        <fix>3d</fix>
+        <sat>77</sat>
+        <hdop>56.5</hdop>
+        <vdop>34.4</vdop>
+        <pdop>12.1</pdop>
+        <ageofdgpsdata>56.89</ageofdgpsdata>
+        <dgpsid>12</dgpsid>
+        <extensions>
+          <an-extension>e</an-extension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="72.6" lon="251.76">
+        <ele>6.7</ele>
+        <magvar>120.5</magvar>
+        <geoidheight>56.6</geoidheight>
+        <name>A Waypoint</name>
+        <src>A Source</src>
+        <sym>A Symbol</sym>
+        <type>A Type</type>
+        <fix>3d</fix>
+        <sat>77</sat>
+        <hdop>99.7</hdop>
+        <ageofdgpsdata>89.56</ageofdgpsdata>
+      </trkpt>
+      <extensions>
+        <an-extension>e</an-extension>
+        <an-extension>f</an-extension>
+      </extensions>
+    </trkseg>
+  </trk>
+</gpx>
+<!-- xpickle :: PU Gpx -->

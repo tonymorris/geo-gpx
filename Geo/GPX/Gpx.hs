@@ -13,4 +13,4 @@ instance Show Gpx where
   show (Gpx n) = show n
 
 instance XmlPickler Gpx where
-  xpickle = xpElem "gpx" xpickle
+  xpickle = xpWrap (gpx, \(Gpx n) -> n) (xpElem "gpx" xpickle)
