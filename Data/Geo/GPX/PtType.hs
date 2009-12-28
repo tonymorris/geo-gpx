@@ -15,8 +15,8 @@ ptType :: LatitudeType -> LongitudeType -> (Maybe Double) -> (Maybe String) -> P
 ptType = PtType
 
 instance XmlPickler PtType where
-  xpickle = xpWrap (\(lat, lon, ele, time) -> ptType lat lon ele time,
-                   \(PtType lat lon ele time) -> (lat, lon, ele, time)) (xp4Tuple
+  xpickle = xpWrap (\(lat', lon', ele', time') -> ptType lat' lon' ele' time',
+                   \(PtType lat' lon' ele' time') -> (lat', lon', ele', time')) (xp4Tuple
                      (xpAttr "lat" xpickle)
                      (xpAttr "lon" xpickle)
                      (xpOption (xpElem "ele" xpPrim))

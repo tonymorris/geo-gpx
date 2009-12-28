@@ -15,8 +15,8 @@ boundsType :: (LatitudeType, LongitudeType) -> (LatitudeType, LongitudeType) -> 
 boundsType = BoundsType
 
 instance XmlPickler BoundsType where
-  xpickle = xpWrap (\(minlat, minlon, maxlat, maxlon) -> boundsType (minlat, minlon) (maxlat, maxlon),
-                    \(BoundsType (minlat, minlon) (maxlat, maxlon)) -> (minlat, minlon, maxlat, maxlon)) (xp4Tuple
+  xpickle = xpWrap (\(minlat', minlon', maxlat', maxlon') -> boundsType (minlat', minlon') (maxlat', maxlon'),
+                    \(BoundsType (minlat', minlon') (maxlat', maxlon')) -> (minlat', minlon', maxlat', maxlon')) (xp4Tuple
                       (xpAttr "minlat" xpickle)
                       (xpAttr "minlon" xpickle)
                       (xpAttr "maxlat" xpickle)

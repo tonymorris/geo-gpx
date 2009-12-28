@@ -14,7 +14,7 @@ copyrightType :: String -> Maybe String -> Maybe String -> CopyrightType
 copyrightType = CopyrightType
 
 instance XmlPickler CopyrightType where
-  xpickle = xpWrap (\(author, year, license) -> copyrightType author year license, undefined) (xpTriple
+  xpickle = xpWrap (\(author', year', license') -> copyrightType author' year' license', \(CopyrightType author' year' license') -> (author', year', license')) (xpTriple
               (xpAttr "author" xpText)
               (xpOption (xpElem "year" xpText))
               (xpOption (xpElem "license" xpText)))

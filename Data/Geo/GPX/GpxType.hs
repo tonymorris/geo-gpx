@@ -29,8 +29,8 @@ gpxType :: String
 gpxType = GpxType
 
 instance XmlPickler GpxType where
-  xpickle = xpWrap (\(version, creator, metadata, wpt, rte, trk, extensions) -> gpxType version creator metadata wpt rte trk extensions,
-              \(GpxType version creator metadata wpt rte trk extensions) -> (version, creator, metadata, wpt, rte, trk, extensions)) (xp7Tuple
+  xpickle = xpWrap (\(version', creator', metadata', wpt', rte', trk', extensions') -> gpxType version' creator' metadata' wpt' rte' trk' extensions',
+              \(GpxType version' creator' metadata' wpt' rte' trk' extensions') -> (version', creator', metadata', wpt', rte', trk', extensions')) (xp7Tuple
                 (xpAttr "version" xpText)
                 (xpAttr "creator" xpText)
                 (xpOption (xpElem "metadata" xpickle))
