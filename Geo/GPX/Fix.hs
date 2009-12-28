@@ -3,7 +3,7 @@ module Geo.GPX.Fix where
 data Fix = None | Twod | Threed | Dgps | Pps
   deriving Eq
 
-foldFix :: a -> a -> a -> a -> a -> FixType -> a
+foldFix :: a -> a -> a -> a -> a -> Fix -> a
 foldFix n _ _ _ _ None = n
 foldFix _ t _ _ _ Twod = t
 foldFix _ _ t _ _ Threed = t

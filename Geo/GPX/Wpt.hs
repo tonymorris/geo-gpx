@@ -4,6 +4,7 @@ import Geo.GPX.Latitude
 import Geo.GPX.Longitude
 import Geo.GPX.Degrees
 import Geo.GPX.Link
+import Geo.GPX.Fix
 
 data Wpt = Wpt Latitude
                Longitude
