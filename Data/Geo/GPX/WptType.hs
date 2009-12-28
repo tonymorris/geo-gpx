@@ -17,7 +17,7 @@ import Data.Geo.GPX.Accessor.Name
 import Data.Geo.GPX.Accessor.Cmt
 import Data.Geo.GPX.Accessor.Desc
 import Data.Geo.GPX.Accessor.Src
-import Data.Geo.GPX.Accessor.Link
+import Data.Geo.GPX.Accessor.Links
 import Data.Geo.GPX.Accessor.Sym
 import Data.Geo.GPX.Accessor.Type
 import Data.Geo.GPX.Accessor.Fix
@@ -133,8 +133,8 @@ instance Desc WptType where
 instance Src WptType where
   src (WptType _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _) = x
 
-instance Link WptType where
-  link (WptType _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _) = x
+instance Links WptType where
+  links (WptType _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _) = x
 
 instance Sym WptType where
   sym (WptType _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _) = x

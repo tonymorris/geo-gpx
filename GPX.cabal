@@ -56,9 +56,9 @@ Library
                    Data.Geo.GPX.Accessor.Version
                    Data.Geo.GPX.Accessor.Creator
                    Data.Geo.GPX.Accessor.Metadata
-                   Data.Geo.GPX.Accessor.Wpt
-                   Data.Geo.GPX.Accessor.Rte
-                   Data.Geo.GPX.Accessor.Trk
+                   Data.Geo.GPX.Accessor.Wpts
+                   Data.Geo.GPX.Accessor.Rtes
+                   Data.Geo.GPX.Accessor.Trks
                    Data.Geo.GPX.Accessor.Extensions
                    Data.Geo.GPX.Accessor.Href
                    Data.Geo.GPX.Accessor.Text
@@ -66,7 +66,7 @@ Library
                    Data.Geo.GPX.Accessor.Name
                    Data.Geo.GPX.Accessor.Desc
                    Data.Geo.GPX.Accessor.Copyright
-                   Data.Geo.GPX.Accessor.Link
+                   Data.Geo.GPX.Accessor.Links
                    Data.Geo.GPX.Accessor.Time
                    Data.Geo.GPX.Accessor.Keywords
                    Data.Geo.GPX.Accessor.Bounds

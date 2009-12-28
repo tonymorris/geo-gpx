@@ -8,9 +8,9 @@ import Data.Geo.GPX.ExtensionsType
 import Data.Geo.GPX.Accessor.Version
 import Data.Geo.GPX.Accessor.Creator
 import Data.Geo.GPX.Accessor.Metadata
-import Data.Geo.GPX.Accessor.Wpt
-import Data.Geo.GPX.Accessor.Rte
-import Data.Geo.GPX.Accessor.Trk
+import Data.Geo.GPX.Accessor.Wpts
+import Data.Geo.GPX.Accessor.Rtes
+import Data.Geo.GPX.Accessor.Trks
 import Data.Geo.GPX.Accessor.Extensions
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
@@ -48,14 +48,14 @@ instance Creator GpxType where
 instance Metadata GpxType where
   metadata (GpxType _ _ x _ _ _ _) = x
 
-instance Wpt GpxType where
-  wpt (GpxType _ _ _ x _ _ _) = x
+instance Wpts GpxType where
+  wpts (GpxType _ _ _ x _ _ _) = x
 
-instance Rte GpxType where
-  rte (GpxType _ _ _ _ x _ _) = x
+instance Rtes GpxType where
+  rtes (GpxType _ _ _ _ x _ _) = x
 
-instance Trk GpxType where
-  trk (GpxType _ _ _ _ _ x _) = x
+instance Trks GpxType where
+  trks (GpxType _ _ _ _ _ x _) = x
 
 instance Extensions GpxType where
   extensions (GpxType _ _ _ _ _ _ x) = x

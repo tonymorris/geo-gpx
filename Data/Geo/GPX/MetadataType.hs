@@ -11,7 +11,7 @@ import Data.Geo.GPX.Accessor.Name
 import Data.Geo.GPX.Accessor.Desc
 import Data.Geo.GPX.Accessor.Author
 import Data.Geo.GPX.Accessor.Copyright
-import Data.Geo.GPX.Accessor.Link
+import Data.Geo.GPX.Accessor.Links
 import Data.Geo.GPX.Accessor.Time
 import Data.Geo.GPX.Accessor.Keywords
 import Data.Geo.GPX.Accessor.Bounds
@@ -58,8 +58,8 @@ instance Author MetadataType (Maybe PersonType) where
 instance Copyright MetadataType where
   copyright (MetadataType _ _ _ x _ _ _ _ _) = x
 
-instance Link MetadataType where
-  link (MetadataType _ _ _ _ x _ _ _ _) = x
+instance Links MetadataType where
+  links (MetadataType _ _ _ _ x _ _ _ _) = x
 
 instance Time MetadataType where
   time (MetadataType _ _ _ _ _ x _ _ _) = x
