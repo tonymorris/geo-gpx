@@ -1,0 +1,10 @@
+<ptsegType>
+  <pt lat="52" lon="-45.98">
+    <ele>78.9</ele>
+    <time>2001-10-26T19:32:52Z</time>
+  </pt>
+  <pt lat="25.4" lon="5.9">
+    <ele>-6</ele>
+  </pt>
+</ptsegType>
+<!-- xpElem "ptsegType" (xpickle :: PU Ptseg) -->

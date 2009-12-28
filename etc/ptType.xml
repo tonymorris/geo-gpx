@@ -2,4 +2,4 @@
   <ele>78.9</ele>
   <time>2001-10-26T19:32:52Z</time>
 </ptType>
-<!-- xpElem "latitudeType" (xpickle :: PU Latitude) -->
+<!-- xpElem "ptType" (xpickle :: PU Pt) -->

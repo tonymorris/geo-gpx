@@ -10,5 +10,5 @@ ptseg :: [Pt] -> Ptseg
 ptseg = Ptseg
 
 instance XmlPickler Ptseg where
-  xpickle = undefined
+  xpickle = xpWrap (ptseg, \(Ptseg k) -> k) (xpList (xpElem "pt" xpickle))
 
