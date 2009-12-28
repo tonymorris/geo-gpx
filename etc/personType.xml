@@ -1,0 +1,9 @@
+<personType>
+  <name>Fred</name>
+  <email id="not" domain="telling.you"/>
+  <link href="boo.com">
+    <text>Boo</text>
+    <type>HTTP</type>
+  </link>
+</personType>
+<!-- xpElem "personType" (xpickle :: PU PersonType) -->

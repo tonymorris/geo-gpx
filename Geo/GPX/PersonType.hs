@@ -11,4 +11,7 @@ personType :: Maybe String -> Maybe EmailType -> Maybe LinkType -> PersonType
 personType = PersonType
 
 instance XmlPickler PersonType where
-  xpickle = undefined
+  xpickle = xpWrap (\(name, email, link) -> personType name email link, \(PersonType name email link) -> (name, email, link)) (xpTriple
+              (xpOption (xpElem "name" xpText))
+              (xpOption (xpElem "email" xpickle))
+              (xpOption (xpElem "link" xpickle)))
