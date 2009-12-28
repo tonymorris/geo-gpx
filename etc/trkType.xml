@@ -1,0 +1,61 @@
+<trkType>
+  <name>A Waypoint</name>
+  <cmt>A Comment</cmt>
+  <desc>A Description</desc>
+  <src>A Source</src>
+  <link href="boo.com">
+    <text>Boo</text>
+    <type>HTTP</type>
+  </link>
+  <number>9</number>
+  <type>A Type</type>
+  <extensions>
+    <an-extension>e</an-extension>
+  </extensions>
+  <trkseg>
+    <trkpt lat="27.6" lon="152.76">
+      <ele>6.7</ele>
+      <time>2001-10-26T19:32:52Z</time>
+      <magvar>120.5</magvar>
+      <geoidheight>65.6</geoidheight>
+      <name>A Waypoint</name>
+      <cmt>A Comment</cmt>
+      <desc>A Description</desc>
+      <src>A Source</src>
+      <link href="boo.com">
+        <text>Boo</text>
+        <type>HTTP</type>
+      </link>
+      <sym>A Symbol</sym>
+      <type>A Type</type>
+      <fix>3d</fix>
+      <sat>77</sat>
+      <hdop>56.5</hdop>
+      <vdop>34.4</vdop>
+      <pdop>12.1</pdop>
+      <ageofdgpsdata>56.89</ageofdgpsdata>
+      <dgpsid>12</dgpsid>
+      <extensions>
+        <an-extension>e</an-extension>
+      </extensions>
+    </trkpt>
+    <trkpt lat="72.6" lon="251.76">
+      <ele>6.7</ele>
+      <magvar>120.5</magvar>
+      <geoidheight>56.6</geoidheight>
+      <name>A Waypoint</name>
+      <src>A Source</src>
+      <sym>A Symbol</sym>
+      <type>A Type</type>
+      <fix>3d</fix>
+      <sat>77</sat>
+      <hdop>99.7</hdop>
+      <ageofdgpsdata>89.56</ageofdgpsdata>
+    </trkpt>
+    <extensions>
+      <an-extension>e</an-extension>
+      <an-extension>f</an-extension>
+    </extensions>
+  </trkseg>
+</trkType>
+<!-- xpElem "trkType" (xpickle :: PU TrkType) -->
