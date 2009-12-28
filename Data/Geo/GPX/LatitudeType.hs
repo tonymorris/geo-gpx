@@ -1,5 +1,8 @@
+{-# LANGUAGE MultiParamTypeClasses #-}
+
 module Data.Geo.GPX.LatitudeType where
 
+import Data.Geo.GPX.Accessor.Value
 import Data.Fixed
 import Text.XML.HXT.Arrow
 
@@ -14,3 +17,6 @@ instance XmlPickler LatitudeType where
 
 instance Show LatitudeType where
   show (LatitudeType n) = show n
+
+instance Value LatitudeType Double where
+  value (LatitudeType x) = x

@@ -51,3 +51,22 @@ Library
                    Data.Geo.GPX.Accessor.Year
                    Data.Geo.GPX.Accessor.License
                    Data.Geo.GPX.Accessor.Value
+                   Data.Geo.GPX.Accessor.Id
+                   Data.Geo.GPX.Accessor.Domain
+                   Data.Geo.GPX.Accessor.Version
+                   Data.Geo.GPX.Accessor.Creator
+                   Data.Geo.GPX.Accessor.Metadata
+                   Data.Geo.GPX.Accessor.Wpt
+                   Data.Geo.GPX.Accessor.Rte
+                   Data.Geo.GPX.Accessor.Trk
+                   Data.Geo.GPX.Accessor.Extensions
+                   Data.Geo.GPX.Accessor.Href
+                   Data.Geo.GPX.Accessor.Text
+                   Data.Geo.GPX.Accessor.Type
+                   Data.Geo.GPX.Accessor.Name
+                   Data.Geo.GPX.Accessor.Desc
+                   Data.Geo.GPX.Accessor.Copyright
+                   Data.Geo.GPX.Accessor.Link
+                   Data.Geo.GPX.Accessor.Time
+                   Data.Geo.GPX.Accessor.Keywords
+                   Data.Geo.GPX.Accessor.Bounds

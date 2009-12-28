@@ -1,3 +1,5 @@
+{-# LANGUAGE MultiParamTypeClasses, FlexibleInstances, TypeSynonymInstances #-}
+
 module Data.Geo.GPX.CopyrightType where
 
 import Data.Geo.GPX.Accessor.Author
@@ -17,7 +19,7 @@ instance XmlPickler CopyrightType where
               (xpOption (xpElem "year" xpText))
               (xpOption (xpElem "license" xpText)))
 
-instance Author CopyrightType where
+instance Author CopyrightType String where
   author (CopyrightType x _ _) = x
 
 instance Year CopyrightType where

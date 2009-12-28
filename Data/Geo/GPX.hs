@@ -26,7 +26,26 @@ module Data.Geo.GPX(
                 module Data.Geo.GPX.Accessor.Author,
                 module Data.Geo.GPX.Accessor.Year,
                 module Data.Geo.GPX.Accessor.License,
-                module Data.Geo.GPX.Accessor.Value
+                module Data.Geo.GPX.Accessor.Value,
+                module Data.Geo.GPX.Accessor.Id,
+                module Data.Geo.GPX.Accessor.Domain,
+                module Data.Geo.GPX.Accessor.Version,
+                module Data.Geo.GPX.Accessor.Creator,
+                module Data.Geo.GPX.Accessor.Metadata,
+                module Data.Geo.GPX.Accessor.Wpt,
+                module Data.Geo.GPX.Accessor.Rte,
+                module Data.Geo.GPX.Accessor.Trk,
+                module Data.Geo.GPX.Accessor.Extensions,
+                module Data.Geo.GPX.Accessor.Href,
+                module Data.Geo.GPX.Accessor.Text,
+                module Data.Geo.GPX.Accessor.Type,
+                module Data.Geo.GPX.Accessor.Name,
+                module Data.Geo.GPX.Accessor.Desc,
+                module Data.Geo.GPX.Accessor.Copyright,
+                module Data.Geo.GPX.Accessor.Link,
+                module Data.Geo.GPX.Accessor.Time,
+                module Data.Geo.GPX.Accessor.Keywords,
+                module Data.Geo.GPX.Accessor.Bounds
               ) where
 
 import Data.Geo.GPX.DgpsStationType
@@ -57,3 +76,22 @@ import Data.Geo.GPX.Accessor.Author
 import Data.Geo.GPX.Accessor.Year
 import Data.Geo.GPX.Accessor.License
 import Data.Geo.GPX.Accessor.Value
+import Data.Geo.GPX.Accessor.Id
+import Data.Geo.GPX.Accessor.Domain
+import Data.Geo.GPX.Accessor.Version
+import Data.Geo.GPX.Accessor.Creator
+import Data.Geo.GPX.Accessor.Metadata
+import Data.Geo.GPX.Accessor.Wpt
+import Data.Geo.GPX.Accessor.Rte
+import Data.Geo.GPX.Accessor.Trk
+import Data.Geo.GPX.Accessor.Extensions
+import Data.Geo.GPX.Accessor.Href
+import Data.Geo.GPX.Accessor.Text
+import Data.Geo.GPX.Accessor.Type
+import Data.Geo.GPX.Accessor.Name
+import Data.Geo.GPX.Accessor.Desc
+import Data.Geo.GPX.Accessor.Copyright
+import Data.Geo.GPX.Accessor.Link
+import Data.Geo.GPX.Accessor.Time
+import Data.Geo.GPX.Accessor.Keywords
+import Data.Geo.GPX.Accessor.Bounds

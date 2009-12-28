@@ -5,6 +5,13 @@ import Data.Geo.GPX.WptType
 import Data.Geo.GPX.RteType
 import Data.Geo.GPX.TrkType
 import Data.Geo.GPX.ExtensionsType
+import Data.Geo.GPX.Accessor.Version
+import Data.Geo.GPX.Accessor.Creator
+import Data.Geo.GPX.Accessor.Metadata
+import Data.Geo.GPX.Accessor.Wpt
+import Data.Geo.GPX.Accessor.Rte
+import Data.Geo.GPX.Accessor.Trk
+import Data.Geo.GPX.Accessor.Extensions
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 
@@ -31,3 +38,24 @@ instance XmlPickler GpxType where
                 (xpList (xpElem "rte" xpickle))
                 (xpList (xpElem "trk" xpickle))
                 (xpOption (xpElem "extensions" xpickle)))
+
+instance Version GpxType where
+  version (GpxType x _ _ _ _ _ _) = x
+
+instance Creator GpxType where
+  creator (GpxType _ x _ _ _ _ _) = x
+
+instance Metadata GpxType where
+  metadata (GpxType _ _ x _ _ _ _) = x
+
+instance Wpt GpxType where
+  wpt (GpxType _ _ _ x _ _ _) = x
+
+instance Rte GpxType where
+  rte (GpxType _ _ _ _ x _ _) = x
+
+instance Trk GpxType where
+  trk (GpxType _ _ _ _ _ x _) = x
+
+instance Extensions GpxType where
+  extensions (GpxType _ _ _ _ _ _ x) = x
