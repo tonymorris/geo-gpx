@@ -1,4 +1,4 @@
-module Geo.GPX.DegreesType where
+module Data.Geo.GPX.DegreesType where
 
 import Data.Fixed
 import Text.XML.HXT.Arrow

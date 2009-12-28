@@ -1,4 +1,4 @@
-module Geo.GPX.CopyrightType where
+module Data.Geo.GPX.CopyrightType where
 
 import Text.XML.HXT.Arrow
 

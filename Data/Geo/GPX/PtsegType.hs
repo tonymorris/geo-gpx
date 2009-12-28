@@ -1,6 +1,6 @@
-module Geo.GPX.PtsegType where
+module Data.Geo.GPX.PtsegType where
 
-import Geo.GPX.PtType
+import Data.Geo.GPX.PtType
 import Text.XML.HXT.Arrow
 
 newtype PtsegType = PtsegType [PtType]

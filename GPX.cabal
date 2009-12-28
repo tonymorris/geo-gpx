@@ -22,24 +22,24 @@ Library
     Build-Depends: base < 3, hxt, hxt-extras, containers
 
   GHC-Options:    -Wall
-  Exposed-Modules: Geo.GPX
-                   Geo.GPX.DgpsStationType
-                   Geo.GPX.FixType
-                   Geo.GPX.DegreesType
-                   Geo.GPX.LongitudeType
-                   Geo.GPX.LatitudeType
-                   Geo.GPX.BoundsType
-                   Geo.GPX.ExtensionsType
-                   Geo.GPX.PtType
-                   Geo.GPX.PtsegType
-                   Geo.GPX.EmailType
-                   Geo.GPX.LinkType
-                   Geo.GPX.PersonType
-                   Geo.GPX.CopyrightType
-                   Geo.GPX.WptType
-                   Geo.GPX.TrksegType
-                   Geo.GPX.TrkType
-                   Geo.GPX.RteType
-                   Geo.GPX.MetadataType
-                   Geo.GPX.GpxType
-                   Geo.GPX.Gpx
+  Exposed-Modules: Data.Geo.GPX
+                   Data.Geo.GPX.DgpsStationType
+                   Data.Geo.GPX.FixType
+                   Data.Geo.GPX.DegreesType
+                   Data.Geo.GPX.LongitudeType
+                   Data.Geo.GPX.LatitudeType
+                   Data.Geo.GPX.BoundsType
+                   Data.Geo.GPX.ExtensionsType
+                   Data.Geo.GPX.PtType
+                   Data.Geo.GPX.PtsegType
+                   Data.Geo.GPX.EmailType
+                   Data.Geo.GPX.LinkType
+                   Data.Geo.GPX.PersonType
+                   Data.Geo.GPX.CopyrightType
+                   Data.Geo.GPX.WptType
+                   Data.Geo.GPX.TrksegType
+                   Data.Geo.GPX.TrkType
+                   Data.Geo.GPX.RteType
+                   Data.Geo.GPX.MetadataType
+                   Data.Geo.GPX.GpxType
+                   Data.Geo.GPX.Gpx

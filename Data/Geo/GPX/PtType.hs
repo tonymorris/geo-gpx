@@ -1,7 +1,7 @@
-module Geo.GPX.PtType where
+module Data.Geo.GPX.PtType where
 
-import Geo.GPX.LatitudeType
-import Geo.GPX.LongitudeType
+import Data.Geo.GPX.LatitudeType
+import Data.Geo.GPX.LongitudeType
 import Text.XML.HXT.Arrow
 
 data PtType = PtType LatitudeType LongitudeType (Maybe Double) (Maybe String)

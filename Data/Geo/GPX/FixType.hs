@@ -1,4 +1,4 @@
-module Geo.GPX.FixType where
+module Data.Geo.GPX.FixType where
 
 import Text.XML.HXT.Arrow
 
@@ -28,7 +28,7 @@ pps :: FixType
 pps = Pps
 
 fixType :: String -> Maybe FixType
-fixType "none" = Just Geo.GPX.FixType.none
+fixType "none" = Just Data.Geo.GPX.FixType.none
 fixType "2d"= Just twod
 fixType "3d" = Just threed
 fixType "dgps" = Just dgps

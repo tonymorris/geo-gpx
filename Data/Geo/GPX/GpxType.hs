@@ -1,10 +1,10 @@
-module Geo.GPX.GpxType where
+module Data.Geo.GPX.GpxType where
 
-import Geo.GPX.MetadataType
-import Geo.GPX.WptType
-import Geo.GPX.RteType
-import Geo.GPX.TrkType
-import Geo.GPX.ExtensionsType
+import Data.Geo.GPX.MetadataType
+import Data.Geo.GPX.WptType
+import Data.Geo.GPX.RteType
+import Data.Geo.GPX.TrkType
+import Data.Geo.GPX.ExtensionsType
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 

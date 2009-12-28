@@ -1,4 +1,4 @@
-module Geo.GPX.ExtensionsType where
+module Data.Geo.GPX.ExtensionsType where
 
 import Text.XML.HXT.Arrow
 

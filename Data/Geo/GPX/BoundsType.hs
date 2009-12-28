@@ -1,7 +1,7 @@
-module Geo.GPX.BoundsType where
+module Data.Geo.GPX.BoundsType where
 
-import Geo.GPX.LatitudeType
-import Geo.GPX.LongitudeType
+import Data.Geo.GPX.LatitudeType
+import Data.Geo.GPX.LongitudeType
 import Text.XML.HXT.Arrow
 
 data BoundsType = BoundsType (LatitudeType, LongitudeType) (LatitudeType, LongitudeType)

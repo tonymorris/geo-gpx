@@ -1,10 +1,10 @@
-module Geo.GPX.MetadataType where
+module Data.Geo.GPX.MetadataType where
 
-import Geo.GPX.PersonType
-import Geo.GPX.CopyrightType
-import Geo.GPX.LinkType
-import Geo.GPX.BoundsType
-import Geo.GPX.ExtensionsType
+import Data.Geo.GPX.PersonType
+import Data.Geo.GPX.CopyrightType
+import Data.Geo.GPX.LinkType
+import Data.Geo.GPX.BoundsType
+import Data.Geo.GPX.ExtensionsType
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 

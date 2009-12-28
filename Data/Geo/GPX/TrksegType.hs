@@ -1,7 +1,7 @@
-module Geo.GPX.TrksegType where
+module Data.Geo.GPX.TrksegType where
 
-import Geo.GPX.WptType
-import Geo.GPX.ExtensionsType
+import Data.Geo.GPX.WptType
+import Data.Geo.GPX.ExtensionsType
 import Text.XML.HXT.Arrow
 
 data TrksegType = TrksegType [WptType] (Maybe ExtensionsType)

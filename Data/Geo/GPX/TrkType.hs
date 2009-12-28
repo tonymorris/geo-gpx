@@ -1,8 +1,8 @@
-module Geo.GPX.TrkType where
+module Data.Geo.GPX.TrkType where
 
-import Geo.GPX.TrksegType
-import Geo.GPX.ExtensionsType
-import Geo.GPX.LinkType
+import Data.Geo.GPX.TrksegType
+import Data.Geo.GPX.ExtensionsType
+import Data.Geo.GPX.LinkType
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 

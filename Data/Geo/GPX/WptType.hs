@@ -1,12 +1,12 @@
-module Geo.GPX.WptType where
+module Data.Geo.GPX.WptType where
 
-import Geo.GPX.LatitudeType
-import Geo.GPX.LongitudeType
-import Geo.GPX.DegreesType
-import Geo.GPX.LinkType
-import Geo.GPX.FixType
-import Geo.GPX.DgpsStationType
-import Geo.GPX.ExtensionsType
+import Data.Geo.GPX.LatitudeType
+import Data.Geo.GPX.LongitudeType
+import Data.Geo.GPX.DegreesType
+import Data.Geo.GPX.LinkType
+import Data.Geo.GPX.FixType
+import Data.Geo.GPX.DgpsStationType
+import Data.Geo.GPX.ExtensionsType
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 

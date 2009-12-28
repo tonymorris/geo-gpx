@@ -1,4 +1,4 @@
-module Geo.GPX.DgpsStationType where
+module Data.Geo.GPX.DgpsStationType where
 
 import Data.Ix
 import Text.XML.HXT.Arrow

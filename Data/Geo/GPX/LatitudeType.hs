@@ -1,4 +1,4 @@
-module Geo.GPX.LatitudeType where
+module Data.Geo.GPX.LatitudeType where
 
 import Data.Fixed
 import Text.XML.HXT.Arrow

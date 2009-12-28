@@ -1,7 +1,7 @@
-module Geo.GPX.Gpx where
+module Data.Geo.GPX.Gpx where
 
 import Text.XML.HXT.Arrow
-import Geo.GPX.GpxType
+import Data.Geo.GPX.GpxType
 
 newtype Gpx = Gpx GpxType
   deriving Eq

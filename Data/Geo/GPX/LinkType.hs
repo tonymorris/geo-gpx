@@ -1,4 +1,4 @@
-module Geo.GPX.LinkType where
+module Data.Geo.GPX.LinkType where
 
 import Text.XML.HXT.Arrow
 

@@ -1,8 +1,8 @@
-module Geo.GPX.RteType where
+module Data.Geo.GPX.RteType where
 
-import Geo.GPX.WptType
-import Geo.GPX.ExtensionsType
-import Geo.GPX.LinkType
+import Data.Geo.GPX.WptType
+import Data.Geo.GPX.ExtensionsType
+import Data.Geo.GPX.LinkType
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 

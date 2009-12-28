@@ -1,4 +1,4 @@
-module Geo.GPX.EmailType where
+module Data.Geo.GPX.EmailType where
 
 import Text.XML.HXT.Arrow
 
