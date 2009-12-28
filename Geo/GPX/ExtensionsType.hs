@@ -6,4 +6,4 @@ newtype ExtensionsType = ExtensionsType XmlTree
   deriving (Eq, Show)
 
 instance XmlPickler ExtensionsType where
-  xpickle = xpWrap (ExtensionsType, \(ExtensionsType t) -> t) (xpElem "extensions" xpTree)
+  xpickle = xpWrap (ExtensionsType, \(ExtensionsType t) -> t) xpTree
