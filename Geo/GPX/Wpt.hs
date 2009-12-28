@@ -8,7 +8,6 @@ import Geo.GPX.Fix
 import Geo.GPX.DgpsStation
 import Geo.GPX.Extensions
 import Text.XML.HXT.Arrow
-import Text.XML.HXT.Extras
 
 data Wpt = Wpt Latitude
                Longitude
@@ -30,7 +29,7 @@ data Wpt = Wpt Latitude
                (Maybe Double)
                (Maybe DgpsStation)
                (Maybe Extensions)
-  deriving Eq
+  deriving (Eq, Show)
 
 wpt :: Latitude
     -> Longitude
@@ -57,6 +56,3 @@ wpt a b c d e f g h i j k l m n o = Wpt a b c d e f g h i j k l m n (fmap abs o)
 
 instance XmlPickler Wpt where
   xpickle = undefined
-
-instance Show Wpt where
-  show = showPickled []
