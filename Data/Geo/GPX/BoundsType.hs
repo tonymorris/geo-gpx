@@ -33,4 +33,3 @@ instance Minlon BoundsType where
 
 instance Maxlon BoundsType where
   maxlon (BoundsType (_, _) (_, x)) = x
-
