@@ -92,3 +92,4 @@ Library
                    Data.Geo.GPX.Accessor.Rtepts
                    Data.Geo.GPX.Accessor.Trkpts
                    Data.Geo.GPX.Accessor.Trksegs
+                   Data.Geo.GPX.Accessor.Latlon

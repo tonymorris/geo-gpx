@@ -69,6 +69,7 @@ module Data.Geo.GPX(
                 module Data.Geo.GPX.Accessor.Rtepts,
                 module Data.Geo.GPX.Accessor.Trkpts,
                 module Data.Geo.GPX.Accessor.Trksegs,
+                module Data.Geo.GPX.Accessor.Latlon,
                 module Control.Arrow
               ) where
 
@@ -141,4 +142,5 @@ import Data.Geo.GPX.Accessor.Number
 import Data.Geo.GPX.Accessor.Rtepts
 import Data.Geo.GPX.Accessor.Trkpts
 import Data.Geo.GPX.Accessor.Trksegs
+import Data.Geo.GPX.Accessor.Latlon
 import Control.Arrow
