@@ -4,7 +4,6 @@
 
 module Data.Geo.GPX.Example.TrackDistance where
 
-import Text.XML.HXT.Arrow
 import Control.Monad
 import Control.Applicative
 import Data.Geo hiding (lat, lon)
