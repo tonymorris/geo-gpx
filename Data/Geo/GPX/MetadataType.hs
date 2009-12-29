@@ -1,7 +1,10 @@
 {-# LANGUAGE MultiParamTypeClasses, FlexibleInstances  #-}
 
 -- | Complex Type: @metadataType@ <http://www.topografix.com/GPX/1/1/#type_metadataType>
-module Data.Geo.GPX.MetadataType where
+module Data.Geo.GPX.MetadataType(
+                                  MetadataType,
+                                  metadataType
+                                ) where
 
 import Data.Geo.GPX.PersonType
 import Data.Geo.GPX.CopyrightType

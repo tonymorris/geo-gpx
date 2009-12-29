@@ -1,7 +1,10 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 
 -- | Simple Type: @degreesType@ <http://www.topografix.com/GPX/1/1/#type_degreesType>
-module Data.Geo.GPX.DegreesType where
+module Data.Geo.GPX.DegreesType(
+                                 DegreesType,
+                                 degreesType
+                               ) where
 
 import Data.Geo.GPX.Accessor.Value
 import Data.Fixed

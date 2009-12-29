@@ -1,5 +1,8 @@
 -- | Complex Type: @ptsegType@ <http://www.topografix.com/GPX/1/1/#type_ptsegType>
-module Data.Geo.GPX.PtsegType where
+module Data.Geo.GPX.PtsegType(
+                               PtsegType,
+                               ptsegType
+                             ) where
 
 import Data.Geo.GPX.PtType
 import Data.Geo.GPX.Accessor.Pts

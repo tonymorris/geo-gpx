@@ -1,5 +1,8 @@
 -- | Complex Type: @ptType@ <http://www.topografix.com/GPX/1/1/#type_ptType>
-module Data.Geo.GPX.PtType where
+module Data.Geo.GPX.PtType(
+                            PtType,
+                            ptType
+                          ) where
 
 import Data.Geo.GPX.LatitudeType
 import Data.Geo.GPX.LongitudeType

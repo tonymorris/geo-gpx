@@ -1,7 +1,10 @@
 {-# LANGUAGE MultiParamTypeClasses, FlexibleInstances, TypeSynonymInstances #-}
 
 -- | Complex Type: @copyrightType@ <http://www.topografix.com/GPX/1/1/#type_copyrightType>
-module Data.Geo.GPX.CopyrightType where
+module Data.Geo.GPX.CopyrightType(
+                                   CopyrightType,
+                                   copyrightType
+                                 ) where
 
 import Data.Geo.GPX.Accessor.Author
 import Data.Geo.GPX.Accessor.Year

@@ -1,5 +1,8 @@
 -- | Complex Type: @emailType@ <http://www.topografix.com/GPX/1/1/#type_emailType>
-module Data.Geo.GPX.EmailType where
+module Data.Geo.GPX.EmailType(
+                               EmailType,
+                               emailType
+                             ) where
 
 import Text.XML.HXT.Arrow
 import Data.Geo.GPX.Accessor.Id

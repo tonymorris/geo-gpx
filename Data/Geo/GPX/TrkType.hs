@@ -1,5 +1,8 @@
 -- | Complex Type: @trkType@ <http://www.topografix.com/GPX/1/1/#type_trkType>
-module Data.Geo.GPX.TrkType where
+module Data.Geo.GPX.TrkType(
+                             TrkType,
+                             trkType
+                           ) where
 
 import Data.Geo.GPX.TrksegType
 import Data.Geo.GPX.ExtensionsType

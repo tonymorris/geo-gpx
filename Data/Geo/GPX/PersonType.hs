@@ -1,5 +1,8 @@
 -- | Complex Type: @personType@ <http://www.topografix.com/GPX/1/1/#type_personType>
-module Data.Geo.GPX.PersonType where
+module Data.Geo.GPX.PersonType(
+                                PersonType,
+                                personType
+                              ) where
 
 import Data.Geo.GPX.EmailType
 import Data.Geo.GPX.LinkType

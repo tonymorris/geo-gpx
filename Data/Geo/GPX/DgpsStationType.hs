@@ -1,7 +1,10 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 
 -- | Simple Type: @dgpsStationType@ <http://www.topografix.com/GPX/1/1/#type_dgpsStationType>
-module Data.Geo.GPX.DgpsStationType where
+module Data.Geo.GPX.DgpsStationType(
+                                     DgpsStationType,
+                                     dgpsStationType
+                                   ) where
 
 import Data.Geo.GPX.Accessor.Value
 import Data.Ix

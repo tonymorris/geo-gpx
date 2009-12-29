@@ -1,5 +1,8 @@
 -- | Complex Type: @linkType@ <http://www.topografix.com/GPX/1/1/#type_linkType>
-module Data.Geo.GPX.LinkType where
+module Data.Geo.GPX.LinkType(
+                              LinkType,
+                              linkType
+                            ) where
 
 import Text.XML.HXT.Arrow
 

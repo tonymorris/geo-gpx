@@ -1,5 +1,8 @@
 -- | Complex Type: @wptType@ <http://www.topografix.com/GPX/1/1/#type_wptType>
-module Data.Geo.GPX.WptType where
+module Data.Geo.GPX.WptType(
+                             WptType,
+                             wptType
+                           ) where
 
 import Data.Geo.GPX.LatitudeType
 import Data.Geo.GPX.LongitudeType

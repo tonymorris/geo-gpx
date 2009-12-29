@@ -1,7 +1,10 @@
 {-# LANGUAGE MultiParamTypeClasses, TypeSynonymInstances #-}
 
 -- | Complex Type: @extensionsType@ <http://www.topografix.com/GPX/1/1/#type_extensionsType>
-module Data.Geo.GPX.ExtensionsType where
+module Data.Geo.GPX.ExtensionsType(
+                                    ExtensionsType,
+                                    extensionsType
+                                  ) where
 
 import Text.XML.HXT.Arrow
 import Data.Geo.GPX.Accessor.Value

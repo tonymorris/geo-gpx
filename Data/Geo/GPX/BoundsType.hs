@@ -1,5 +1,8 @@
 -- | Complex Type: @boundsType@ <http://www.topografix.com/GPX/1/1/#type_boundsType>
-module Data.Geo.GPX.BoundsType where
+module Data.Geo.GPX.BoundsType(
+                                BoundsType,
+                                boundsType
+                              ) where
 
 import Data.Geo.GPX.LatitudeType
 import Data.Geo.GPX.LongitudeType

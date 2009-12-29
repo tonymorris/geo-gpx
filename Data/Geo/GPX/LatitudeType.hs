@@ -1,7 +1,10 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 
 -- | Simple Type: @latitudeType@ <http://www.topografix.com/GPX/1/1/#type_latitudeType>
-module Data.Geo.GPX.LatitudeType where
+module Data.Geo.GPX.LatitudeType(
+                                  LatitudeType,
+                                  latitudeType
+                                ) where
 
 import Data.Geo.GPX.Accessor.Value
 import Data.Fixed

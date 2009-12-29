@@ -1,7 +1,10 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 
 -- | Element: @gpx@ <http://www.topografix.com/GPX/1/1/#element_gpx>
-module Data.Geo.GPX.Gpx where
+module Data.Geo.GPX.Gpx(
+                         Gpx,
+                         gpx
+                       ) where
 
 import Text.XML.HXT.Arrow
 import Data.Geo.GPX.GpxType

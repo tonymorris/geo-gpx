@@ -1,7 +1,16 @@
 -- | Simple Type: @fixType@ <http://www.topografix.com/GPX/1/1/#type_fixType>
-module Data.Geo.GPX.FixType where
+module Data.Geo.GPX.FixType(
+                             FixType,
+                             foldFixType,
+                             none,
+                             twod,
+                             threed,
+                             dgps,
+                             pps,
+                             fixType
+                           ) where
 
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow hiding (none)
 
 data FixType = None | Twod | Threed | Dgps | Pps
   deriving (Eq, Enum)
@@ -43,7 +52,7 @@ pps = Pps
 -- | Construct a @FixType@ using a string with a value of @["none", "2d", "3d", "dgps", "pps"]@.
 fixType :: String -- ^ The string value to construct a @FixType@ with.
            -> Maybe FixType
-fixType "none" = Just Data.Geo.GPX.FixType.none
+fixType "none" = Just none
 fixType "2d"= Just twod
 fixType "3d" = Just threed
 fixType "dgps" = Just dgps

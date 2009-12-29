@@ -1,5 +1,8 @@
 -- | Complex Type: @rteType@ <http://www.topografix.com/GPX/1/1/#type_rteType>
-module Data.Geo.GPX.RteType where
+module Data.Geo.GPX.RteType(
+                             RteType,
+                             rteType
+                           ) where
 
 import Data.Geo.GPX.WptType
 import Data.Geo.GPX.ExtensionsType

@@ -1,5 +1,8 @@
 -- | Complex Type: @gpxType@ <http://www.topografix.com/GPX/1/1/#type_gpxType>
-module Data.Geo.GPX.GpxType where
+module Data.Geo.GPX.GpxType(
+                             GpxType,
+                             gpxType
+                           ) where
 
 import Data.Geo.GPX.MetadataType
 import Data.Geo.GPX.WptType
