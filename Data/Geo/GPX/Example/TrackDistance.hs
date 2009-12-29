@@ -14,7 +14,5 @@ filesDistance :: String -> IO [(Maybe String, Double)]
 filesDistance = fmap distance . readGpxFile
 
 distance :: [Gpx] -> [(Maybe String, Double)]
-distance = fmap (\t -> let k = do a <- trksegs t
-                                  b <- trkpts a
-                                  return (value (lat b) !.! value (lon b))
-                       in (name t, foldl (\n (c, d) -> n + ellipsoidalDistance (inverse () c d)) 0 (ap zip tail k))) . (trks =<<) . fmap value
+distance = fmap (name &&& foldl (\n (c, d) -> n + ellipsoidalDistance (inverse () c d)) 0 . ap zip tail .
+             ((!.!) . value . lat <*> value . lon <$>) . (trkpts =<<) . trksegs) . (trks =<<) . fmap value

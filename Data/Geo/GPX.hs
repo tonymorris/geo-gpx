@@ -69,6 +69,7 @@ module Data.Geo.GPX(
                 module Data.Geo.GPX.Accessor.Rtepts,
                 module Data.Geo.GPX.Accessor.Trkpts,
                 module Data.Geo.GPX.Accessor.Trksegs,
+                module Control.Arrow,
                 readGpxFile
               ) where
 
@@ -141,6 +142,7 @@ import Data.Geo.GPX.Accessor.Number
 import Data.Geo.GPX.Accessor.Rtepts
 import Data.Geo.GPX.Accessor.Trkpts
 import Data.Geo.GPX.Accessor.Trksegs
+import Control.Arrow
 import Text.XML.HXT.Arrow
 
 -- | Reads a GPX file into a list of @Gpx@ values removing whitespace.
