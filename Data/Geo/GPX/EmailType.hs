@@ -1,3 +1,4 @@
+-- | Complex Type: @emailType@ <http://www.topografix.com/GPX/1/1/#type_emailType>
 module Data.Geo.GPX.EmailType where
 
 import Text.XML.HXT.Arrow
@@ -7,7 +8,9 @@ import Data.Geo.GPX.Accessor.Domain
 data EmailType = EmailType String String
   deriving (Eq, Show)
 
-emailType :: String -> String -> EmailType
+emailType :: String -- ^ The id.
+             -> String -- ^ The domain.
+             -> EmailType
 emailType = EmailType
 
 instance XmlPickler EmailType where

@@ -1,3 +1,4 @@
+-- | Complex Type: @gpxType@ <http://www.topografix.com/GPX/1/1/#type_gpxType>
 module Data.Geo.GPX.GpxType where
 
 import Data.Geo.GPX.MetadataType
@@ -18,13 +19,13 @@ import Text.XML.HXT.Extras
 data GpxType = GpxType String String (Maybe MetadataType) [WptType] [RteType] [TrkType] (Maybe ExtensionsType)
   deriving (Eq, Show)
 
-gpxType :: String
-           -> String
-           -> Maybe MetadataType
-           -> [WptType]
-           -> [RteType]
-           -> [TrkType]
-           -> Maybe ExtensionsType
+gpxType :: String -- ^ The version.
+           -> String -- ^ The creator.
+           -> Maybe MetadataType -- ^ The metadata.
+           -> [WptType] -- ^ The waypoints (wpt).
+           -> [RteType] -- ^ The routes (rte).
+           -> [TrkType] -- ^ The tracks (trk).
+           -> Maybe ExtensionsType -- ^ The extensions.
            -> GpxType
 gpxType = GpxType
 

@@ -1,3 +1,4 @@
+-- | Complex Type: @boundsType@ <http://www.topografix.com/GPX/1/1/#type_boundsType>
 module Data.Geo.GPX.BoundsType where
 
 import Data.Geo.GPX.LatitudeType
@@ -11,7 +12,9 @@ import Text.XML.HXT.Arrow
 data BoundsType = BoundsType (LatitudeType, LongitudeType) (LatitudeType, LongitudeType)
   deriving (Show, Eq)
 
-boundsType :: (LatitudeType, LongitudeType) -> (LatitudeType, LongitudeType) -> BoundsType
+boundsType :: (LatitudeType, LongitudeType) -- ^ The minimum latitude and longitude.
+              -> (LatitudeType, LongitudeType) -- ^ The maximum latitude and longitude.
+              -> BoundsType
 boundsType = BoundsType
 
 instance XmlPickler BoundsType where

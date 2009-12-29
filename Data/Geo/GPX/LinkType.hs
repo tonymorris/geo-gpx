@@ -1,3 +1,4 @@
+-- | Complex Type: @linkType@ <http://www.topografix.com/GPX/1/1/#type_linkType>
 module Data.Geo.GPX.LinkType where
 
 import Text.XML.HXT.Arrow
@@ -5,7 +6,10 @@ import Text.XML.HXT.Arrow
 data LinkType = LinkType String (Maybe String) (Maybe String)
   deriving (Eq, Show)
 
-linkType :: String -> Maybe String -> Maybe String -> LinkType
+linkType :: String -- ^ The href.
+            -> Maybe String -- ^ The text.
+            -> Maybe String -- ^ The type.
+            -> LinkType
 linkType = LinkType
 
 instance XmlPickler LinkType where

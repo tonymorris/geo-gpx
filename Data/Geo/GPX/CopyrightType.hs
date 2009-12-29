@@ -1,5 +1,6 @@
 {-# LANGUAGE MultiParamTypeClasses, FlexibleInstances, TypeSynonymInstances #-}
 
+-- | Complex Type: @copyrightType@ <http://www.topografix.com/GPX/1/1/#type_copyrightType>
 module Data.Geo.GPX.CopyrightType where
 
 import Data.Geo.GPX.Accessor.Author
@@ -10,7 +11,10 @@ import Text.XML.HXT.Arrow
 data CopyrightType = CopyrightType String (Maybe String) (Maybe String)
   deriving (Eq, Show)
 
-copyrightType :: String -> Maybe String -> Maybe String -> CopyrightType
+copyrightType :: String -- ^ The author.
+                 -> Maybe String -- ^ The year.
+                 -> Maybe String -- ^ The license.
+                 -> CopyrightType
 copyrightType = CopyrightType
 
 instance XmlPickler CopyrightType where
