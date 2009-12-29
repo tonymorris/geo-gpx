@@ -32,6 +32,8 @@ import Data.Geo.GPX.Accessor.Pdop
 import Data.Geo.GPX.Accessor.Ageofdgpsdata
 import Data.Geo.GPX.Accessor.Dgpsid
 import Data.Geo.GPX.Accessor.Extensions
+import Data.Geo.GPX.Accessor.Latlon
+import Data.Geo.GPX.Accessor.Value
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 
@@ -169,3 +171,6 @@ instance Dgpsid WptType where
 
 instance Extensions WptType where
   extensions (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x) = x
+
+instance Latlon WptType where
+  latlon e = (value (lat e), value (lon e))
