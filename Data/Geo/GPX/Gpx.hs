@@ -1,4 +1,4 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE MultiParamTypeClasses, FlexibleInstances, GeneralizedNewtypeDeriving #-}
 
 -- | Element: @gpx@ <http://www.topografix.com/GPX/1/1/#element_gpx>
 module Data.Geo.GPX.Gpx(
@@ -9,10 +9,29 @@ module Data.Geo.GPX.Gpx(
 
 import Text.XML.HXT.Arrow
 import Data.Geo.GPX.GpxType
+import Data.Geo.GPX.PersonType
 import Data.Geo.GPX.Accessor.Value
+import Data.Geo.GPX.Accessor.Version
+import Data.Geo.GPX.Accessor.Creator
+import Data.Geo.GPX.Accessor.Metadata
+import Data.Geo.GPX.Accessor.Wpts
+import Data.Geo.GPX.Accessor.Rtes
+import Data.Geo.GPX.Accessor.Trks
+import Data.Geo.GPX.Accessor.Extensions
+import Data.Geo.GPX.Accessor.Name
+import Data.Geo.GPX.Accessor.Desc
+import Data.Geo.GPX.Accessor.Author
+import Data.Geo.GPX.Accessor.Copyright
+import Data.Geo.GPX.Accessor.Links
+import Data.Geo.GPX.Accessor.Time
+import Data.Geo.GPX.Accessor.Keywords
+import Data.Geo.GPX.Accessor.Bounds
 
 newtype Gpx = Gpx GpxType
-  deriving Eq
+  deriving (Eq, Version, Creator, Metadata, Wpts, Rtes, Trks, Extensions, Name, Desc, Copyright, Links, Time, Keywords, Bounds)
+
+instance Author Gpx (Maybe PersonType) where
+  author = author . value
 
 gpx :: GpxType -- ^ The gpx element contents.
        -> Gpx
