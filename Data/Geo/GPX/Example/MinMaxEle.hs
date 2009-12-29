@@ -7,5 +7,4 @@ import Text.XML.HXT.Arrow
 
 -- Finds the minimum and maximum elevation (<ele>) in a list of GPX files (fails if no elevation).
 minMaxEle :: [FilePath] -> IO (Double, Double)
-minMaxEle = fmap ((minimum &&& maximum) . (maybeToList . ele =<<) . (wpts . value =<<) . join) .
-                 mapM (runX . xunpickleDocument (xpickle :: PU Gpx) [(a_remove_whitespace, v_1)])
+minMaxEle = fmap ((minimum &&& maximum) . (maybeToList . ele =<<) . (wpts . value =<<) . join) . mapM readGpxFile

@@ -68,7 +68,8 @@ module Data.Geo.GPX(
                 module Data.Geo.GPX.Accessor.Number,
                 module Data.Geo.GPX.Accessor.Rtepts,
                 module Data.Geo.GPX.Accessor.Trkpts,
-                module Data.Geo.GPX.Accessor.Trksegs
+                module Data.Geo.GPX.Accessor.Trksegs,
+                readGpxFile
               ) where
 
 import Data.Geo.GPX.DgpsStationType
@@ -140,3 +141,8 @@ import Data.Geo.GPX.Accessor.Number
 import Data.Geo.GPX.Accessor.Rtepts
 import Data.Geo.GPX.Accessor.Trkpts
 import Data.Geo.GPX.Accessor.Trksegs
+import Text.XML.HXT.Arrow
+
+-- | Reads a GPX file into a list of @Gpx@ values removing whitespace.
+readGpxFile :: FilePath -> IO [Gpx]
+readGpxFile = runX . xunpickleDocument (xpickle :: PU Gpx) [(a_remove_whitespace, v_1)]

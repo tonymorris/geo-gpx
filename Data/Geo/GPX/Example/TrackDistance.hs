@@ -12,7 +12,7 @@ import Data.Geo.GPX
 
 -- Computes the distance of tracks in a GPX file using Vincenty's inverse geodetic algorithm and prints out the name of the track and the result in metres.
 filesDistance :: String -> IO [(Maybe String, Double)]
-filesDistance = fmap distance . runX . xunpickleDocument (xpickle :: PU Gpx) [(a_remove_whitespace, v_1)]
+filesDistance = fmap distance . readGpxFile
 
 distance :: [Gpx] -> [(Maybe String, Double)]
 distance = fmap (\t -> let k = do a <- trksegs t
