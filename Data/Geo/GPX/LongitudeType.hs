@@ -1,4 +1,4 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE MultiParamTypeClasses, GeneralizedNewtypeDeriving #-}
 
 -- | Simple Type: @latitudeType@ <http://www.topografix.com/GPX/1/1/#type_latitudeType>
 module Data.Geo.GPX.LongitudeType(
@@ -11,7 +11,7 @@ import Data.Fixed
 import Text.XML.HXT.Arrow
 
 newtype LongitudeType = LongitudeType Double
-  deriving Eq
+  deriving (Eq, Ord, Enum, Num, Fractional, Floating, Real, RealFrac, RealFloat)
 
 longitudeType :: Double -- ^ The value which will be between -180 and 180 (values out of the range are truncated using a modulus operation).
                  -> LongitudeType
