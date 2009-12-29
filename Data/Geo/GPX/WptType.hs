@@ -1,3 +1,4 @@
+-- | Complex Type: @wptType@ <http://www.topografix.com/GPX/1/1/#type_wptType>
 module Data.Geo.GPX.WptType where
 
 import Data.Geo.GPX.LatitudeType
@@ -54,27 +55,27 @@ data WptType = WptType LatitudeType
                        (Maybe ExtensionsType)
   deriving (Eq, Show)
 
-wptType :: LatitudeType
-           -> LongitudeType
-           -> Maybe Double
-           -> Maybe String
-           -> Maybe DegreesType
-           -> Maybe Double
-           -> Maybe String
-           -> Maybe String
-           -> Maybe String
-           -> Maybe String
-           -> [LinkType]
-           -> Maybe String
-           -> Maybe String
-           -> Maybe FixType
-           -> Maybe Int
-           -> Maybe Double
-           -> Maybe Double
-           -> Maybe Double
-           -> Maybe Double
-           -> Maybe DgpsStationType
-           -> Maybe ExtensionsType
+wptType :: LatitudeType -- ^ The lat.
+           -> LongitudeType -- ^ The lon.
+           -> Maybe Double -- ^ The ele.
+           -> Maybe String -- ^ The time.
+           -> Maybe DegreesType -- ^ The magvar.
+           -> Maybe Double -- ^ The geoidheight.
+           -> Maybe String -- ^ The name.
+           -> Maybe String -- ^ The cmt.
+           -> Maybe String -- ^ The desc.
+           -> Maybe String -- ^ The src.
+           -> [LinkType] -- ^ The links (link).
+           -> Maybe String -- ^ The sym.
+           -> Maybe String -- ^ The type.
+           -> Maybe FixType -- ^ The fix.
+           -> Maybe Int -- ^ The sat.
+           -> Maybe Double -- ^ The hdop.
+           -> Maybe Double -- ^ The vdop.
+           -> Maybe Double -- ^ The pdop.
+           -> Maybe Double -- ^ The ageofdgpsdata.
+           -> Maybe DgpsStationType -- ^ The dgpsid.
+           -> Maybe ExtensionsType -- ^ The extensions.
            -> WptType
 wptType a b c d e f g h i j k l m n o p = WptType a b c d e f g h i j k l m n o (fmap abs p)
 

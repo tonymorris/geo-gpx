@@ -1,5 +1,6 @@
 {-# LANGUAGE MultiParamTypeClasses, FlexibleInstances  #-}
 
+-- | Complex Type: @metadataType@ <http://www.topografix.com/GPX/1/1/#type_metadataType>
 module Data.Geo.GPX.MetadataType where
 
 import Data.Geo.GPX.PersonType
@@ -22,15 +23,15 @@ import Text.XML.HXT.Extras
 data MetadataType = MetadataType (Maybe String) (Maybe String) (Maybe PersonType) (Maybe CopyrightType) [LinkType] (Maybe String) (Maybe String) (Maybe BoundsType) (Maybe ExtensionsType)
   deriving (Eq, Show)
 
-metadataType :: Maybe String
-                -> Maybe String
-                -> Maybe PersonType
-                -> Maybe CopyrightType
-                -> [LinkType]
-                -> Maybe String
-                -> Maybe String
-                -> Maybe BoundsType
-                -> Maybe ExtensionsType
+metadataType :: Maybe String -- ^ The name.
+                -> Maybe String -- ^ The desc.
+                -> Maybe PersonType -- ^ The author.
+                -> Maybe CopyrightType -- ^ The copyright.
+                -> [LinkType] -- ^ The links (link).
+                -> Maybe String -- ^ The time.
+                -> Maybe String -- ^ The keywords.
+                -> Maybe BoundsType -- ^ The bounds.
+                -> Maybe ExtensionsType -- ^ The extensions
                 -> MetadataType
 metadataType = MetadataType
 

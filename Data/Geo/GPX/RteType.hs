@@ -1,3 +1,4 @@
+-- | Complex Type: @rteType@ <http://www.topografix.com/GPX/1/1/#type_rteType>
 module Data.Geo.GPX.RteType where
 
 import Data.Geo.GPX.WptType
@@ -18,15 +19,15 @@ import Text.XML.HXT.Extras
 data RteType = RteType (Maybe String) (Maybe String) (Maybe String) (Maybe String) [LinkType] (Maybe Int) (Maybe String) (Maybe ExtensionsType) [WptType]
   deriving (Eq, Show)
 
-rteType :: Maybe String
-           -> Maybe String
-           -> Maybe String
-           -> Maybe String
-           -> [LinkType]
-           -> Maybe Int
-           -> Maybe String
-           -> Maybe ExtensionsType
-           -> [WptType]
+rteType :: Maybe String -- ^ The name.
+           -> Maybe String -- ^ The cmt.
+           -> Maybe String -- ^ The desc.
+           -> Maybe String -- ^ The src.
+           -> [LinkType] -- ^ The links (link).
+           -> Maybe Int -- ^ The number.
+           -> Maybe String -- ^ The type.
+           -> Maybe ExtensionsType -- ^ The extensions.
+           -> [WptType] -- ^ The route points (rtept).
            -> RteType
 rteType a b c d e f = RteType a b c d e (fmap abs f)
 

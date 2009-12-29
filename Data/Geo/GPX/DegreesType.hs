@@ -10,7 +10,7 @@ import Text.XML.HXT.Arrow
 newtype DegreesType = DegreesType Double
   deriving (Eq, Show)
 
-degreesType :: Double -- The value which will be between 0 and 360 (values out of the range are truncated using a modulus operation).
+degreesType :: Double -- ^ The value which will be between 0 and 360 (values out of the range are truncated using a modulus operation).
                -> DegreesType
 degreesType n = DegreesType (n `mod'` 360)
 

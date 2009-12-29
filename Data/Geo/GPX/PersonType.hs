@@ -1,3 +1,4 @@
+-- | Complex Type: @personType@ <http://www.topografix.com/GPX/1/1/#type_personType>
 module Data.Geo.GPX.PersonType where
 
 import Data.Geo.GPX.EmailType
@@ -10,7 +11,10 @@ import Text.XML.HXT.Arrow
 data PersonType = PersonType (Maybe String) (Maybe EmailType) (Maybe LinkType)
   deriving (Eq, Show)
 
-personType :: Maybe String -> Maybe EmailType -> Maybe LinkType -> PersonType
+personType :: Maybe String -- ^ The name.
+              -> Maybe EmailType -- ^ The email.
+              -> Maybe LinkType -- ^ The link.
+              -> PersonType
 personType = PersonType
 
 instance XmlPickler PersonType where

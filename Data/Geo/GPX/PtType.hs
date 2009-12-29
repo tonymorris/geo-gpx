@@ -1,3 +1,4 @@
+-- | Complex Type: @ptType@ <http://www.topografix.com/GPX/1/1/#type_ptType>
 module Data.Geo.GPX.PtType where
 
 import Data.Geo.GPX.LatitudeType
@@ -11,7 +12,11 @@ import Text.XML.HXT.Arrow
 data PtType = PtType LatitudeType LongitudeType (Maybe Double) (Maybe String)
   deriving (Eq, Show)
 
-ptType :: LatitudeType -> LongitudeType -> (Maybe Double) -> (Maybe String) -> PtType
+ptType :: LatitudeType -- ^ The lat.
+          -> LongitudeType -- ^ The lon.
+          -> Maybe Double -- ^ The ele.
+          -> Maybe String -- ^ The time.
+          -> PtType
 ptType = PtType
 
 instance XmlPickler PtType where

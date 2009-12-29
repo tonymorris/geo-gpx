@@ -1,3 +1,4 @@
+-- | Complex Type: @ptsegType@ <http://www.topografix.com/GPX/1/1/#type_ptsegType>
 module Data.Geo.GPX.PtsegType where
 
 import Data.Geo.GPX.PtType
@@ -7,7 +8,8 @@ import Text.XML.HXT.Arrow
 newtype PtsegType = PtsegType [PtType]
   deriving (Eq, Show)
 
-ptsegType :: [PtType] -> PtsegType
+ptsegType :: [PtType] -- ^ The points (pt).
+             -> PtsegType
 ptsegType = PtsegType
 
 instance XmlPickler PtsegType where

@@ -1,3 +1,4 @@
+-- | Complex Type: @trkType@ <http://www.topografix.com/GPX/1/1/#type_trkType>
 module Data.Geo.GPX.TrkType where
 
 import Data.Geo.GPX.TrksegType
@@ -18,15 +19,15 @@ import Text.XML.HXT.Extras
 data TrkType = TrkType (Maybe String) (Maybe String) (Maybe String) (Maybe String) [LinkType] (Maybe Int) (Maybe String) (Maybe ExtensionsType) [TrksegType]
   deriving (Eq, Show)
 
-trkType :: Maybe String
-           -> Maybe String
-           -> Maybe String
-           -> Maybe String
-           -> [LinkType]
-           -> Maybe Int
-           -> Maybe String
-           -> Maybe ExtensionsType
-           -> [TrksegType]
+trkType :: Maybe String -- ^ The name.
+           -> Maybe String -- ^ The cmt.
+           -> Maybe String -- ^ The desc.
+           -> Maybe String -- ^ The src.
+           -> [LinkType] -- ^ The links (link).
+           -> Maybe Int -- ^ The number.
+           -> Maybe String -- ^ The type.
+           -> Maybe ExtensionsType -- ^ The extensions.
+           -> [TrksegType] -- ^ The track segments (trkseg).
            -> TrkType
 trkType a b c d e f = TrkType a b c d e (fmap abs f)
 
