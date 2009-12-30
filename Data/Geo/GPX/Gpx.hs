@@ -4,10 +4,12 @@
 module Data.Geo.GPX.Gpx(
                          Gpx,
                          gpx,
-                         readGpxFile
+                         readGpxFile,
+                         readGpxFiles
                        ) where
 
 import Text.XML.HXT.Arrow
+import Control.Monad
 import Data.Geo.GPX.GpxType
 import Data.Geo.GPX.PersonType
 import Data.Geo.GPX.Accessor.Value
@@ -51,3 +53,7 @@ instance Value Gpx GpxType where
 -- | Reads a GPX file into a list of @Gpx@ values removing whitespace.
 readGpxFile :: FilePath -> IO [Gpx]
 readGpxFile = runX . xunpickleDocument (xpickle :: PU Gpx) [(a_remove_whitespace, v_1)]
+
+-- | Reads 0 or more GPX files into a list of @Gpx@ values removing whitespace.
+readGpxFiles :: [FilePath] -> IO [Gpx]
+readGpxFiles = fmap join . (mapM readGpxFile)
