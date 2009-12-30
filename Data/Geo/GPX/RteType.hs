@@ -16,6 +16,7 @@ import Data.Geo.GPX.Accessor.Number
 import Data.Geo.GPX.Accessor.Type
 import Data.Geo.GPX.Accessor.Extensions
 import Data.Geo.GPX.Accessor.Rtepts
+import Data.Geo.GPX.Accessor.Wpts
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 
@@ -72,3 +73,6 @@ instance Extensions RteType where
 
 instance Rtepts RteType where
   rtepts (RteType _ _ _ _ _ _ _ _ x) = x
+
+instance Wpts RteType where
+  wpts = rtepts

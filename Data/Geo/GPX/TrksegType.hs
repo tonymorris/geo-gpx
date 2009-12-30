@@ -8,6 +8,7 @@ import Data.Geo.GPX.WptType
 import Data.Geo.GPX.ExtensionsType
 import Data.Geo.GPX.Accessor.Trkpts
 import Data.Geo.GPX.Accessor.Extensions
+import Data.Geo.GPX.Accessor.Wpts
 import Text.XML.HXT.Arrow
 
 data TrksegType = TrksegType [WptType] (Maybe ExtensionsType)
@@ -25,6 +26,9 @@ instance XmlPickler TrksegType where
 
 instance Trkpts TrksegType where
   trkpts (TrksegType x _) = x
+
+instance Wpts TrksegType where
+  wpts = trkpts
 
 instance Extensions TrksegType where
   extensions (TrksegType _ x) = x
