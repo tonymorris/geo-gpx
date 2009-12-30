@@ -26,9 +26,11 @@ import Data.Geo.GPX.Accessor.Links
 import Data.Geo.GPX.Accessor.Time
 import Data.Geo.GPX.Accessor.Keywords
 import Data.Geo.GPX.Accessor.Bounds
+import Data.Geo.GPX.Accessor.Rtepts
+import Data.Geo.GPX.Accessor.Trkpts
 
 newtype Gpx = Gpx GpxType
-  deriving (Eq, Version, Creator, Metadata, Wpts, Rtes, Trks, Extensions, Name, Desc, Copyright, Links, Time, Keywords, Bounds)
+  deriving (Eq, Version, Creator, Metadata, Wpts, Rtes, Trks, Extensions, Name, Desc, Copyright, Links, Time, Keywords, Bounds, Rtepts, Trkpts)
 
 instance Author Gpx (Maybe PersonType) where
   author = author . value

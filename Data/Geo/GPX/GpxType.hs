@@ -27,6 +27,8 @@ import Data.Geo.GPX.Accessor.Links
 import Data.Geo.GPX.Accessor.Time
 import Data.Geo.GPX.Accessor.Keywords
 import Data.Geo.GPX.Accessor.Bounds
+import Data.Geo.GPX.Accessor.Rtepts
+import Data.Geo.GPX.Accessor.Trkpts
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 import Data.Maybe
@@ -99,3 +101,9 @@ instance Keywords GpxType where
 
 instance Bounds GpxType where
   bounds = (bounds =<<) . metadata
+
+instance Rtepts GpxType where
+  rtepts = (rtepts =<<) . rtes
+
+instance Trkpts GpxType where
+  trkpts = (trkpts =<<) . trks

@@ -14,4 +14,4 @@ filesDistance = fmap distance . readGpxFile
 
 distance :: [Gpx] -> [(Maybe String, Double)]
 distance = fmap (name &&& foldl (\n (c, d) -> n + ellipsoidalDistance (inverse () c d)) 0 . (zip <*> tail) .
-             (uncurry (!.!) . latlon <$>) . trkpts) . (trks =<<)
+             (uncurry (!.!) . latlon <$>) . trkpts)
