@@ -9,7 +9,7 @@ import Data.Geo hiding (lat, lon)
 import Data.Geo.GPX
 
 -- Computes the distance of tracks in a GPX file using Vincenty's inverse geodetic algorithm and prints out the name of the track and the result in metres.
-filesDistance :: String -> IO [(Maybe String, Double)]
+filesDistance :: FilePath -> IO [(Maybe String, Double)]
 filesDistance = fmap distance . readGpxFile
 
 distance :: [Gpx] -> [(Maybe String, Double)]
