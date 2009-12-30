@@ -16,6 +16,7 @@ import Data.Geo.GPX.Accessor.Number
 import Data.Geo.GPX.Accessor.Type
 import Data.Geo.GPX.Accessor.Extensions
 import Data.Geo.GPX.Accessor.Trksegs
+import Data.Geo.GPX.Accessor.Trkpts
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 
@@ -72,3 +73,6 @@ instance Extensions TrkType where
 
 instance Trksegs TrkType where
   trksegs (TrkType _ _ _ _ _ _ _ _ x) = x
+
+instance Trkpts TrkType where
+  trkpts = (trkpts =<<) . trksegs
