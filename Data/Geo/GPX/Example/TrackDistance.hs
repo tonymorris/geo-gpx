@@ -4,7 +4,6 @@
 
 module Data.Geo.GPX.Example.TrackDistance where
 
-import Control.Monad
 import Control.Applicative
 import Data.Geo hiding (lat, lon)
 import Data.Geo.GPX
@@ -14,5 +13,5 @@ filesDistance :: String -> IO [(Maybe String, Double)]
 filesDistance = fmap distance . readGpxFile
 
 distance :: [Gpx] -> [(Maybe String, Double)]
-distance = fmap (name &&& foldl (\n (c, d) -> n + ellipsoidalDistance (inverse () c d)) 0 . ap zip tail .
+distance = fmap (name &&& foldl (\n (c, d) -> n + ellipsoidalDistance (inverse () c d)) 0 . (zip <*> tail) .
              (uncurry (!.!) . latlon <$>) . (trkpts =<<) . trksegs) . (trks =<<)
