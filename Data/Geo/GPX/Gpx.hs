@@ -5,7 +5,9 @@ module Data.Geo.GPX.Gpx(
                          Gpx,
                          gpx,
                          readGpxFile,
-                         readGpxFiles
+                         readGpxFiles,
+                         interactGpx,
+                         interactGpx'
                        ) where
 
 import Text.XML.HXT.Arrow
@@ -59,3 +61,19 @@ readGpxFile = runX . xunpickleDocument (xpickle :: PU Gpx) [(a_remove_whitespace
 -- | Reads 0 or more GPX files into a list of @Gpx@ values removing whitespace.
 readGpxFiles :: [FilePath] -> IO [Gpx]
 readGpxFiles = fmap join . (mapM readGpxFile)
+
+-- | Reads a GPX file, executes the given function on the XML, then writes the given file.
+interactGpx :: Attributes -- ^ The options for reading the GPX file.
+               -> FilePath -- ^ The GPX file to read.
+               -> (Gpx -> IO Gpx) -- ^ The function to execute on the XML that is read.
+               -> Attributes -- ^ The options for writing the GPX file.
+               -> FilePath -- ^ The GPX file to write.
+               -> IO ()
+interactGpx froma from f toa to = runX (xunpickleDocument (xpickle :: PU Gpx) froma from >>> arrIO f >>> xpickleDocument (xpickle :: PU Gpx) toa to) >> return ()
+
+-- | Reads a GPX file removing whitespace, executes the given function on the XML, then writes the given file with indentation.
+interactGpx' :: FilePath -- ^ The GPX file to read.
+                -> (Gpx -> IO Gpx) -- ^ The function to execute on the XML that is read.
+                -> FilePath -- ^ The GPX file to write.
+                -> IO ()
+interactGpx' from f = interactGpx [(a_remove_whitespace, v_1)] from f [(a_indent, v_1)]
