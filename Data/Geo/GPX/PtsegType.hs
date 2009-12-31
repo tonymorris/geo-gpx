@@ -20,3 +20,4 @@ instance XmlPickler PtsegType where
 
 instance Pts PtsegType where
   pts (PtsegType x) = x
+  setPts x (PtsegType _) = ptsegType x

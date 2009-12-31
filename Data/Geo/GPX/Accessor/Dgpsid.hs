@@ -4,3 +4,4 @@ import Data.Geo.GPX.DgpsStationType
 
 class Dgpsid a where
   dgpsid :: a -> Maybe DgpsStationType
+  setDgpsid :: Maybe DgpsStationType -> a -> a

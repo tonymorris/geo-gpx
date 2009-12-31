@@ -36,6 +36,7 @@ newtype Gpx = Gpx GpxType
 
 instance Author Gpx (Maybe PersonType) where
   author = author . value
+  setAuthor = (gpx .) . (. value) . setAuthor
 
 gpx :: GpxType -- ^ The gpx element contents.
        -> Gpx
@@ -49,6 +50,7 @@ instance XmlPickler Gpx where
 
 instance Value Gpx GpxType where
   value (Gpx x) = x
+  setValue x (Gpx _) = gpx x
 
 -- | Reads a GPX file into a list of @Gpx@ values removing whitespace.
 readGpxFile :: FilePath -> IO [Gpx]

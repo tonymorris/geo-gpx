@@ -30,12 +30,16 @@ instance XmlPickler BoundsType where
 
 instance Minlat BoundsType where
   minlat (BoundsType (x, _) (_, _)) = x
+  setMinlat a (BoundsType (_, b) (c, d)) = boundsType (a, b) (c, d)
 
 instance Maxlat BoundsType where
   maxlat (BoundsType (_, _) (x, _)) = x
+  setMaxlat c (BoundsType (a, b) (_, d)) = boundsType (a, b) (c, d)
 
 instance Minlon BoundsType where
   minlon (BoundsType (_, x) (_, _)) = x
+  setMinlon b (BoundsType (a, _) (c, d)) = boundsType (a, b) (c, d)
 
 instance Maxlon BoundsType where
   maxlon (BoundsType (_, _) (_, x)) = x
+  setMaxlon d (BoundsType (a, b) (c, _)) = boundsType (a, b) (c, d)

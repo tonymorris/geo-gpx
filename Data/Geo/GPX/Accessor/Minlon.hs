@@ -4,3 +4,4 @@ import Data.Geo.GPX.LongitudeType
 
 class Minlon a where
   minlon :: a -> LongitudeType
+  setMinlon :: LongitudeType -> a -> a

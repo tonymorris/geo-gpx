@@ -4,3 +4,4 @@ import Data.Geo.GPX.FixType
 
 class Fix a where
   fix :: a -> Maybe FixType
+  setFix :: Maybe FixType -> a -> a

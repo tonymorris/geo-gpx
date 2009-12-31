@@ -4,3 +4,4 @@ import Data.Geo.GPX.LatitudeType
 
 class Maxlat a where
   maxlat :: a -> LatitudeType
+  setMaxlat :: LatitudeType -> a -> a

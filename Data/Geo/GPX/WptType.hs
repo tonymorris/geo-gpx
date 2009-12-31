@@ -112,66 +112,88 @@ instance XmlPickler WptType where
 
 instance Lat WptType where
   lat (WptType x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+  setLat a (WptType _ b c d e f g h i j k l m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Lon WptType where
   lon (WptType _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+  setLon b (WptType a _ c d e f g h i j k l m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Ele WptType where
   ele (WptType _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+  setEle c (WptType a b _ d e f g h i j k l m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Time WptType where
   time (WptType _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+  setTime d (WptType a b c _ e f g h i j k l m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Magvar WptType where
   magvar (WptType _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+  setMagvar e (WptType a b c d _ f g h i j k l m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Geoidheight WptType where
   geoidheight (WptType _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+  setGeoidheight f (WptType a b c d e _ g h i j k l m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Name WptType where
   name (WptType _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+  setName g (WptType a b c d e f _ h i j k l m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Cmt WptType where
   cmt (WptType _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _ _) = x
+  setCmt h (WptType a b c d e f g _ i j k l m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Desc WptType where
   desc (WptType _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _ _) = x
+  setDesc i (WptType a b c d e f g h _ j k l m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Src WptType where
   src (WptType _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _ _) = x
+  setSrc j (WptType a b c d e f g h i _ k l m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Links WptType where
   links (WptType _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _ _) = x
+  setLinks k (WptType a b c d e f g h i j _ l m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Sym WptType where
   sym (WptType _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _) = x
+  setSym l (WptType a b c d e f g h i j k _ m n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Type WptType where
   type' (WptType _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _ _ _) = x
+  setType m (WptType a b c d e f g h i j k l _ n o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Fix WptType where
   fix (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _ _) = x
+  setFix n (WptType a b c d e f g h i j k l m _ o p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Sat WptType where
   sat (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _ _) = x
+  setSat o (WptType a b c d e f g h i j k l m n _ p q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Hdop WptType where
   hdop (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _ _) = x
+  setHdop p (WptType a b c d e f g h i j k l m n o _ q r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Vdop WptType where
   vdop (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _ _ _) = x
+  setVdop q (WptType a b c d e f g h i j k l m n o p _ r s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Pdop WptType where
   pdop (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _ _) = x
+  setPdop r (WptType a b c d e f g h i j k l m n o p q _ s t u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Ageofdgpsdata WptType where
   ageofdgpsdata (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _ _) = x
-
+  setAgeofdgpsdata s (WptType a b c d e f g h i j k l m n o p q r _ t u) = wptType a b c d e f g h i j k l m n o p q r s t u
+--
 instance Dgpsid WptType where
   dgpsid (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x _) = x
+  setDgpsid t (WptType a b c d e f g h i j k l m n o p q r s _ u) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Extensions WptType where
   extensions (WptType _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ x) = x
+  setExtensions u (WptType a b c d e f g h i j k l m n o p q r s t _) = wptType a b c d e f g h i j k l m n o p q r s t u
 
 instance Latlon WptType where
   latlon e = (value (lat e), value (lon e))
+  setLatlon (a, b) (WptType _ _ c d e f g h i j k l m n o p q r s t u) = wptType (latitudeType a) (longitudeType b) c d e f g h i j k l m n o p q r s t u

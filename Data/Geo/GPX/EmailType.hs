@@ -22,6 +22,8 @@ instance XmlPickler EmailType where
 
 instance Id EmailType where
   id (EmailType x _) = x
+  setId a (EmailType _ b) = emailType a b
 
 instance Domain EmailType where
   domain (EmailType _ x) = x
+  setDomain b (EmailType a _) = emailType a b

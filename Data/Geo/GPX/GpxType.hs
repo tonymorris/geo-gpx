@@ -59,51 +59,68 @@ instance XmlPickler GpxType where
 
 instance Version GpxType where
   version (GpxType x _ _ _ _ _ _) = x
+  setVersion a (GpxType _ b c d e f g) = gpxType a b c d e f g
 
 instance Creator GpxType where
   creator (GpxType _ x _ _ _ _ _) = x
+  setCreator b (GpxType a _ c d e f g) = gpxType a b c d e f g
 
 instance Metadata GpxType where
   metadata (GpxType _ _ x _ _ _ _) = x
+  setMetadata c (GpxType a b _ d e f g) = gpxType a b c d e f g
 
 instance Wpts GpxType where
   wpts (GpxType _ _ _ x _ _ _) = x
+  setWpts d (GpxType a b c _ e f g) = gpxType a b c d e f g
 
 instance Rtes GpxType where
   rtes (GpxType _ _ _ _ x _ _) = x
+  setRtes e (GpxType a b c d _ f g) = gpxType a b c d e f g
 
 instance Trks GpxType where
   trks (GpxType _ _ _ _ _ x _) = x
+  setTrks f (GpxType a b c d e _ g) = gpxType a b c d e f g
 
 instance Extensions GpxType where
   extensions (GpxType _ _ _ _ _ _ x) = x
+  setExtensions g (GpxType a b c d e f _) = gpxType a b c d e f g
 
 instance Name GpxType where
   name = (name =<<) . metadata
+  setName x (GpxType a b c d e f g) = gpxType a b (fmap (setName x) c) d e f g
 
 instance Desc GpxType where
   desc = (desc =<<) . metadata
+  setDesc x (GpxType a b c d e f g) = gpxType a b (fmap (setDesc x) c) d e f g
 
 instance Author GpxType (Maybe PersonType) where
   author = (author =<<) . metadata
+  setAuthor x (GpxType a b c d e f g) = gpxType a b (fmap (setAuthor x) c) d e f g
 
 instance Copyright GpxType where
   copyright = (copyright =<<) . metadata
+  setCopyright x (GpxType a b c d e f g) = gpxType a b (fmap (setCopyright x) c) d e f g
 
 instance Links GpxType where
   links = (links =<<) . maybeToList . metadata
+  setLinks x (GpxType a b c d e f g) = gpxType a b (fmap (setLinks x) c) d e f g
 
 instance Time GpxType where
   time = (time =<<) . metadata
+  setTime x (GpxType a b c d e f g) = gpxType a b (fmap (setTime x) c) d e f g
 
 instance Keywords GpxType where
   keywords = (keywords =<<) . metadata
+  setKeywords x (GpxType a b c d e f g) = gpxType a b (fmap (setKeywords x) c) d e f g
 
 instance Bounds GpxType where
   bounds = (bounds =<<) . metadata
+  setBounds x (GpxType a b c d e f g) = gpxType a b (fmap (setBounds x) c) d e f g
 
 instance Rtepts GpxType where
   rtepts = (rtepts =<<) . rtes
+  setRtepts x (GpxType a b c d e f g) = gpxType a b c d (fmap (setRtepts x) e) f g
 
 instance Trkpts GpxType where
   trkpts = (trkpts =<<) . trks
+  setTrkpts x (GpxType a b c d e f g) = gpxType a b c d e (fmap (setTrkpts x) f) g

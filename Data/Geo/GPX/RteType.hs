@@ -48,27 +48,36 @@ instance XmlPickler RteType where
 
 instance Name RteType where
   name (RteType x _ _ _ _ _ _ _ _) = x
+  setName a (RteType _ b c d e f g h i) = rteType a b c d e f g h i
 
 instance Cmt RteType where
   cmt (RteType _ x _ _ _ _ _ _ _) = x
+  setCmt b (RteType a _ c d e f g h i) = rteType a b c d e f g h i
 
 instance Desc RteType where
   desc (RteType _ _ x _ _ _ _ _ _) = x
+  setDesc c (RteType a b _ d e f g h i) = rteType a b c d e f g h i
 
 instance Src RteType where
   src (RteType _ _ _ x _ _ _ _ _) = x
+  setSrc d (RteType a b c _ e f g h i) = rteType a b c d e f g h i
 
 instance Links RteType where
   links (RteType _ _ _ _ x _ _ _ _) = x
+  setLinks e (RteType a b c d _ f g h i) = rteType a b c d e f g h i
 
 instance Number RteType where
   number (RteType _ _ _ _ _ x _ _ _) = x
+  setNumber f (RteType a b c d e _ g h i) = rteType a b c d e f g h i
 
 instance Type RteType where
   type' (RteType _ _ _ _ _ _ x _ _) = x
+  setType g (RteType a b c d e f _ h i) = rteType a b c d e f g h i
 
 instance Extensions RteType where
   extensions (RteType _ _ _ _ _ _ _ x _) = x
+  setExtensions h (RteType a b c d e f g _ i) = rteType a b c d e f g h i
 
 instance Rtepts RteType where
   rtepts (RteType _ _ _ _ _ _ _ _ x) = x
+  setRtepts i (RteType a b c d e f g h _) = rteType a b c d e f g h i

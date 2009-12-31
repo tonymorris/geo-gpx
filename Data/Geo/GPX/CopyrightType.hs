@@ -28,9 +28,12 @@ instance XmlPickler CopyrightType where
 
 instance Author CopyrightType String where
   author (CopyrightType x _ _) = x
+  setAuthor x (CopyrightType _ y z) = copyrightType x y z
 
 instance Year CopyrightType where
   year (CopyrightType _ x _) = x
+  setYear y (CopyrightType x _ z) = copyrightType x y z
 
 instance License CopyrightType where
   license (CopyrightType _ _ x) = x
+  setLicense z (CopyrightType x y _) = copyrightType x y z

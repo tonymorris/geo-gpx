@@ -25,3 +25,4 @@ instance Show LongitudeType where
 
 instance Value LongitudeType Double where
   value (LongitudeType x) = x
+  setValue x (LongitudeType _) = longitudeType x

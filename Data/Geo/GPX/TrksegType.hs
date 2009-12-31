@@ -25,6 +25,8 @@ instance XmlPickler TrksegType where
 
 instance Trkpts TrksegType where
   trkpts (TrksegType x _) = x
+  setTrkpts a (TrksegType _ b) = trksegType a b
 
 instance Extensions TrksegType where
   extensions (TrksegType _ x) = x
+  setExtensions b (TrksegType a _) = trksegType a b

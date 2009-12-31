@@ -4,3 +4,4 @@ import Data.Geo.GPX.BoundsType
 
 class Bounds a where
   bounds :: a -> Maybe BoundsType
+  setBounds :: Maybe BoundsType -> a -> a

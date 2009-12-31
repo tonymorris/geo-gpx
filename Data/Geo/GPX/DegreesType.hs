@@ -22,3 +22,4 @@ instance XmlPickler DegreesType where
 
 instance Value DegreesType Double where
   value (DegreesType x) = x
+  setValue x (DegreesType _) = degreesType x

@@ -49,30 +49,41 @@ instance XmlPickler TrkType where
 
 instance Name TrkType where
   name (TrkType x _ _ _ _ _ _ _ _) = x
+  setName a (TrkType _ b c d e f g h i) = trkType a b c d e f g h i
 
 instance Cmt TrkType where
   cmt (TrkType _ x _ _ _ _ _ _ _) = x
+  setCmt b (TrkType a _ c d e f g h i) = trkType a b c d e f g h i
 
 instance Desc TrkType where
   desc (TrkType _ _ x _ _ _ _ _ _) = x
+  setDesc c (TrkType a b _ d e f g h i) = trkType a b c d e f g h i
 
 instance Src TrkType where
   src (TrkType _ _ _ x _ _ _ _ _) = x
+  setSrc d (TrkType a b c _ e f g h i) = trkType a b c d e f g h i
 
 instance Links TrkType where
   links (TrkType _ _ _ _ x _ _ _ _) = x
+  setLinks e (TrkType a b c d _ f g h i) = trkType a b c d e f g h i
 
 instance Number TrkType where
   number (TrkType _ _ _ _ _ x _ _ _) = x
+  setNumber f (TrkType a b c d e _ g h i) = trkType a b c d e f g h i
 
 instance Type TrkType where
   type' (TrkType _ _ _ _ _ _ x _ _) = x
+  setType g (TrkType a b c d e f _ h i) = trkType a b c d e f g h i
 
 instance Extensions TrkType where
   extensions (TrkType _ _ _ _ _ _ _ x _) = x
+  setExtensions h (TrkType a b c d e f g _ i) = trkType a b c d e f g h i
 
 instance Trksegs TrkType where
   trksegs (TrkType _ _ _ _ _ _ _ _ x) = x
+  setTrksegs i (TrkType a b c d e f g h _) = trkType a b c d e f g h i
 
 instance Trkpts TrkType where
   trkpts = (trkpts =<<) . trksegs
+  setTrkpts x (TrkType a b c d e f g h i) = trkType a b c d e f g h (fmap (setTrkpts x) i)
+

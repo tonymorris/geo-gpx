@@ -53,27 +53,36 @@ instance XmlPickler MetadataType where
 
 instance Name MetadataType where
   name (MetadataType x _ _ _ _ _ _ _ _) = x
+  setName a (MetadataType _ b c d e f g h i) = metadataType a b c d e f g h i
 
 instance Desc MetadataType where
   desc (MetadataType _ x _ _ _ _ _ _ _) = x
+  setDesc b (MetadataType a _ c d e f g h i) = metadataType a b c d e f g h i
 
 instance Author MetadataType (Maybe PersonType) where
   author (MetadataType _ _ x _ _ _ _ _ _) = x
+  setAuthor c (MetadataType a b _ d e f g h i) = metadataType a b c d e f g h i
 
 instance Copyright MetadataType where
   copyright (MetadataType _ _ _ x _ _ _ _ _) = x
+  setCopyright d (MetadataType a b c _ e f g h i) = metadataType a b c d e f g h i
 
 instance Links MetadataType where
   links (MetadataType _ _ _ _ x _ _ _ _) = x
+  setLinks e (MetadataType a b c d _ f g h i) = metadataType a b c d e f g h i
 
 instance Time MetadataType where
   time (MetadataType _ _ _ _ _ x _ _ _) = x
+  setTime f (MetadataType a b c d e _ g h i) = metadataType a b c d e f g h i
 
 instance Keywords MetadataType where
   keywords (MetadataType _ _ _ _ _ _ x _ _) = x
+  setKeywords g (MetadataType a b c d e f _ h i) = metadataType a b c d e f g h i
 
 instance Bounds MetadataType where
   bounds (MetadataType _ _ _ _ _ _ _ x _) = x
+  setBounds h (MetadataType a b c d e f g _ i) = metadataType a b c d e f g h i
 
 instance Extensions MetadataType where
   extensions (MetadataType _ _ _ _ _ _ _ _ x) = x
+  setExtensions i (MetadataType a b c d e f g h _) = metadataType a b c d e f g h i

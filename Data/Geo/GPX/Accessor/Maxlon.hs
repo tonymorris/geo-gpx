@@ -4,3 +4,5 @@ import Data.Geo.GPX.LongitudeType
 
 class Maxlon a where
   maxlon :: a -> LongitudeType
+  setMaxlon :: LongitudeType -> a -> a
+--

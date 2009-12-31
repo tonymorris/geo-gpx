@@ -28,9 +28,12 @@ instance XmlPickler PersonType where
 
 instance Name PersonType where
   name (PersonType x _ _) = x
+  setName a (PersonType _ b c) = personType a b c
 
 instance Email PersonType where
   email (PersonType _ x _) = x
+  setEmail b (PersonType a _ c) = personType a b c
 
 instance Link PersonType where
   link (PersonType _ _ x) = x
+  setLink c (PersonType a b _) = personType a b c

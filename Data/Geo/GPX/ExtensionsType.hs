@@ -21,3 +21,4 @@ extensionsType = ExtensionsType
 
 instance Value ExtensionsType XmlTree where
   value (ExtensionsType x) = x
+  setValue x (ExtensionsType _) = extensionsType x

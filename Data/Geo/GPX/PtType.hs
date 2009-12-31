@@ -33,12 +33,16 @@ instance XmlPickler PtType where
 
 instance Lat PtType where
   lat (PtType x _ _ _) = x
+  setLat a (PtType _ b c d) = ptType a b c d
 
 instance Lon PtType where
   lon (PtType _ x _ _) = x
+  setLon b (PtType a _ c d) = ptType a b c d
 
 instance Ele PtType where
   ele (PtType _ _ x _) = x
+  setEle c (PtType a b _ d) = ptType a b c d
 
 instance Time PtType where
   time (PtType _ _ _ x) = x
+  setTime d (PtType a b c _) = ptType a b c d

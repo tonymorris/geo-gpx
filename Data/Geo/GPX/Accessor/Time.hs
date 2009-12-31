@@ -4,3 +4,4 @@ import Text.XML.XSD.DateTime
 
 class Time a where
   time :: a -> Maybe DateTime
+  setTime :: Maybe DateTime -> a -> a

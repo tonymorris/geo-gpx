@@ -4,3 +4,4 @@ import Data.Geo.GPX.PtType
 
 class Pts a where
   pts :: a -> [PtType]
+  setPts :: [PtType] -> a -> a
