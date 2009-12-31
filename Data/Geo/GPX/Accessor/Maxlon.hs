@@ -6,4 +6,6 @@ import Data.Geo.GPX.Accessor.Accessor
 class Maxlon a where
   maxlon :: a -> LongitudeType
   setMaxlon :: LongitudeType -> a -> a
---
+
+  usingMaxlon :: a -> (LongitudeType -> LongitudeType) -> a
+  usingMaxlon = maxlon `using` setMaxlon
