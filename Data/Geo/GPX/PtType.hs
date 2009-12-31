@@ -11,14 +11,15 @@ import Data.Geo.GPX.Accessor.Lon
 import Data.Geo.GPX.Accessor.Ele
 import Data.Geo.GPX.Accessor.Time
 import Text.XML.HXT.Arrow
+import Text.XML.XSD.DateTime
 
-data PtType = PtType LatitudeType LongitudeType (Maybe Double) (Maybe String)
+data PtType = PtType LatitudeType LongitudeType (Maybe Double) (Maybe DateTime)
   deriving (Eq, Show)
 
 ptType :: LatitudeType -- ^ The lat.
           -> LongitudeType -- ^ The lon.
           -> Maybe Double -- ^ The ele.
-          -> Maybe String -- ^ The time.
+          -> Maybe DateTime -- ^ The time.
           -> PtType
 ptType = PtType
 
@@ -28,7 +29,7 @@ instance XmlPickler PtType where
                      (xpAttr "lat" xpickle)
                      (xpAttr "lon" xpickle)
                      (xpOption (xpElem "ele" xpPrim))
-                     (xpOption (xpElem "time" xpText)))
+                     (xpOption (xpElem "time" (xpWrapMaybe (dateTime, show) xpText))))
 
 instance Lat PtType where
   lat (PtType x _ _ _) = x

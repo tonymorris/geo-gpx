@@ -22,8 +22,9 @@ import Data.Geo.GPX.Accessor.Bounds
 import Data.Geo.GPX.Accessor.Extensions
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
+import Text.XML.XSD.DateTime
 
-data MetadataType = MetadataType (Maybe String) (Maybe String) (Maybe PersonType) (Maybe CopyrightType) [LinkType] (Maybe String) (Maybe String) (Maybe BoundsType) (Maybe ExtensionsType)
+data MetadataType = MetadataType (Maybe String) (Maybe String) (Maybe PersonType) (Maybe CopyrightType) [LinkType] (Maybe DateTime) (Maybe String) (Maybe BoundsType) (Maybe ExtensionsType)
   deriving (Eq, Show)
 
 metadataType :: Maybe String -- ^ The name.
@@ -31,7 +32,7 @@ metadataType :: Maybe String -- ^ The name.
                 -> Maybe PersonType -- ^ The author.
                 -> Maybe CopyrightType -- ^ The copyright.
                 -> [LinkType] -- ^ The links (link).
-                -> Maybe String -- ^ The time.
+                -> Maybe DateTime -- ^ The time.
                 -> Maybe String -- ^ The keywords.
                 -> Maybe BoundsType -- ^ The bounds.
                 -> Maybe ExtensionsType -- ^ The extensions
@@ -45,7 +46,7 @@ instance XmlPickler MetadataType where
               (xpOption (xpElem "author" xpickle))
               (xpOption (xpElem "copyright" xpickle))
               (xpList (xpElem "link" xpickle))
-              (xpOption (xpElem "time" xpText))
+              (xpOption (xpElem "time" (xpWrapMaybe (dateTime, show) xpText)))
               (xpOption (xpElem "keywords" xpText))
               (xpOption (xpElem "bounds" xpickle))
               (xpOption (xpElem "extensions" xpickle)))

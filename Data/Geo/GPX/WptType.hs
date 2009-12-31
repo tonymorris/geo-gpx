@@ -36,11 +36,12 @@ import Data.Geo.GPX.Accessor.Latlon
 import Data.Geo.GPX.Accessor.Value
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
+import Text.XML.XSD.DateTime
 
 data WptType = WptType LatitudeType
                        LongitudeType
                        (Maybe Double)
-                       (Maybe String)
+                       (Maybe DateTime)
                        (Maybe DegreesType)
                        (Maybe Double)
                        (Maybe String)
@@ -63,7 +64,7 @@ data WptType = WptType LatitudeType
 wptType :: LatitudeType -- ^ The lat.
            -> LongitudeType -- ^ The lon.
            -> Maybe Double -- ^ The ele.
-           -> Maybe String -- ^ The time.
+           -> Maybe DateTime -- ^ The time.
            -> Maybe DegreesType -- ^ The magvar.
            -> Maybe Double -- ^ The geoidheight.
            -> Maybe String -- ^ The name.
@@ -90,7 +91,7 @@ instance XmlPickler WptType where
                     (xpAttr "lat" xpickle)
                     (xpAttr "lon" xpickle)
                     (xpOption (xpElem "ele" xpPrim))
-                    (xpOption (xpElem "time" xpText))
+                    (xpOption (xpElem "time" (xpWrapMaybe (dateTime, show) xpText)))
                     (xpOption (xpElem "magvar" xpickle))
                     (xpOption (xpElem "geoidheight" xpPrim))
                     (xpOption (xpElem "name" xpText))
