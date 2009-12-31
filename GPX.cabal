@@ -43,6 +43,7 @@ Library
                    Data.Geo.GPX.MetadataType
                    Data.Geo.GPX.GpxType
                    Data.Geo.GPX.Gpx
+                   Data.Geo.GPX.Accessor.Accessor
                    Data.Geo.GPX.Accessor.Minlat
                    Data.Geo.GPX.Accessor.Maxlat
                    Data.Geo.GPX.Accessor.Minlon
