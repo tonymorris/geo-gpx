@@ -6,6 +6,8 @@ module Data.Geo.GPX.Gpx(
                          gpx,
                          readGpxFile,
                          readGpxFiles,
+                         interactGpxIO,
+                         interactGpxIO',
                          interactGpx,
                          interactGpx'
                        ) where
@@ -63,17 +65,33 @@ readGpxFiles :: [FilePath] -> IO [Gpx]
 readGpxFiles = fmap join . (mapM readGpxFile)
 
 -- | Reads a GPX file, executes the given function on the XML, then writes the given file.
+interactGpxIO :: Attributes -- ^ The options for reading the GPX file.
+                 -> FilePath -- ^ The GPX file to read.
+                 -> (Gpx -> IO Gpx) -- ^ The function to execute on the XML that is read.
+                 -> Attributes -- ^ The options for writing the GPX file.
+                 -> FilePath -- ^ The GPX file to write.
+                 -> IO ()
+interactGpxIO froma from f toa to = runX (xunpickleDocument (xpickle :: PU Gpx) froma from >>> arrIO f >>> xpickleDocument (xpickle :: PU Gpx) toa to) >> return ()
+
+-- | Reads a GPX file removing whitespace, executes the given function on the XML, then writes the given file with indentation.
+interactGpxIO' :: FilePath -- ^ The GPX file to read.
+                  -> (Gpx -> IO Gpx) -- ^ The function to execute on the XML that is read.
+                  -> FilePath -- ^ The GPX file to write.
+                  -> IO ()
+interactGpxIO' from f = interactGpxIO [(a_remove_whitespace, v_1)] from f [(a_indent, v_1)]
+
+-- | Reads a GPX file, executes the given function on the XML, then writes the given file.
 interactGpx :: Attributes -- ^ The options for reading the GPX file.
                -> FilePath -- ^ The GPX file to read.
-               -> (Gpx -> IO Gpx) -- ^ The function to execute on the XML that is read.
+               -> (Gpx -> Gpx) -- ^ The function to execute on the XML that is read.
                -> Attributes -- ^ The options for writing the GPX file.
                -> FilePath -- ^ The GPX file to write.
                -> IO ()
-interactGpx froma from f toa to = runX (xunpickleDocument (xpickle :: PU Gpx) froma from >>> arrIO f >>> xpickleDocument (xpickle :: PU Gpx) toa to) >> return ()
+interactGpx froma from f = interactGpxIO froma from (return . f)
 
 -- | Reads a GPX file removing whitespace, executes the given function on the XML, then writes the given file with indentation.
 interactGpx' :: FilePath -- ^ The GPX file to read.
-                -> (Gpx -> IO Gpx) -- ^ The function to execute on the XML that is read.
+                -> (Gpx -> Gpx) -- ^ The function to execute on the XML that is read.
                 -> FilePath -- ^ The GPX file to write.
                 -> IO ()
-interactGpx' from f = interactGpx [(a_remove_whitespace, v_1)] from f [(a_indent, v_1)]
+interactGpx' from f = interactGpxIO' from (return . f)
