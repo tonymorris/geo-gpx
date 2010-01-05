@@ -12,7 +12,7 @@ interaction = flip interactsGpx [
                 -- set the copyright in the metadata
                 setCopyright' (copyrightType "Fred" (Just "2009") (Just "BSD3")),
                 -- add a waypoint (home)
-                flip usingWpts (home:),
+                usingWpts (home:),
                 -- set the creator
                 setCreator "Me!"]
 
