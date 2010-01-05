@@ -7,5 +7,5 @@ class Latlon a where
   latlon :: a -> (Double, Double)
   setLatlon :: (Double, Double) -> a -> a
 
-  usingLatlon :: a -> ((Double, Double) -> (Double, Double)) -> a
+  usingLatlon :: ((Double, Double) -> (Double, Double)) -> a -> a
   usingLatlon = latlon `using` setLatlon

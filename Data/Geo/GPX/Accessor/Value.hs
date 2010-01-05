@@ -7,5 +7,5 @@ class Value a b | a -> b where
   value :: a -> b
   setValue :: b -> a -> a
 
-  usingValue :: a -> (b -> b) -> a
+  usingValue :: (b -> b) -> a -> a
   usingValue = value `using` setValue

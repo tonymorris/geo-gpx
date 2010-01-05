@@ -9,5 +9,8 @@ class Year a where
   setYear' :: String -> a -> a
   setYear' = setYear . Just
 
-  usingYear :: a -> (Maybe String -> Maybe String) -> a
+  usingYear :: (Maybe String -> Maybe String) -> a -> a
   usingYear = year `using` setYear
+
+  usingYear' :: (String -> String) -> a -> a
+  usingYear' = usingYear . fmap

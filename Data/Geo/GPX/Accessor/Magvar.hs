@@ -10,5 +10,8 @@ class Magvar a where
   setMagvar' :: DegreesType -> a -> a
   setMagvar' = setMagvar . Just
 
-  usingMagvar :: a -> (Maybe DegreesType -> Maybe DegreesType) -> a
+  usingMagvar :: (Maybe DegreesType -> Maybe DegreesType) -> a -> a
   usingMagvar = magvar `using` setMagvar
+
+  usingMagvar' :: (DegreesType -> DegreesType) -> a -> a
+  usingMagvar' = usingMagvar . fmap

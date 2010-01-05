@@ -7,5 +7,5 @@ class Maxlat a where
   maxlat :: a -> LatitudeType
   setMaxlat :: LatitudeType -> a -> a
 
-  usingMaxlat :: a -> (LatitudeType -> LatitudeType) -> a
+  usingMaxlat :: (LatitudeType -> LatitudeType) -> a -> a
   usingMaxlat = maxlat `using` setMaxlat

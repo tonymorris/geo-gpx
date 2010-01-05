@@ -9,5 +9,8 @@ class Src a where
   setSrc' :: String -> a -> a
   setSrc' = setSrc . Just
 
-  usingSrc :: a -> (Maybe String -> Maybe String) -> a
+  usingSrc :: (Maybe String -> Maybe String) -> a -> a
   usingSrc = src `using` setSrc
+
+  usingSrc' :: (String -> String) -> a -> a
+  usingSrc' = usingSrc . fmap

@@ -6,5 +6,5 @@ class Domain a where
   domain :: a -> String
   setDomain :: String -> a -> a
 
-  usingDomain :: a -> (String -> String) -> a
+  usingDomain :: (String -> String) -> a -> a
   usingDomain = domain `using` setDomain

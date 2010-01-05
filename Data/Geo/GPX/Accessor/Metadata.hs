@@ -10,5 +10,8 @@ class Metadata a where
   setMetadata' :: MetadataType -> a -> a
   setMetadata' = setMetadata . Just
 
-  usingMetadata :: a -> (Maybe MetadataType -> Maybe MetadataType) -> a
+  usingMetadata :: (Maybe MetadataType -> Maybe MetadataType) -> a -> a
   usingMetadata = metadata `using` setMetadata
+
+  usingMetadata' :: (MetadataType -> MetadataType) -> a -> a
+  usingMetadata' = usingMetadata . fmap

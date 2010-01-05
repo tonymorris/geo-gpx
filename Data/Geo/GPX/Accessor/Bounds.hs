@@ -10,5 +10,8 @@ class Bounds a where
   setBounds' :: BoundsType -> a -> a
   setBounds' = setBounds . Just
 
-  usingBounds :: a -> (Maybe BoundsType -> Maybe BoundsType) -> a
+  usingBounds :: (Maybe BoundsType -> Maybe BoundsType) -> a -> a
   usingBounds = bounds `using` setBounds
+
+  usingBounds' :: (BoundsType -> BoundsType) -> a -> a
+  usingBounds' = usingBounds . fmap

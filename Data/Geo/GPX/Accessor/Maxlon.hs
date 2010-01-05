@@ -7,5 +7,5 @@ class Maxlon a where
   maxlon :: a -> LongitudeType
   setMaxlon :: LongitudeType -> a -> a
 
-  usingMaxlon :: a -> (LongitudeType -> LongitudeType) -> a
+  usingMaxlon :: (LongitudeType -> LongitudeType) -> a -> a
   usingMaxlon = maxlon `using` setMaxlon

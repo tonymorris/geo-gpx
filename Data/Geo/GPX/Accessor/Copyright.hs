@@ -10,5 +10,8 @@ class Copyright a where
   setCopyright' :: CopyrightType -> a -> a
   setCopyright' = setCopyright . Just
 
-  usingCopyright :: a -> (Maybe CopyrightType -> Maybe CopyrightType) -> a
+  usingCopyright :: (Maybe CopyrightType -> Maybe CopyrightType) -> a -> a
   usingCopyright = copyright `using` setCopyright
+
+  usingCopyright' :: (CopyrightType -> CopyrightType) -> a -> a
+  usingCopyright' = usingCopyright . fmap

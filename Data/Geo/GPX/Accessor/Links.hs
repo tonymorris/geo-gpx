@@ -10,5 +10,8 @@ class Links a where
   setLinks' :: LinkType -> a -> a
   setLinks' = setLinks . return
 
-  usingLinks :: a -> ([LinkType] -> [LinkType]) -> a
+  usingLinks :: ([LinkType] -> [LinkType]) -> a -> a
   usingLinks = links `using` setLinks
+
+  usingLinks' :: (LinkType -> LinkType) -> a -> a
+  usingLinks' = usingLinks . fmap

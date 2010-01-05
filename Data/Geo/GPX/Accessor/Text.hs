@@ -9,5 +9,8 @@ class Text a where
   setText' :: String -> a -> a
   setText' = setText . Just
 
-  usingText :: a -> (Maybe String -> Maybe String) -> a
+  usingText :: (Maybe String -> Maybe String) -> a -> a
   usingText = text `using` setText
+
+  usingText' :: (String -> String) -> a -> a
+  usingText' = usingText . fmap

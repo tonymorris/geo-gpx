@@ -9,5 +9,8 @@ class Sym a where
   setSym' :: String -> a -> a
   setSym' = setSym . Just
 
-  usingSym :: a -> (Maybe String -> Maybe String) -> a
+  usingSym :: (Maybe String -> Maybe String) -> a -> a
   usingSym = sym `using` setSym
+
+  usingSym' :: (String -> String) -> a -> a
+  usingSym' = usingSym . fmap

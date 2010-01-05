@@ -9,5 +9,8 @@ class Number a where
   setNumber' :: Int -> a -> a
   setNumber' = setNumber . Just
 
-  usingNumber :: a -> (Maybe Int -> Maybe Int) -> a
+  usingNumber :: (Maybe Int -> Maybe Int) -> a -> a
   usingNumber = number `using` setNumber
+
+  usingNumber' :: (Int -> Int) -> a -> a
+  usingNumber' = usingNumber . fmap

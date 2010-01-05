@@ -9,5 +9,8 @@ class Cmt a where
   setCmt' :: String -> a -> a
   setCmt' = setCmt . Just
 
-  usingCmt :: a -> (Maybe String -> Maybe String) -> a
+  usingCmt :: (Maybe String -> Maybe String) -> a -> a
   usingCmt = cmt `using` setCmt
+
+  usingCmt' :: (String -> String) -> a -> a
+  usingCmt' = usingCmt . fmap

@@ -10,5 +10,8 @@ class Dgpsid a where
   setDgpsid' :: DgpsStationType -> a -> a
   setDgpsid' = setDgpsid . Just
 
-  usingDgpsid :: a -> (Maybe DgpsStationType -> Maybe DgpsStationType) -> a
+  usingDgpsid :: (Maybe DgpsStationType -> Maybe DgpsStationType) -> a -> a
   usingDgpsid = dgpsid `using` setDgpsid
+
+  usingDgpsid' :: (DgpsStationType -> DgpsStationType) -> a -> a
+  usingDgpsid' = usingDgpsid . fmap

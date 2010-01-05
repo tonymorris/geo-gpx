@@ -10,5 +10,8 @@ class Fix a where
   setFix' :: FixType -> a -> a
   setFix' = setFix . Just
 
-  usingFix :: a -> (Maybe FixType -> Maybe FixType) -> a
+  usingFix :: (Maybe FixType -> Maybe FixType) -> a -> a
   usingFix = fix `using` setFix
+
+  usingFix' :: (FixType -> FixType) -> a -> a
+  usingFix' = usingFix . fmap

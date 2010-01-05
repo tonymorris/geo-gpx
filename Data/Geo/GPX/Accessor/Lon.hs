@@ -7,5 +7,5 @@ class Lon a where
   lon :: a -> LongitudeType
   setLon :: LongitudeType -> a -> a
 
-  usingLon :: a -> (LongitudeType -> LongitudeType) -> a
+  usingLon :: (LongitudeType -> LongitudeType) -> a -> a
   usingLon = lon `using` setLon

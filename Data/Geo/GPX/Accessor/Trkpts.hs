@@ -10,5 +10,8 @@ class Trkpts a where
   setTrkpts' :: WptType -> a -> a
   setTrkpts' = setTrkpts . return
 
-  usingTrkpts :: a -> ([WptType] -> [WptType]) -> a
+  usingTrkpts :: ([WptType] -> [WptType]) -> a -> a
   usingTrkpts = trkpts `using` setTrkpts
+
+  usingTrkpts' :: (WptType -> WptType) -> a -> a
+  usingTrkpts' = usingTrkpts . fmap

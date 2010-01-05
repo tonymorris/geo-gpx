@@ -9,5 +9,8 @@ class Type a where
   setType' :: String -> a -> a
   setType' = setType . Just
 
-  usingType :: a -> (Maybe String -> Maybe String) -> a
+  usingType :: (Maybe String -> Maybe String) -> a -> a
   usingType = type' `using` setType
+
+  usingType' :: (String -> String) -> a -> a
+  usingType' = usingType . fmap

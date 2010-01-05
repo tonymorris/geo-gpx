@@ -9,5 +9,8 @@ class Desc a where
   setDesc' :: String -> a -> a
   setDesc' = setDesc . Just
 
-  usingDesc :: a -> (Maybe String -> Maybe String) -> a
+  usingDesc :: (Maybe String -> Maybe String) -> a -> a
   usingDesc = desc `using` setDesc
+
+  usingDesc' :: (String -> String) -> a -> a
+  usingDesc' = usingDesc . fmap

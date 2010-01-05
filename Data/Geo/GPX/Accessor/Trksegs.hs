@@ -10,5 +10,8 @@ class Trksegs a where
   setTrksegs' :: TrksegType -> a -> a
   setTrksegs' = setTrksegs . return
 
-  usingTrksegs :: a -> ([TrksegType] -> [TrksegType]) -> a
+  usingTrksegs :: ([TrksegType] -> [TrksegType]) -> a -> a
   usingTrksegs = trksegs `using` setTrksegs
+
+  usingTrksegs' :: (TrksegType -> TrksegType) -> a -> a
+  usingTrksegs' = usingTrksegs . fmap

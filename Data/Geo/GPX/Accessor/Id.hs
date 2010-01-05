@@ -7,5 +7,5 @@ class Id a where
   id :: a -> String
   setId :: String -> a -> a
 
-  usingId :: a -> (String -> String) -> a
+  usingId :: (String -> String) -> a -> a
   usingId = id `using` setId

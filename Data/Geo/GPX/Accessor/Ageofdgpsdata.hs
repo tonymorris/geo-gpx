@@ -9,5 +9,8 @@ class Ageofdgpsdata a where
   setAgeofdgpsdata' :: Double -> a -> a
   setAgeofdgpsdata' = setAgeofdgpsdata . Just
 
-  usingAgeofdgpsdata :: a -> (Maybe Double -> Maybe Double) -> a
+  usingAgeofdgpsdata :: (Maybe Double -> Maybe Double) -> a -> a
   usingAgeofdgpsdata = ageofdgpsdata `using` setAgeofdgpsdata
+
+  usingAgeofdgpsdata' :: (Double -> Double) -> a -> a
+  usingAgeofdgpsdata' = usingAgeofdgpsdata . fmap

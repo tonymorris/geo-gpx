@@ -9,5 +9,8 @@ class Ele a where
   setEle' :: Double -> a -> a
   setEle' = setEle . Just
 
-  usingEle :: a -> (Maybe Double -> Maybe Double) -> a
+  usingEle :: (Maybe Double -> Maybe Double) -> a -> a
   usingEle = ele `using` setEle
+
+  usingEle' :: (Double -> Double) -> a -> a
+  usingEle' = usingEle . fmap

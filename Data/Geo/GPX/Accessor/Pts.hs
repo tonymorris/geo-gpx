@@ -10,5 +10,8 @@ class Pts a where
   setPts' :: PtType -> a -> a
   setPts' = setPts . return
 
-  usingPts :: a -> ([PtType] -> [PtType]) -> a
+  usingPts :: ([PtType] -> [PtType]) -> a -> a
   usingPts = pts `using` setPts
+
+  usingPts' :: (PtType -> PtType) -> a -> a
+  usingPts' = usingPts . fmap

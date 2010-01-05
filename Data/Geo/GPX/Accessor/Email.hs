@@ -10,5 +10,8 @@ class Email a where
   setEmail' :: EmailType -> a -> a
   setEmail' = setEmail . Just
 
-  usingEmail :: a -> (Maybe EmailType -> Maybe EmailType) -> a
+  usingEmail :: (Maybe EmailType -> Maybe EmailType) -> a -> a
   usingEmail = email `using` setEmail
+
+  usingEmail' :: (EmailType -> EmailType) -> a -> a
+  usingEmail' = usingEmail . fmap

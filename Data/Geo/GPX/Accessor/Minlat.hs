@@ -7,5 +7,5 @@ class Minlat a where
   minlat :: a -> LatitudeType
   setMinlat :: LatitudeType -> a -> a
 
-  usingMinlat :: a -> (LatitudeType -> LatitudeType) -> a
+  usingMinlat :: (LatitudeType -> LatitudeType) -> a -> a
   usingMinlat = minlat `using` setMinlat

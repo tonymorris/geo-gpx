@@ -6,5 +6,5 @@ class Creator a where
   creator :: a -> String
   setCreator :: String -> a -> a
 
-  usingCreator :: a -> (String -> String) -> a
+  usingCreator :: (String -> String) -> a -> a
   usingCreator = creator `using` setCreator

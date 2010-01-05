@@ -7,5 +7,5 @@ class Lat a where
   lat :: a -> LatitudeType
   setLat :: LatitudeType -> a -> a
 
-  usingLat :: a -> (LatitudeType -> LatitudeType) -> a
+  usingLat :: (LatitudeType -> LatitudeType) -> a -> a
   usingLat = lat `using` setLat

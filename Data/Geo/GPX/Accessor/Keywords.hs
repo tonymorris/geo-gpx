@@ -9,5 +9,8 @@ class Keywords a where
   setKeywords' :: String -> a -> a
   setKeywords' = setKeywords . Just
 
-  usingKeywords :: a -> (Maybe String -> Maybe String) -> a
+  usingKeywords :: (Maybe String -> Maybe String) -> a -> a
   usingKeywords = keywords `using` setKeywords
+
+  usingKeywords' :: (String -> String) -> a -> a
+  usingKeywords' = usingKeywords . fmap

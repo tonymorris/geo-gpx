@@ -10,5 +10,8 @@ class Trks a where
   setTrks' :: TrkType -> a -> a
   setTrks' = setTrks . return
 
-  usingTrks :: a -> ([TrkType] -> [TrkType]) -> a
+  usingTrks :: ([TrkType] -> [TrkType]) -> a -> a
   usingTrks = trks `using` setTrks
+
+  usingTrks' :: (TrkType -> TrkType) -> a -> a
+  usingTrks' = usingTrks . fmap

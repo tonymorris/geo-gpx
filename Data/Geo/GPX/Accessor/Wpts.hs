@@ -10,5 +10,8 @@ class Wpts a where
   setWpts' :: WptType -> a -> a
   setWpts' = setWpts . return
 
-  usingWpts :: a -> ([WptType] -> [WptType]) -> a
+  usingWpts :: ([WptType] -> [WptType]) -> a -> a
   usingWpts = wpts `using` setWpts
+
+  usingWpts' :: (WptType -> WptType) -> a -> a
+  usingWpts' = usingWpts . fmap

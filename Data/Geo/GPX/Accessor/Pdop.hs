@@ -9,5 +9,8 @@ class Pdop a where
   setPdop' :: Double -> a -> a
   setPdop' = setPdop . Just
 
-  usingPdop :: a -> (Maybe Double -> Maybe Double) -> a
+  usingPdop :: (Maybe Double -> Maybe Double) -> a -> a
   usingPdop = pdop `using` setPdop
+
+  usingPdop' :: (Double -> Double) -> a -> a
+  usingPdop' = usingPdop . fmap

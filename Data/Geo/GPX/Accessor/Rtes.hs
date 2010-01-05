@@ -10,5 +10,8 @@ class Rtes a where
   setRtes' :: RteType -> a -> a
   setRtes' = setRtes . return
 
-  usingRtes :: a -> ([RteType] -> [RteType]) -> a
+  usingRtes :: ([RteType] -> [RteType]) -> a -> a
   usingRtes = rtes `using` setRtes
+
+  usingRtes' :: (RteType -> RteType) -> a -> a
+  usingRtes' = usingRtes . fmap

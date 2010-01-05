@@ -10,5 +10,8 @@ class Extensions a where
   setExtensions' :: ExtensionsType -> a -> a
   setExtensions' = setExtensions . Just
 
-  usingExtensions :: a -> (Maybe ExtensionsType -> Maybe ExtensionsType) -> a
+  usingExtensions :: (Maybe ExtensionsType -> Maybe ExtensionsType) -> a -> a
   usingExtensions = extensions `using` setExtensions
+
+  usingExtensions' :: (ExtensionsType -> ExtensionsType) -> a -> a
+  usingExtensions' = usingExtensions . fmap

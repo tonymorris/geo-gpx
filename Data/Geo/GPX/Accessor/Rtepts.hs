@@ -10,5 +10,8 @@ class Rtepts a where
   setRtepts' :: WptType -> a -> a
   setRtepts' = setRtepts . return
 
-  usingRtepts :: a -> ([WptType] -> [WptType]) -> a
+  usingRtepts :: ([WptType] -> [WptType]) -> a -> a
   usingRtepts = rtepts `using` setRtepts
+
+  usingRtepts' :: (WptType -> WptType) -> a -> a
+  usingRtepts' = usingRtepts . fmap

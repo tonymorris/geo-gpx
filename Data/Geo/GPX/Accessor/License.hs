@@ -9,5 +9,8 @@ class License a where
   setLicense' :: String -> a -> a
   setLicense' = setLicense . Just
 
-  usingLicense :: a -> (Maybe String -> Maybe String) -> a
+  usingLicense :: (Maybe String -> Maybe String) -> a -> a
   usingLicense = license `using` setLicense
+
+  usingLicense' :: (String -> String) -> a -> a
+  usingLicense' = usingLicense . fmap

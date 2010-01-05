@@ -6,5 +6,5 @@ class Href a where
   href :: a -> String
   setHref :: String -> a -> a
 
-  usingHref :: a -> (String -> String) -> a
+  usingHref :: (String -> String) -> a -> a
   usingHref = href `using` setHref

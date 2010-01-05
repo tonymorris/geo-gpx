@@ -9,5 +9,8 @@ class Vdop a where
   setVdop' :: Double -> a -> a
   setVdop' = setVdop . Just
 
-  usingVdop :: a -> (Maybe Double -> Maybe Double) -> a
+  usingVdop :: (Maybe Double -> Maybe Double) -> a -> a
   usingVdop = vdop `using` setVdop
+
+  usingVdop' :: (Double -> Double) -> a -> a
+  usingVdop' = usingVdop . fmap

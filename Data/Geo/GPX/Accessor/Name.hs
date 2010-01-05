@@ -9,5 +9,8 @@ class Name a where
   setName' :: String -> a -> a
   setName' = setName . Just
 
-  usingName :: a -> (Maybe String -> Maybe String) -> a
+  usingName :: (Maybe String -> Maybe String) -> a -> a
   usingName = name `using` setName
+
+  usingName' :: (String -> String) -> a -> a
+  usingName' = usingName . fmap

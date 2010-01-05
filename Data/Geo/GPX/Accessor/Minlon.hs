@@ -7,5 +7,5 @@ class Minlon a where
   minlon :: a -> LongitudeType
   setMinlon :: LongitudeType -> a -> a
 
-  usingMinlon :: a -> (LongitudeType -> LongitudeType) -> a
+  usingMinlon :: (LongitudeType -> LongitudeType) -> a -> a
   usingMinlon = minlon `using` setMinlon

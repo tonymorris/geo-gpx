@@ -9,5 +9,8 @@ class Geoidheight a where
   setGeoidheight' :: Double -> a -> a
   setGeoidheight' = setGeoidheight . Just
 
-  usingGeoidheight :: a -> (Maybe Double -> Maybe Double) -> a
+  usingGeoidheight :: (Maybe Double -> Maybe Double) -> a -> a
   usingGeoidheight = geoidheight `using` setGeoidheight
+
+  usingGeoidheight' :: (Double -> Double) -> a -> a
+  usingGeoidheight' = usingGeoidheight . fmap

@@ -9,5 +9,8 @@ class Sat a where
   setSat' :: Int -> a -> a
   setSat' = setSat . Just
 
-  usingSat :: a -> (Maybe Int -> Maybe Int) -> a
+  usingSat :: (Maybe Int -> Maybe Int) -> a -> a
   usingSat = sat `using` setSat
+
+  usingSat' :: (Int -> Int) -> a -> a
+  usingSat' = usingSat . fmap
