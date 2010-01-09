@@ -17,24 +17,8 @@ interaction = flip interactsGpx [
                 setCreator "Me!"]
 
 home :: WptType
-home = wptType (latitudeType (-27.69301))
-               (longitudeType 152.718)
-               (Just 326.7)
-               Nothing
-               Nothing
-               Nothing
-               (Just "My house")
-               (Just "I live here")
-               Nothing
-               Nothing
-               []
-               Nothing
-               Nothing
-               Nothing
-               Nothing
-               Nothing
-               Nothing
-               Nothing
-               Nothing
-               Nothing
-               Nothing
+home = setDesc' "My house" .
+       setCmt' "I live here" .
+       setEle' 326.7 $
+       wptType' (latitudeType (-27.69301))
+                (longitudeType 152.718)

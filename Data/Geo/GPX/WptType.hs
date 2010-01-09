@@ -1,7 +1,8 @@
 -- | Complex Type: @wptType@ <http://www.topografix.com/GPX/1/1/#type_wptType>
 module Data.Geo.GPX.WptType(
                              WptType,
-                             wptType
+                             wptType,
+                             wptType'
                            ) where
 
 import Data.Geo.GPX.LatitudeType
@@ -84,6 +85,32 @@ wptType :: LatitudeType -- ^ The lat.
            -> Maybe ExtensionsType -- ^ The extensions.
            -> WptType
 wptType a b c d e f g h i j k l m n o p = WptType a b c d e f g h i j k l m n o (fmap abs p)
+
+-- | A waypoint with only a latitude and longitude.
+wptType' :: LatitudeType -- ^ The lat.
+            -> LongitudeType -- ^ The lon.
+            -> WptType
+wptType' lat lon = wptType lat
+                           lon
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
+                           []
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
+                           Nothing
 
 instance XmlPickler WptType where
   xpickle = xpWrap (\(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u) -> wptType a b c d e f g h i j k l m n o p q r s t u,
