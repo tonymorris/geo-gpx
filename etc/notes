@@ -1,0 +1,20 @@
+utility functions
+=================
+
+remove waypoints
+remove tracks
+remove routes
+
+reverse track(s)
+
+waypoints to track
+
+combine track segments
+
+combine tracks
+
+all times to utc time
+
+invert latitude
+invert longitude
+
