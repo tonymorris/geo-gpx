@@ -90,8 +90,8 @@ wptType a b c d e f g h i j k l m n o p = WptType a b c d e f g h i j k l m n o 
 wptType' :: LatitudeType -- ^ The lat.
             -> LongitudeType -- ^ The lon.
             -> WptType
-wptType' lat lon = wptType lat
-                           lon
+wptType' lat' lon' = wptType lat'
+                           lon'
                            Nothing
                            Nothing
                            Nothing
