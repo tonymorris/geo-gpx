@@ -96,4 +96,3 @@ Library
                    Data.Geo.GPX.Accessor.Latlon
                    Data.Geo.GPX.Util.Remove
                    Data.Geo.GPX.Util.Reverse
-                   Data.Geo.GPX.Util.Convert
