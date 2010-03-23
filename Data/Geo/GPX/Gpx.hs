@@ -67,7 +67,7 @@ readGpxFile = runX . xunpickleDocument (xpickle :: PU Gpx) [(a_remove_whitespace
 
 -- | Reads 0 or more GPX files into a list of @Gpx@ values removing whitespace.
 readGpxFiles :: [FilePath] -> IO [Gpx]
-readGpxFiles = fmap join . (mapM readGpxFile)
+readGpxFiles = fmap join . mapM readGpxFile
 
 -- | Reads a GPX file, executes the given function on the XML, then writes the given file.
 interactGpxIO' :: Attributes -- ^ The options for reading the GPX file.
@@ -139,4 +139,4 @@ sum' :: [a -> a] -> a -> a
 sum' = foldl' (.) id
 
 sumIO' :: (Monad m) => [a -> m a] -> a -> m a
-sumIO' x = foldl' (>=>) return x
+sumIO' = foldl' (>=>) return
