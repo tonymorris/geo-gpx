@@ -1,0 +1,5 @@
+:l Data.Geo.GPX
+:m + Data.Geo.GPX
+:set prompt ">> "
+:set -Wall
+
