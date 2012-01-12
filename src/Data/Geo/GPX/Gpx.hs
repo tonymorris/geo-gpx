@@ -1,5 +1,3 @@
-{-# LANGUAGE MultiParamTypeClasses, FlexibleInstances  #-}
-
 -- | Complex Type: @gpxType@ <http://www.topografix.com/GPX/1/1/#type_gpxType>
 module Data.Geo.GPX.Gpx(
   Gpx

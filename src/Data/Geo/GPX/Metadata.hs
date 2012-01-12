@@ -1,5 +1,3 @@
-{-# LANGUAGE MultiParamTypeClasses, FlexibleInstances  #-}
-
 -- | Complex Type: @metadataType@ <http://www.topografix.com/GPX/1/1/#type_metadataType>
 module Data.Geo.GPX.Metadata(
   Metadata
