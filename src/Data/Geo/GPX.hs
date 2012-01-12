@@ -19,6 +19,7 @@ module Data.Geo.GPX(
 , module Data.Geo.GPX.Rte
 , module Data.Geo.GPX.Metadata
 , module Data.Geo.GPX.Gpx
+, module Data.Geo.GPX.Lens
 , module Control.Arrow
 ) where
 
@@ -41,4 +42,5 @@ import Data.Geo.GPX.Trk
 import Data.Geo.GPX.Rte
 import Data.Geo.GPX.Metadata
 import Data.Geo.GPX.Gpx
+import Data.Geo.GPX.Lens
 import Control.Arrow
