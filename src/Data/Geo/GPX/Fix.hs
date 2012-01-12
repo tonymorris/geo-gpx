@@ -13,7 +13,7 @@ module Data.Geo.GPX.Fix(
 import Text.XML.HXT.Arrow hiding (none)
 
 data Fix = None | Twod | Threed | Dgps | Pps
-  deriving (Eq, Enum)
+  deriving (Eq, Ord, Enum)
 
 -- | The catamorphism for @Fix@.
 foldFix ::

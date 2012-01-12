@@ -9,7 +9,7 @@ import Data.Geo.GPX.Longitude
 import Text.XML.HXT.Arrow
 
 data Bounds = Bounds (Latitude, Longitude) (Latitude, Longitude)
-  deriving (Show, Eq)
+  deriving (Eq, Ord)
 
 bounds :: 
   (Latitude, Longitude) -- ^ The minimum latitude and longitude.
@@ -17,5 +17,4 @@ bounds ::
   -> Bounds
 bounds =
   Bounds
-  deriving (Eq, Ord)
 

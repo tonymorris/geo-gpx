@@ -10,7 +10,7 @@ import Data.Fixed
 import Text.XML.HXT.Arrow
 
 newtype Latitude = Latitude Double
-  deriving (Eq, Ord, Enum, Num, Fractional, Floating, Real, RealFrac, RealFloat)
+  deriving (Eq, Ord, Show, Enum, Num, Fractional, Floating, Real, RealFrac, RealFloat)
 
 latitude ::
   Double -- ^ The value which will be between -90 and 90 (values out of the range are truncated using a modulus operation).

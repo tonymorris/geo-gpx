@@ -11,3 +11,9 @@ import Text.XML.HXT.Arrow
 newtype Extensions = Extensions XmlTree
   deriving (Eq, Ord)
 
+extensions :: 
+  XmlTree
+  -> Extensions
+extensions =
+  Extensions
+
