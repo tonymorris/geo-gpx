@@ -1,3 +1,5 @@
+:set -isrc
+:m + Test.QuickCheck
 :l Data.Geo.GPX
 :m + Data.Geo.GPX
 :set prompt ">> "
