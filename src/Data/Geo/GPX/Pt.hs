@@ -6,6 +6,12 @@ module Data.Geo.GPX.Pt(
 
 import Data.Geo.GPX.Latitude
 import Data.Geo.GPX.Longitude
+import Data.Geo.GPX.Lens.LatL
+import Data.Geo.GPX.Lens.LonL
+import Data.Geo.GPX.Lens.EleL
+import Data.Geo.GPX.Lens.TimeL
+import Data.Lens.Common
+import Control.Comonad.Trans.Store
 import Text.XML.HXT.Arrow
 import Text.XML.XSD.DateTime
 
@@ -20,4 +26,20 @@ pt ::
   -> Pt
 pt =
   Pt
+
+instance LatL Pt where
+  latL =
+    Lens $ \(Pt lat lon ele time) -> store (\lat -> Pt lat lon ele time) lat
+
+instance LonL Pt where
+  lonL =
+    Lens $ \(Pt lat lon ele time) -> store (\lon -> Pt lat lon ele time) lon
+
+instance EleL Pt where
+  eleL =
+    Lens $ \(Pt lat lon ele time) -> store (\ele -> Pt lat lon ele time) ele
+
+instance TimeL Pt where
+  timeL =
+    Lens $ \(Pt lat lon ele time) -> store (\time -> Pt lat lon ele time) time
 
