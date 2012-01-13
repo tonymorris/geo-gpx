@@ -6,6 +6,11 @@ module Data.Geo.GPX.Person(
 
 import Data.Geo.GPX.Email
 import Data.Geo.GPX.Link
+import Data.Geo.GPX.Lens.NameL
+import Data.Geo.GPX.Lens.EmailL
+import Data.Geo.GPX.Lens.LinkL
+import Data.Lens.Common
+import Control.Comonad.Trans.Store
 import Text.XML.HXT.Arrow
 
 data Person = Person (Maybe String) (Maybe Email) (Maybe Link)
@@ -19,3 +24,14 @@ person ::
 person =
   Person
 
+instance NameL Person where
+  nameL =
+    Lens $ \(Person name email link) -> store (\name -> Person name email link) name
+
+instance EmailL Person where
+  emailL =
+    Lens $ \(Person name email link) -> store (\email -> Person name email link) email
+
+instance LinkL Person where
+  linkL =
+    Lens $ \(Person name email link) -> store (\link -> Person name email link) link
