@@ -30,3 +30,9 @@ instance ExtensionsL Trkseg where
   extensionsL =
     Lens $ \(Trkseg trkpts extensions) -> store (\extensions -> Trkseg trkpts extensions) extensions
 
+instance XmlPickler Trkseg where
+  xpickle =
+    xpWrap (uncurry trkseg, \(Trkseg trkpt' extensions') -> (trkpt', extensions')) (xpPair
+      (xpList (xpElem "trkpt" xpickle))
+      (xpOption (xpElem "extensions" xpickle)))
+

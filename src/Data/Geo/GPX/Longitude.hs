@@ -28,3 +28,6 @@ runLongitude (Longitude d) =
 instance Show Longitude where
   show (Longitude n) = show n
 
+instance XmlPickler Longitude where
+  xpickle = xpWrap (longitude, \(Longitude n) -> n) xpPrim
+

@@ -36,3 +36,9 @@ instance LicenseL Copyright where
   licenseL =
     Lens $ \(Copyright author year license) -> store (\license -> Copyright author year license) license
 
+instance XmlPickler Copyright where
+  xpickle =
+    xpWrap (\(author', year', license') -> copyright author' year' license', \(Copyright author' year' license') -> (author', year', license')) (xpTriple
+           (xpAttr "author" xpText)
+           (xpOption (xpElem "year" xpText))
+           (xpOption (xpElem "license" xpText)))

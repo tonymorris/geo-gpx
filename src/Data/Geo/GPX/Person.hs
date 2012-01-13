@@ -35,3 +35,11 @@ instance EmailL Person where
 instance LinkL Person where
   linkL =
     Lens $ \(Person name email link) -> store (\link -> Person name email link) link
+
+instance XmlPickler Person where
+  xpickle =
+    xpWrap (\(name', email', link') -> person name' email' link', \(Person name' email' link') -> (name', email', link')) (xpTriple
+           (xpOption (xpElem "name" xpText))
+           (xpOption (xpElem "email" xpickle))
+           (xpOption (xpElem "link" xpickle)))
+

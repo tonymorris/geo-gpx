@@ -6,7 +6,6 @@ module Data.Geo.GPX.DgpsStation(
 ) where
 
 import Data.Ix
-import Data.Maybe
 import Text.XML.HXT.Arrow
 
 newtype DgpsStation = DgpsStation Int
@@ -27,4 +26,8 @@ runDgpsStation ::
   -> Int
 runDgpsStation (DgpsStation i) =
   i
+
+instance XmlPickler DgpsStation where
+  xpickle =
+    xpWrapMaybe (dgpsStation, \(DgpsStation n) -> n) xpickle
 

@@ -22,3 +22,7 @@ runExtensions ::
 runExtensions (Extensions t) =
   t
 
+instance XmlPickler Extensions where
+  xpickle =
+    xpWrap (Extensions, \(Extensions t) -> t) xpTree
+

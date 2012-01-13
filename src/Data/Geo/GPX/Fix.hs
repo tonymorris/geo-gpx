@@ -13,7 +13,7 @@ module Data.Geo.GPX.Fix(
 import Text.XML.HXT.Arrow hiding (none)
 
 data Fix = None | Twod | Threed | Dgps | Pps
-  deriving (Eq, Ord, Enum)
+  deriving (Eq, Ord, Show, Enum)
 
 -- | The catamorphism for @Fix@.
 foldFix ::
@@ -68,4 +68,9 @@ fix "3d" = Just threed
 fix "dgps" = Just dgps
 fix "pps" = Just pps
 fix _ = Nothing
+
+instance XmlPickler Fix where
+  xpickle =
+    xpWrapMaybe (fix, show) xpText
+
 

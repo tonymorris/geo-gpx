@@ -28,3 +28,6 @@ runLatitude (Latitude d) =
 instance Show Latitude where
   show (Latitude n) = show n
 
+instance XmlPickler Latitude where
+  xpickle = xpWrap (latitude, \(Latitude n) -> n) xpPrim
+

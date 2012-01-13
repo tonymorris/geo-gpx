@@ -24,3 +24,7 @@ runDegrees ::
 runDegrees (Degrees d) =
   d
 
+instance XmlPickler Degrees where
+  xpickle =
+    xpWrap (degrees, \(Degrees n) -> n) xpPrim
+

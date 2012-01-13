@@ -23,3 +23,7 @@ runPtseg ::
 runPtseg (Ptseg p) =
   p
 
+instance XmlPickler Ptseg where
+  xpickle =
+    xpWrap (ptseg, \(Ptseg k) -> k) (xpList (xpElem "pt" xpickle))
+

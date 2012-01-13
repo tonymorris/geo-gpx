@@ -79,3 +79,17 @@ instance ExtensionsL Metadata where
   extensionsL =
     Lens $ \(Metadata name desc author copyright links time keywords bounds extensions) -> store (\extensions -> Metadata name desc author copyright links time keywords bounds extensions) extensions
 
+instance XmlPickler Metadata where
+  xpickle =
+    xpWrap (\(a, b, c, d, e, f, g, h, i) -> metadata a b c d e f g h i, \(Metadata a b c d e f g h i) -> (a, b, c, d, e, f, g, h, i)) (xp9Tuple
+           (xpOption (xpElem "name" xpText))
+           (xpOption (xpElem "desc" xpText))
+           (xpOption (xpElem "author" xpickle))
+           (xpOption (xpElem "copyright" xpickle))
+           (xpList (xpElem "link" xpickle))
+           (xpOption (xpElem "time" (xpWrapMaybe (dateTime, show) xpText)))
+           (xpOption (xpElem "keywords" xpText))
+           (xpOption (xpElem "bounds" xpickle))
+           (xpOption (xpElem "extensions" xpickle)))
+
+

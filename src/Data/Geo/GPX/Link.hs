@@ -34,3 +34,10 @@ instance TypeL Link where
   typeL =
     Lens $ \(Link href text typ) -> store (\typ -> Link href text typ) typ
 
+instance XmlPickler Link where
+  xpickle =
+    xpWrap (\(href, text, type') -> link href text type', \(Link href text type') -> (href, text, type')) (xpTriple
+           (xpAttr "href" xpText)
+           (xpOption (xpElem "text" xpText))
+           (xpOption (xpElem "type" xpText)))
+

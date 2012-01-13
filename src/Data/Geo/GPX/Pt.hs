@@ -43,3 +43,12 @@ instance TimeL Pt where
   timeL =
     Lens $ \(Pt lat lon ele time) -> store (\time -> Pt lat lon ele time) time
 
+instance XmlPickler Pt where
+  xpickle =
+    xpWrap (\(lat', lon', ele', time') -> pt lat' lon' ele' time',
+           \(Pt lat' lon' ele' time') -> (lat', lon', ele', time')) (xp4Tuple
+             (xpAttr "lat" xpickle)
+             (xpAttr "lon" xpickle)
+             (xpOption (xpElem "ele" xpPrim))
+             (xpOption (xpElem "time" (xpWrapMaybe (dateTime, show) xpText))))
+

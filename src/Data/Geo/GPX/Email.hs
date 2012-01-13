@@ -28,3 +28,9 @@ instance DomainL Email where
   domainL =
     Lens $ \(Email id domain) -> store (\domain -> Email id domain) domain
 
+instance XmlPickler Email where
+  xpickle =
+    xpWrap (uncurry email, \(Email id' domain') -> (id', domain'))
+           (xpPair (xpAttr "id" xpText) (xpAttr "domain" xpText))
+
+

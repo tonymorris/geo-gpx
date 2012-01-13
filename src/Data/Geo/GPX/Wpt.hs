@@ -203,3 +203,29 @@ instance ExtensionsL Wpt where
   extensionsL =
     Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\extensions -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) extensions
 
+instance XmlPickler Wpt where
+  xpickle =
+    xpWrap (\(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u) -> wpt a b c d e f g h i j k l m n o p q r s t u,
+           \(Wpt a b c d e f g h i j k l m n o p q r s t u) -> (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u)) (xp21Tuple
+              (xpAttr "lat" xpickle)
+              (xpAttr "lon" xpickle)
+              (xpOption (xpElem "ele" xpPrim))
+              (xpOption (xpElem "time" (xpWrapMaybe (dateTime, show) xpText)))
+              (xpOption (xpElem "magvar" xpickle))
+              (xpOption (xpElem "geoidheight" xpPrim))
+              (xpOption (xpElem "name" xpText))
+              (xpOption (xpElem "cmt" xpText))
+              (xpOption (xpElem "desc" xpText))
+              (xpOption (xpElem "src" xpText))
+              (xpList (xpElem "link" xpickle))
+              (xpOption (xpElem "sym" xpText))
+              (xpOption (xpElem "type" xpText))
+              (xpOption (xpElem "fix" xpickle))
+              (xpOption (xpElem "sat" xpPrim))
+              (xpOption (xpElem "hdop" xpPrim))
+              (xpOption (xpElem "vdop" xpPrim))
+              (xpOption (xpElem "pdop" xpPrim))
+              (xpOption (xpElem "ageofdgpsdata" xpPrim))
+              (xpOption (xpElem "dgpsid" xpickle))
+              (xpOption (xpElem "extensions" xpickle)))
+
