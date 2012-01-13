@@ -5,6 +5,10 @@ module Data.Geo.GPX.Email(
 ) where
 
 import Text.XML.HXT.Arrow
+import Data.Geo.GPX.Lens.IdL
+import Data.Geo.GPX.Lens.DomainL
+import Data.Lens.Common
+import Control.Comonad.Trans.Store
 
 data Email = Email String String
   deriving (Eq, Ord)
@@ -15,4 +19,12 @@ email ::
   -> Email
 email =
   Email
+
+instance IdL Email where
+  idL =
+    Lens $ \(Email id domain) -> store (\id -> Email id domain) id
+
+instance DomainL Email where
+  domainL =
+    Lens $ \(Email id domain) -> store (\domain -> Email id domain) domain
 

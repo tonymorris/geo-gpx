@@ -2,6 +2,7 @@
 module Data.Geo.GPX.Extensions(
   Extensions
 , extensions
+, runExtensions
 ) where
 
 import Text.XML.HXT.Arrow
@@ -14,4 +15,10 @@ extensions ::
   -> Extensions
 extensions =
   Extensions
+
+runExtensions ::
+  Extensions
+  -> XmlTree
+runExtensions (Extensions t) =
+  t
 

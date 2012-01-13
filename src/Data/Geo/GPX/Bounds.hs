@@ -26,17 +26,17 @@ bounds =
 
 instance MinlatL Bounds where
   minlatL =
-    Lens $ \(Bounds (a, b) (c, d)) -> store (\a -> Bounds (a, b) (c, d)) a
+    Lens $ \(Bounds (minlat, minlon) (maxlat, maxlon)) -> store (\minlat -> Bounds (minlat, minlon) (maxlat, maxlon)) minlat
 
 instance MinlonL Bounds where
   minlonL =
-    Lens $ \(Bounds (a, b) (c, d)) -> store (\b -> Bounds (a, b) (c, d)) b
+    Lens $ \(Bounds (minlat, minlon) (maxlat, maxlon)) -> store (\minlon -> Bounds (minlat, minlon) (maxlat, maxlon)) minlon
 
 instance MaxlatL Bounds where
   maxlatL =
-    Lens $ \(Bounds (a, b) (c, d)) -> store (\c -> Bounds (a, b) (c, d)) c
+    Lens $ \(Bounds (minlat, minlon) (maxlat, maxlon)) -> store (\maxlat -> Bounds (minlat, minlon) (maxlat, maxlon)) maxlat
 
 instance MaxlonL Bounds where
   maxlonL =
-    Lens $ \(Bounds (a, b) (c, d)) -> store (\d -> Bounds (a, b) (c, d)) d
+    Lens $ \(Bounds (minlat, minlon) (maxlat, maxlon)) -> store (\maxlon -> Bounds (minlat, minlon) (maxlat, maxlon)) maxlon
 

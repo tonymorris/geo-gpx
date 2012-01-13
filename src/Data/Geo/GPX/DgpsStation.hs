@@ -2,6 +2,7 @@
 module Data.Geo.GPX.DgpsStation(
   DgpsStation
 , dgpsStation
+, runDgpsStation
 ) where
 
 import Data.Ix
@@ -20,4 +21,10 @@ dgpsStation n =
       Just (DgpsStation n)
     else
       Nothing
+
+runDgpsStation ::
+  DgpsStation
+  -> Int
+runDgpsStation (DgpsStation i) =
+  i
 
