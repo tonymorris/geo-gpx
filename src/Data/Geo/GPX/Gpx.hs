@@ -44,24 +44,24 @@ instance VersionL Gpx where
 
 instance CreatorL Gpx where
   creatorL =
-    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> creator (\version -> Gpx version creator metadata wpts rtes trks extensions) creator
+    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> store (\creator -> Gpx version creator metadata wpts rtes trks extensions) creator
 
 instance MetadataL Gpx where
   metadataL =
-    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> metadata (\version -> Gpx version creator metadata wpts rtes trks extensions) metadata
+    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> store (\metadata -> Gpx version creator metadata wpts rtes trks extensions) metadata
 
 instance WptsL Gpx where
   wptsL =
-    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> wpts (\version -> Gpx version creator metadata wpts rtes trks extensions) wpts
+    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> store (\wpts -> Gpx version creator metadata wpts rtes trks extensions) wpts
 
 instance RtesL Gpx where
   rtesL =
-    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> rtes (\version -> Gpx version creator metadata wpts rtes trks extensions) rtes
+    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> store (\rtes -> Gpx version creator metadata wpts rtes trks extensions) rtes
 
 instance TrksL Gpx where
   trksL =
-    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> trks (\version -> Gpx version creator metadata wpts rtes trks extensions) trks
+    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> store (\trks -> Gpx version creator metadata wpts rtes trks extensions) trks
 
 instance ExtensionsL Gpx where
   extensionsL =
-    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> extensions (\version -> Gpx version creator metadata wpts rtes trks extensions) extensions
+    Lens $ \(Gpx version creator metadata wpts rtes trks extensions) -> store (\extensions -> Gpx version creator metadata wpts rtes trks extensions) extensions

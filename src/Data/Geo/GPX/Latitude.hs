@@ -4,6 +4,7 @@
 module Data.Geo.GPX.Latitude(
   Latitude
 , latitude
+, runLatitude
 ) where
 
 import Data.Fixed
@@ -18,7 +19,12 @@ latitude ::
 latitude n =
   Latitude ((n + 90) `mod'` 180 - 90)
 
+runLatitude ::
+  Latitude
+  -> Double
+runLatitude (Latitude d) =
+  d
+
 instance Show Latitude where
   show (Latitude n) = show n
-
 
