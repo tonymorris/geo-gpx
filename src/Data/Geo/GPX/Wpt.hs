@@ -203,7 +203,3 @@ instance ExtensionsL Wpt where
   extensionsL =
     Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\extensions -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) extensions
 
-
-
-
-
