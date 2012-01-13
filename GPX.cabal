@@ -10,7 +10,7 @@ Author:              Tony Morris <ʇǝu˙sıɹɹoɯʇ@ןןǝʞsɐɥ>
 Maintainer:          Tony Morris <ʇǝu˙sıɹɹoɯʇ@ןןǝʞsɐɥ>
 Copyright:           2009 -- 2012 Tony Morris
 Build-Type:          Simple
-Cabal-Version:       >= 1.2
+Cabal-Version:       >= 1.6
 Source-Repository    head
   Type:              git
   Location:          git@github.com:tonymorris/geo-gpx.git
