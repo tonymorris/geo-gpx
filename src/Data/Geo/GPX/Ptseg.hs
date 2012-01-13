@@ -2,6 +2,7 @@
 module Data.Geo.GPX.Ptseg(
   Ptseg
 , ptseg
+, runPtseg
 ) where
 
 import Data.Geo.GPX.Pt
@@ -15,4 +16,10 @@ ptseg ::
   -> Ptseg
 ptseg =
   Ptseg
+
+runPtseg ::
+  Ptseg
+  -> [Pt]
+runPtseg (Ptseg p) =
+  p
 
