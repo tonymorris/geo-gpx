@@ -1,5 +1,6 @@
 module Data.Geo.GPX.Lens(
   module Data.Geo.GPX.Lens.AgeofdgpsdataL
+, module Data.Geo.GPX.Lens.AuthorL
 , module Data.Geo.GPX.Lens.BoundsL
 , module Data.Geo.GPX.Lens.CmtL
 , module Data.Geo.GPX.Lens.CopyrightL
@@ -49,6 +50,7 @@ module Data.Geo.GPX.Lens(
 ) where
 
 import Data.Geo.GPX.Lens.AgeofdgpsdataL
+import Data.Geo.GPX.Lens.AuthorL
 import Data.Geo.GPX.Lens.BoundsL
 import Data.Geo.GPX.Lens.CmtL
 import Data.Geo.GPX.Lens.CopyrightL
