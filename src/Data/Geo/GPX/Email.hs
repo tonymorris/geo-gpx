@@ -4,11 +4,11 @@ module Data.Geo.GPX.Email(
 , email
 ) where
 
-import Text.XML.HXT.Arrow
 import Data.Geo.GPX.Lens.IdL
 import Data.Geo.GPX.Lens.DomainL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
+import Text.XML.HXT.Arrow.Pickle
 
 data Email = Email String String
   deriving (Eq, Ord)

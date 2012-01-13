@@ -20,11 +20,10 @@ import Data.Geo.GPX.Lens.TrksL
 import Data.Geo.GPX.Lens.ExtensionsL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow
-import Text.XML.HXT.Extras
+import Text.XML.HXT.Arrow.Pickle
 
 data Gpx = Gpx String String (Maybe Metadata) [Wpt] [Rte] [Trk] (Maybe Extensions)
-  deriving (Eq, Ord)
+  deriving Eq
 
 gpx ::
   String -- ^ The version.

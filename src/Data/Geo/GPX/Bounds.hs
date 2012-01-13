@@ -12,7 +12,7 @@ import Data.Geo.GPX.Lens.MinlonL
 import Data.Geo.GPX.Lens.MaxlonL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
 
 data Bounds = Bounds (Latitude, Longitude) (Latitude, Longitude)
   deriving (Eq, Ord)

@@ -6,7 +6,7 @@ module Data.Geo.GPX.Ptseg(
 ) where
 
 import Data.Geo.GPX.Pt
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
 
 newtype Ptseg = Ptseg [Pt]
   deriving (Eq, Ord)

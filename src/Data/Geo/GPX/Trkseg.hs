@@ -10,10 +10,10 @@ import Data.Geo.GPX.Lens.TrkptsL
 import Data.Geo.GPX.Lens.ExtensionsL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
 
 data Trkseg = Trkseg [Wpt] (Maybe Extensions)
-  deriving (Eq, Ord)
+  deriving Eq
 
 trkseg ::
   [Wpt] -- ^ The track points (trkpt).

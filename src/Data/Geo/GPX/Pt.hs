@@ -12,7 +12,7 @@ import Data.Geo.GPX.Lens.EleL
 import Data.Geo.GPX.Lens.TimeL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
 import Text.XML.XSD.DateTime
 
 data Pt = Pt Latitude Longitude (Maybe Double) (Maybe DateTime)

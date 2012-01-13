@@ -6,7 +6,7 @@ module Data.Geo.GPX.DgpsStation(
 ) where
 
 import Data.Ix
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
 
 newtype DgpsStation = DgpsStation Int
   deriving (Eq, Ord)

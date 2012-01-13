@@ -9,7 +9,7 @@ import Data.Geo.GPX.Lens.TextL
 import Data.Geo.GPX.Lens.TypeL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
 
 data Link = Link String (Maybe String) (Maybe String)
   deriving (Eq, Ord)

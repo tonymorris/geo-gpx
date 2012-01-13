@@ -10,7 +10,7 @@ module Data.Geo.GPX.Fix(
 , fix
 ) where
 
-import Text.XML.HXT.Arrow hiding (none)
+import Text.XML.HXT.Arrow.Pickle
 
 data Fix = None | Twod | Threed | Dgps | Pps
   deriving (Eq, Ord, Show, Enum)

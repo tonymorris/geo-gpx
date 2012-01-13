@@ -7,7 +7,7 @@ module Data.Geo.GPX.Degrees(
 
 
 import Data.Fixed
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
 
 newtype Degrees = Degrees Double
   deriving (Eq, Ord, Show)

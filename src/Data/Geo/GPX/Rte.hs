@@ -18,11 +18,10 @@ import Data.Geo.GPX.Lens.ExtensionsL
 import Data.Geo.GPX.Lens.RteptsL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow
-import Text.XML.HXT.Extras
+import Text.XML.HXT.Arrow.Pickle
 
 data Rte = Rte (Maybe String) (Maybe String) (Maybe String) (Maybe String) [Link] (Maybe Int) (Maybe String) (Maybe Extensions) [Wpt]
-  deriving (Eq, Ord)
+  deriving Eq
 
 rte ::
   Maybe String -- ^ The name.

@@ -11,7 +11,7 @@ import Data.Geo.GPX.Lens.YearL
 import Data.Geo.GPX.Lens.LicenseL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
 
 data Copyright = Copyright String (Maybe String) (Maybe String)
   deriving (Eq, Ord)

@@ -5,10 +5,11 @@ module Data.Geo.GPX.Extensions(
 , runExtensions
 ) where
 
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
+import Text.XML.HXT.DOM.TypeDefs
 
 newtype Extensions = Extensions XmlTree
-  deriving (Eq, Ord)
+  deriving Eq
 
 extensions :: 
   XmlTree

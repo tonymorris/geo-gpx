@@ -35,8 +35,7 @@ import Data.Geo.GPX.Lens.DgpsidL
 import Data.Geo.GPX.Lens.ExtensionsL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow
-import Text.XML.HXT.Extras
+import Text.XML.HXT.Arrow.Pickle
 import Text.XML.XSD.DateTime
 
 data Wpt =
@@ -62,7 +61,7 @@ data Wpt =
     (Maybe Double)
     (Maybe DgpsStation)
     (Maybe Extensions)
-  deriving (Eq, Ord)
+  deriving Eq
 
 wpt ::
   Latitude -- ^ The lat.

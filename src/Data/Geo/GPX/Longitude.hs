@@ -8,7 +8,7 @@ module Data.Geo.GPX.Longitude(
 ) where
 
 import Data.Fixed
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
 
 newtype Longitude = Longitude Double
   deriving (Eq, Ord, Enum, Num, Fractional, Floating, Real, RealFrac, RealFloat)

@@ -8,7 +8,7 @@ module Data.Geo.GPX.Latitude(
 ) where
 
 import Data.Fixed
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
 
 newtype Latitude = Latitude Double
   deriving (Eq, Ord, Enum, Num, Fractional, Floating, Real, RealFrac, RealFloat)

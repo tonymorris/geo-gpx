@@ -22,12 +22,11 @@ import Data.Geo.GPX.Lens.BoundsL
 import Data.Geo.GPX.Lens.ExtensionsL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow
-import Text.XML.HXT.Extras
+import Text.XML.HXT.Arrow.Pickle
 import Text.XML.XSD.DateTime
 
 data Metadata = Metadata (Maybe String) (Maybe String) (Maybe Person) (Maybe Copyright) [Link] (Maybe DateTime) (Maybe String) (Maybe Bounds) (Maybe Extensions)
-  deriving (Eq, Ord)
+  deriving Eq
 
 metadata ::
   Maybe String -- ^ The name.

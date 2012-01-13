@@ -18,11 +18,10 @@ import Data.Geo.GPX.Lens.ExtensionsL
 import Data.Geo.GPX.Lens.TrksegsL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow
-import Text.XML.HXT.Extras
+import Text.XML.HXT.Arrow.Pickle
 
 data Trk = Trk (Maybe String) (Maybe String) (Maybe String) (Maybe String) [Link] (Maybe Int) (Maybe String) (Maybe Extensions) [Trkseg]
-  deriving (Eq, Ord)
+  deriving Eq
 
 trk ::
   Maybe String -- ^ The name.

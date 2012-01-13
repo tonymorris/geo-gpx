@@ -11,7 +11,7 @@ import Data.Geo.GPX.Lens.EmailL
 import Data.Geo.GPX.Lens.LinkL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow
+import Text.XML.HXT.Arrow.Pickle
 
 data Person = Person (Maybe String) (Maybe Email) (Maybe Link)
   deriving (Eq, Ord)
