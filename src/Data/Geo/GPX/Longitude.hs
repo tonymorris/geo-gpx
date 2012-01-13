@@ -4,6 +4,7 @@
 module Data.Geo.GPX.Longitude(
   Longitude
 , longitude
+, runLongitude
 ) where
 
 import Data.Fixed
@@ -17,6 +18,12 @@ longitude ::
   -> Longitude
 longitude n =
   Longitude ((n + 180) `mod'` 360 - 180)
+
+runLongitude ::
+  Longitude
+  -> Double
+runLongitude (Longitude d) =
+  d
 
 instance Show Longitude where
   show (Longitude n) = show n

@@ -4,6 +4,11 @@ module Data.Geo.GPX.Link(
 , link
 ) where
 
+import Data.Geo.GPX.Lens.HrefL
+import Data.Geo.GPX.Lens.TextL
+import Data.Geo.GPX.Lens.TypeL
+import Data.Lens.Common
+import Control.Comonad.Trans.Store
 import Text.XML.HXT.Arrow
 
 data Link = Link String (Maybe String) (Maybe String)
@@ -16,4 +21,16 @@ link ::
   -> Link
 link =
   Link
+
+instance HrefL Link where
+  hrefL =
+    Lens $ \(Link href text typ) -> store (\href -> Link href text typ) href
+
+instance TextL Link where
+  textL =
+    Lens $ \(Link href text typ) -> store (\text -> Link href text typ) text
+
+instance TypeL Link where
+  typeL =
+    Lens $ \(Link href text typ) -> store (\typ -> Link href text typ) typ
 

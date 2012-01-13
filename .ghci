@@ -4,4 +4,5 @@
 :m + Data.Geo.GPX
 :set prompt ">> "
 :set -Wall
+:set -fno-warn-name-shadowing
 
