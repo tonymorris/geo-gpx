@@ -6,6 +6,10 @@ module Data.Geo.GPX.Trkseg(
 
 import Data.Geo.GPX.Wpt
 import Data.Geo.GPX.Extensions
+import Data.Geo.GPX.Lens.TrkptsL
+import Data.Geo.GPX.Lens.ExtensionsL
+import Data.Lens.Common
+import Control.Comonad.Trans.Store
 import Text.XML.HXT.Arrow
 
 data Trkseg = Trkseg [Wpt] (Maybe Extensions)
@@ -17,4 +21,12 @@ trkseg ::
   -> Trkseg
 trkseg =
   Trkseg
+
+instance TrkptsL Trkseg where
+  trkptsL =
+    Lens $ \(Trkseg trkpts extensions) -> store (\trkpts -> Trkseg trkpts extensions) trkpts
+
+instance ExtensionsL Trkseg where
+  extensionsL =
+    Lens $ \(Trkseg trkpts extensions) -> store (\extensions -> Trkseg trkpts extensions) extensions
 

@@ -12,6 +12,29 @@ import Data.Geo.GPX.Link
 import Data.Geo.GPX.Fix
 import Data.Geo.GPX.DgpsStation
 import Data.Geo.GPX.Extensions
+import Data.Geo.GPX.Lens.LatL
+import Data.Geo.GPX.Lens.LonL
+import Data.Geo.GPX.Lens.EleL
+import Data.Geo.GPX.Lens.TimeL
+import Data.Geo.GPX.Lens.MagvarL
+import Data.Geo.GPX.Lens.GeoidheightL
+import Data.Geo.GPX.Lens.NameL
+import Data.Geo.GPX.Lens.CmtL
+import Data.Geo.GPX.Lens.DescL
+import Data.Geo.GPX.Lens.SrcL
+import Data.Geo.GPX.Lens.LinksL
+import Data.Geo.GPX.Lens.SymL
+import Data.Geo.GPX.Lens.TypeL
+import Data.Geo.GPX.Lens.FixL
+import Data.Geo.GPX.Lens.SatL
+import Data.Geo.GPX.Lens.HdopL
+import Data.Geo.GPX.Lens.VdopL
+import Data.Geo.GPX.Lens.PdopL
+import Data.Geo.GPX.Lens.AgeofdgpsdataL
+import Data.Geo.GPX.Lens.DgpsidL
+import Data.Geo.GPX.Lens.ExtensionsL
+import Data.Lens.Common
+import Control.Comonad.Trans.Store
 import Text.XML.HXT.Arrow
 import Text.XML.HXT.Extras
 import Text.XML.XSD.DateTime
@@ -95,4 +118,92 @@ wpt' lat' lon' =
     Nothing
     Nothing
     Nothing
+
+instance LatL Wpt where
+  latL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\lat -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) lat
+
+instance LonL Wpt where
+  lonL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\lon -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) lon
+
+instance EleL Wpt where
+  eleL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\ele -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) ele
+
+instance TimeL Wpt where
+  timeL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\time -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) time
+
+instance MagvarL Wpt where
+  magvarL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\magvar -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) magvar
+
+instance GeoidheightL Wpt where
+  geoidheightL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\geoidheight -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) geoidheight
+
+instance NameL Wpt where
+  nameL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\name -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) name
+
+instance CmtL Wpt where
+  cmtL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\cmt -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) cmt
+
+instance DescL Wpt where
+  descL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\desc -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) desc
+
+instance SrcL Wpt where
+  srcL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\src -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) src
+
+instance LinksL Wpt where
+  linksL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\links -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) links
+
+instance SymL Wpt where
+  symL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\sym -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) sym
+
+instance TypeL Wpt where
+  typeL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\typ -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) typ
+
+instance FixL Wpt where
+  fixL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\fix -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) fix
+
+instance SatL Wpt where
+  satL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\sat -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) sat
+
+instance HdopL Wpt where
+  hdopL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\hdop -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) hdop
+
+instance VdopL Wpt where
+  vdopL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\vdop -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) vdop
+
+instance PdopL Wpt where
+  pdopL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\pdop -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) pdop
+
+instance AgeofdgpsdataL Wpt where
+  ageofdgpsdataL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\ageofdgpsdata -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) ageofdgpsdata
+
+instance DgpsidL Wpt where
+  dgpsidL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\dgpsid -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) dgpsid
+
+instance ExtensionsL Wpt where
+  extensionsL =
+    Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\extensions -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) extensions
+
+
+
+
 
