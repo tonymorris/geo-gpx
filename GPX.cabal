@@ -1,5 +1,5 @@
 Name:                GPX
-Version:             0.6.0
+Version:             0.6.1
 License:             BSD3
 License-File:        LICENSE
 Synopsis:            Parse GPX files
@@ -52,6 +52,7 @@ Library
                      Data.Geo.GPX.Rte
                      Data.Geo.GPX.Metadata
                      Data.Geo.GPX.Gpx
+                     Data.Geo.GPX.Lens
                      Data.Geo.GPX.Lens.MinlatL
                      Data.Geo.GPX.Lens.MaxlatL
                      Data.Geo.GPX.Lens.MinlonL
