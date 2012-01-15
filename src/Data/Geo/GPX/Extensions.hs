@@ -8,22 +8,22 @@ module Data.Geo.GPX.Extensions(
 import Text.XML.HXT.Arrow.Pickle
 import Text.XML.HXT.DOM.TypeDefs
 
-newtype Extensions = Extensions XmlTree
+newtype Extensions = Extensions XmlTrees
   deriving Eq
 
 extensions :: 
-  XmlTree
+  XmlTrees
   -> Extensions
 extensions =
   Extensions
 
 runExtensions ::
   Extensions
-  -> XmlTree
+  -> XmlTrees
 runExtensions (Extensions t) =
   t
 
 instance XmlPickler Extensions where
   xpickle =
-    xpWrap (Extensions, \(Extensions t) -> t) xpTree
+    xpWrap (Extensions, \(Extensions t) -> t) xpTrees
 
