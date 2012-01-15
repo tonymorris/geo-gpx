@@ -8,7 +8,7 @@ Homepage:            https://github.com/tonymorris/geo-gpx
 Category:            Utils
 Author:              Tony Morris <ʇǝu˙sıɹɹoɯʇ@ןןǝʞsɐɥ>, Thomas DuBuisson
 Maintainer:          Tony Morris <ʇǝu˙sıɹɹoɯʇ@ןןǝʞsɐɥ>, Thomas DuBuisson
-Copyright:           2009 -- 2012 Tony Morris
+Copyright:           2009 -- 2012 Tony Morris, Thomas DuBuisson
 Build-Type:          Simple
 Cabal-Version:       >= 1.6
 Source-Repository    head

@@ -9,7 +9,7 @@ import Text.XML.HXT.Arrow.Pickle
 import Text.XML.HXT.DOM.TypeDefs
 
 newtype Extensions = Extensions XmlTrees
-  deriving Eq
+  deriving (Eq, Show)
 
 extensions :: 
   XmlTrees
