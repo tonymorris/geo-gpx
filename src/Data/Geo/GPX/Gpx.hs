@@ -68,12 +68,12 @@ instance ExtensionsL Gpx where
 instance XmlPickler Gpx where
   xpickle =
     xpWrap (\(version', creator', metadata', wpt', rte', trk', extensions') -> gpx version' creator' metadata' wpt' rte' trk' extensions',
-              \(Gpx version' creator' metadata' wpt' rte' trk' extensions') -> (version', creator', metadata', wpt', rte', trk', extensions')) (xp7Tuple
+              \(Gpx version' creator' metadata' wpt' rte' trk' extensions') -> (version', creator', metadata', wpt', rte', trk', extensions')) (xpElem "gpx" (xp7Tuple
                 (xpAttr "version" xpText)
                 (xpAttr "creator" xpText)
                 (xpOption (xpElem "metadata" xpickle))
                 (xpList (xpElem "wpt" xpickle))
                 (xpList (xpElem "rte" xpickle))
                 (xpList (xpElem "trk" xpickle))
-                (xpOption (xpElem "extensions" xpickle)))
+                (xpOption (xpElem "extensions" xpickle))))
 
