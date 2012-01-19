@@ -34,7 +34,7 @@ instance XmlPickler Longitude where
 
 instance Newtype Longitude Double where
   pack = 
-    Longitude
+    longitude
   unpack (Longitude x) =
     x
 

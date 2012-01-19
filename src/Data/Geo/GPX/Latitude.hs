@@ -34,7 +34,7 @@ instance XmlPickler Latitude where
 
 instance Newtype Latitude Double where
   pack = 
-    Latitude
+    latitude
   unpack (Latitude x) =
     x
 

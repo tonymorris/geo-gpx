@@ -33,7 +33,7 @@ instance XmlPickler Degrees where
 
 instance Newtype Degrees Double where
   pack = 
-    Degrees
+    degrees
   unpack (Degrees x) =
     x
 
