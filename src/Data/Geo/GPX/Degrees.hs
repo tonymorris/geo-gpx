@@ -1,3 +1,5 @@
+{-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
+
 -- | Simple Type: @degreesType@ <http://www.topografix.com/GPX/1/1/#type_degreesType>
 module Data.Geo.GPX.Degrees(
   Degrees
@@ -8,6 +10,7 @@ module Data.Geo.GPX.Degrees(
 
 import Data.Fixed
 import Text.XML.HXT.Arrow.Pickle
+import Control.Newtype
 
 newtype Degrees = Degrees Double
   deriving (Eq, Ord, Show)
@@ -27,4 +30,10 @@ runDegrees (Degrees d) =
 instance XmlPickler Degrees where
   xpickle =
     xpWrap (degrees, \(Degrees n) -> n) xpPrim
+
+instance Newtype Degrees Double where
+  pack = 
+    Degrees
+  unpack (Degrees x) =
+    x
 

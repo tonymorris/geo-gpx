@@ -26,6 +26,7 @@ Library
                      , comonad-transformers
                      , data-lens
                      , xsd
+                     , newtype
 
   GHC-Options:      -Wall
                     -fno-warn-name-shadowing

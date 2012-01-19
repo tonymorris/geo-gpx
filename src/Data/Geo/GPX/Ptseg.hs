@@ -1,3 +1,5 @@
+{-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
+
 -- | Complex Type: @ptsegType@ <http://www.topografix.com/GPX/1/1/#type_ptsegType>
 module Data.Geo.GPX.Ptseg(
   Ptseg
@@ -7,6 +9,7 @@ module Data.Geo.GPX.Ptseg(
 
 import Data.Geo.GPX.Pt
 import Text.XML.HXT.Arrow.Pickle
+import Control.Newtype
 
 newtype Ptseg = Ptseg [Pt]
   deriving (Eq, Ord)
@@ -26,4 +29,10 @@ runPtseg (Ptseg p) =
 instance XmlPickler Ptseg where
   xpickle =
     xpWrap (ptseg, \(Ptseg k) -> k) (xpList (xpElem "pt" xpickle))
+
+instance Newtype Ptseg [Pt] where
+  pack = 
+    Ptseg
+  unpack (Ptseg x) =
+    x
 

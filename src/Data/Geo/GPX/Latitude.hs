@@ -1,4 +1,4 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving, FlexibleInstances, MultiParamTypeClasses #-}
 
 -- | Simple Type: @latitudeType@ <http://www.topografix.com/GPX/1/1/#type_latitudeType>
 module Data.Geo.GPX.Latitude(
@@ -9,6 +9,7 @@ module Data.Geo.GPX.Latitude(
 
 import Data.Fixed
 import Text.XML.HXT.Arrow.Pickle
+import Control.Newtype
 
 newtype Latitude = Latitude Double
   deriving (Eq, Ord, Enum, Num, Fractional, Floating, Real, RealFrac, RealFloat)
@@ -30,4 +31,10 @@ instance Show Latitude where
 
 instance XmlPickler Latitude where
   xpickle = xpWrap (latitude, \(Latitude n) -> n) xpPrim
+
+instance Newtype Latitude Double where
+  pack = 
+    Latitude
+  unpack (Latitude x) =
+    x
 

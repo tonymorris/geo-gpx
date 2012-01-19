@@ -1,3 +1,5 @@
+{-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
+
 -- | Simple Type: @dgpsStationType@ <http://www.topografix.com/GPX/1/1/#type_dgpsStationType>
 module Data.Geo.GPX.DgpsStation(
   DgpsStation
@@ -7,6 +9,7 @@ module Data.Geo.GPX.DgpsStation(
 
 import Data.Ix
 import Text.XML.HXT.Arrow.Pickle
+import Control.Newtype
 
 newtype DgpsStation = DgpsStation Int
   deriving (Eq, Ord)
@@ -30,4 +33,10 @@ runDgpsStation (DgpsStation i) =
 instance XmlPickler DgpsStation where
   xpickle =
     xpWrapMaybe (dgpsStation, \(DgpsStation n) -> n) xpickle
+
+instance Newtype DgpsStation Int where
+  pack = 
+    DgpsStation
+  unpack (DgpsStation x) =
+    x
 
