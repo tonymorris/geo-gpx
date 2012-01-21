@@ -1,7 +1,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving, FlexibleInstances, MultiParamTypeClasses #-}
 
 -- | Simple Type: @latitudeType@ <http://www.topografix.com/GPX/1/1/#type_latitudeType>
-module Data.Geo.GPX.Longitude(
+module Data.Geo.GPX.Type.Longitude(
   Longitude
 , longitude
 , runLongitude

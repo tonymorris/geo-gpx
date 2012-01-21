@@ -1,5 +1,5 @@
 -- | Complex Type: @linkType@ <http://www.topografix.com/GPX/1/1/#type_linkType>
-module Data.Geo.GPX.Link(
+module Data.Geo.GPX.Type.Link(
   Link
 , link
 ) where

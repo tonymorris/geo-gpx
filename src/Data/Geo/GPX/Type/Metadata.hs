@@ -1,16 +1,16 @@
 {-# LANGUAGE MultiParamTypeClasses, FlexibleInstances, TypeSynonymInstances #-}
 
 -- | Complex Type: @metadataType@ <http://www.topografix.com/GPX/1/1/#type_metadataType>
-module Data.Geo.GPX.Metadata(
+module Data.Geo.GPX.Type.Metadata(
   Metadata
 , metadata
 ) where
 
-import Data.Geo.GPX.Person
-import Data.Geo.GPX.Copyright
-import Data.Geo.GPX.Link
-import Data.Geo.GPX.Bounds
-import Data.Geo.GPX.Extensions
+import Data.Geo.GPX.Type.Person
+import Data.Geo.GPX.Type.Copyright
+import Data.Geo.GPX.Type.Link
+import Data.Geo.GPX.Type.Bounds
+import Data.Geo.GPX.Type.Extensions
 import Data.Geo.GPX.Lens.NameL
 import Data.Geo.GPX.Lens.DescL
 import Data.Geo.GPX.Lens.AuthorL

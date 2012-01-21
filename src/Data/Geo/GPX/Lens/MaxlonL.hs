@@ -1,6 +1,6 @@
 module Data.Geo.GPX.Lens.MaxlonL where
 
-import Data.Geo.GPX.Longitude
+import Data.Geo.GPX.Type.Longitude
 import Data.Lens.Common
 
 class MaxlonL a where

@@ -1,5 +1,5 @@
 -- | Simple Type: @dgpsStationType@ <http://www.topografix.com/GPX/1/1/#type_dgpsStationType>
-module Data.Geo.GPX.DgpsStation(
+module Data.Geo.GPX.Type.DgpsStation(
   DgpsStation
 , dgpsStation
 , runDgpsStation

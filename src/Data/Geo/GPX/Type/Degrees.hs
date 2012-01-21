@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
 
 -- | Simple Type: @degreesType@ <http://www.topografix.com/GPX/1/1/#type_degreesType>
-module Data.Geo.GPX.Degrees(
+module Data.Geo.GPX.Type.Degrees(
   Degrees
 , degrees
 , runDegrees

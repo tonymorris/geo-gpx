@@ -34,25 +34,26 @@ Library
   Hs-Source-Dirs:   src
 
   Exposed-Modules:   Data.Geo.GPX
-                     Data.Geo.GPX.DgpsStation
-                     Data.Geo.GPX.Fix
-                     Data.Geo.GPX.Degrees
-                     Data.Geo.GPX.Longitude
-                     Data.Geo.GPX.Latitude
-                     Data.Geo.GPX.Bounds
-                     Data.Geo.GPX.Extensions
-                     Data.Geo.GPX.Pt
-                     Data.Geo.GPX.Ptseg
-                     Data.Geo.GPX.Email
-                     Data.Geo.GPX.Link
-                     Data.Geo.GPX.Person
-                     Data.Geo.GPX.Copyright
-                     Data.Geo.GPX.Wpt
-                     Data.Geo.GPX.Trkseg
-                     Data.Geo.GPX.Trk
-                     Data.Geo.GPX.Rte
-                     Data.Geo.GPX.Metadata
-                     Data.Geo.GPX.Gpx
+                     Data.Geo.GPX.Type
+                     Data.Geo.GPX.Type.DgpsStation
+                     Data.Geo.GPX.Type.Fix
+                     Data.Geo.GPX.Type.Degrees
+                     Data.Geo.GPX.Type.Longitude
+                     Data.Geo.GPX.Type.Latitude
+                     Data.Geo.GPX.Type.Bounds
+                     Data.Geo.GPX.Type.Extensions
+                     Data.Geo.GPX.Type.Pt
+                     Data.Geo.GPX.Type.Ptseg
+                     Data.Geo.GPX.Type.Email
+                     Data.Geo.GPX.Type.Link
+                     Data.Geo.GPX.Type.Person
+                     Data.Geo.GPX.Type.Copyright
+                     Data.Geo.GPX.Type.Wpt
+                     Data.Geo.GPX.Type.Trkseg
+                     Data.Geo.GPX.Type.Trk
+                     Data.Geo.GPX.Type.Rte
+                     Data.Geo.GPX.Type.Metadata
+                     Data.Geo.GPX.Type.Gpx
                      Data.Geo.GPX.Lens
                      Data.Geo.GPX.Lens.MinlatL
                      Data.Geo.GPX.Lens.MaxlatL

@@ -1,13 +1,13 @@
 {-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
 
 -- | Complex Type: @ptsegType@ <http://www.topografix.com/GPX/1/1/#type_ptsegType>
-module Data.Geo.GPX.Ptseg(
+module Data.Geo.GPX.Type.Ptseg(
   Ptseg
 , ptseg
 , runPtseg
 ) where
 
-import Data.Geo.GPX.Pt
+import Data.Geo.GPX.Type.Pt
 import Text.XML.HXT.Arrow.Pickle
 import Control.Newtype
 

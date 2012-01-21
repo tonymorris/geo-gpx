@@ -1,5 +1,5 @@
 -- | Simple Type: @fixType@ <http://www.topografix.com/GPX/1/1/#type_fixType>
-module Data.Geo.GPX.Fix(
+module Data.Geo.GPX.Type.Fix(
   Fix
 , foldFix
 , none

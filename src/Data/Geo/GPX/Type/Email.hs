@@ -1,5 +1,5 @@
 -- | Complex Type: @emailType@ <http://www.topografix.com/GPX/1/1/#type_emailType>
-module Data.Geo.GPX.Email(
+module Data.Geo.GPX.Type.Email(
   Email
 , email
 ) where

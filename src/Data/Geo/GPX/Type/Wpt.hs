@@ -1,17 +1,17 @@
 -- | Complex Type: @wptType@ <http://www.topografix.com/GPX/1/1/#type_wptType>
-module Data.Geo.GPX.Wpt(
+module Data.Geo.GPX.Type.Wpt(
   Wpt
 , wpt
 , wpt'
 ) where
 
-import Data.Geo.GPX.Latitude
-import Data.Geo.GPX.Longitude
-import Data.Geo.GPX.Degrees
-import Data.Geo.GPX.Link
-import Data.Geo.GPX.Fix
-import Data.Geo.GPX.DgpsStation
-import Data.Geo.GPX.Extensions
+import Data.Geo.GPX.Type.Latitude
+import Data.Geo.GPX.Type.Longitude
+import Data.Geo.GPX.Type.Degrees
+import Data.Geo.GPX.Type.Link
+import Data.Geo.GPX.Type.Fix
+import Data.Geo.GPX.Type.DgpsStation
+import Data.Geo.GPX.Type.Extensions
 import Data.Geo.GPX.Lens.LatL
 import Data.Geo.GPX.Lens.LonL
 import Data.Geo.GPX.Lens.EleL

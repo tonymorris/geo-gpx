@@ -1,11 +1,11 @@
 -- | Complex Type: @trksegType@ <http://www.topografix.com/GPX/1/1/#type_trksegType>
-module Data.Geo.GPX.Trkseg(
+module Data.Geo.GPX.Type.Trkseg(
   Trkseg,
   trkseg
 ) where
 
-import Data.Geo.GPX.Wpt
-import Data.Geo.GPX.Extensions
+import Data.Geo.GPX.Type.Wpt
+import Data.Geo.GPX.Type.Extensions
 import Data.Geo.GPX.Lens.TrkptsL
 import Data.Geo.GPX.Lens.ExtensionsL
 import Data.Lens.Common

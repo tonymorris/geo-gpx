@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleInstances, MultiParamTypeClasses, TypeSynonymInstances #-}
 
 -- | Complex Type: @extensionsType@ <http://www.topografix.com/GPX/1/1/#type_extensionsType>
-module Data.Geo.GPX.Extensions(
+module Data.Geo.GPX.Type.Extensions(
   Extensions
 , extensions
 , runExtensions

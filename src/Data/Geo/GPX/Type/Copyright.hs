@@ -1,7 +1,7 @@
 {-# LANGUAGE MultiParamTypeClasses, FlexibleInstances, TypeSynonymInstances #-}
 
 -- | Complex Type: @copyrightType@ <http://www.topografix.com/GPX/1/1/#type_copyrightType>
-module Data.Geo.GPX.Copyright(
+module Data.Geo.GPX.Type.Copyright(
   Copyright
 , copyright
 ) where

@@ -1,12 +1,12 @@
 -- | Complex Type: @trkType@ <http://www.topografix.com/GPX/1/1/#type_trkType>
-module Data.Geo.GPX.Trk(
+module Data.Geo.GPX.Type.Trk(
   Trk
 , trk
 ) where
 
-import Data.Geo.GPX.Trkseg
-import Data.Geo.GPX.Extensions
-import Data.Geo.GPX.Link
+import Data.Geo.GPX.Type.Trkseg
+import Data.Geo.GPX.Type.Extensions
+import Data.Geo.GPX.Type.Link
 import Data.Geo.GPX.Lens.NameL
 import Data.Geo.GPX.Lens.CmtL
 import Data.Geo.GPX.Lens.DescL

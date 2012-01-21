@@ -1,11 +1,11 @@
 -- | Complex Type: @ptType@ <http://www.topografix.com/GPX/1/1/#type_ptType>
-module Data.Geo.GPX.Pt(
+module Data.Geo.GPX.Type.Pt(
   Pt
 , pt
 ) where
 
-import Data.Geo.GPX.Latitude
-import Data.Geo.GPX.Longitude
+import Data.Geo.GPX.Type.Latitude
+import Data.Geo.GPX.Type.Longitude
 import Data.Geo.GPX.Lens.LatL
 import Data.Geo.GPX.Lens.LonL
 import Data.Geo.GPX.Lens.EleL

@@ -1,12 +1,12 @@
 -- | Complex Type: @rteType@ <http://www.topografix.com/GPX/1/1/#type_rteType>
-module Data.Geo.GPX.Rte(
+module Data.Geo.GPX.Type.Rte(
   Rte
 , rte
 ) where
 
-import Data.Geo.GPX.Wpt
-import Data.Geo.GPX.Extensions
-import Data.Geo.GPX.Link
+import Data.Geo.GPX.Type.Wpt
+import Data.Geo.GPX.Type.Extensions
+import Data.Geo.GPX.Type.Link
 import Data.Geo.GPX.Lens.NameL
 import Data.Geo.GPX.Lens.CmtL
 import Data.Geo.GPX.Lens.DescL

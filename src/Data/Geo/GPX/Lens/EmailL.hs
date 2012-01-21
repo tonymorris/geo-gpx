@@ -1,6 +1,6 @@
 module Data.Geo.GPX.Lens.EmailL where
 
-import Data.Geo.GPX.Email
+import Data.Geo.GPX.Type.Email
 import Data.Lens.Common
 
 class EmailL a where

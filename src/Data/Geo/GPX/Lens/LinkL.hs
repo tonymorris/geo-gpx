@@ -1,6 +1,6 @@
 module Data.Geo.GPX.Lens.LinkL where
 
-import Data.Geo.GPX.Link
+import Data.Geo.GPX.Type.Link
 import Data.Lens.Common
 
 class LinkL a where

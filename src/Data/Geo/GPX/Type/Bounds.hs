@@ -1,11 +1,11 @@
 -- | Complex Type: @boundsType@ <http://www.topografix.com/GPX/1/1/#type_boundsType>
-module Data.Geo.GPX.Bounds(
+module Data.Geo.GPX.Type.Bounds(
   Bounds
 , bounds
 ) where
 
-import Data.Geo.GPX.Latitude
-import Data.Geo.GPX.Longitude
+import Data.Geo.GPX.Type.Latitude
+import Data.Geo.GPX.Type.Longitude
 import Data.Geo.GPX.Lens.MinlatL
 import Data.Geo.GPX.Lens.MaxlatL
 import Data.Geo.GPX.Lens.MinlonL

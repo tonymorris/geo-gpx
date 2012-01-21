@@ -1,16 +1,16 @@
 {-# LANGUAGE MultiParamTypeClasses, FlexibleInstances, TypeSynonymInstances #-}
 
 -- | Complex Type: @gpxType@ <http://www.topografix.com/GPX/1/1/#type_gpxType>
-module Data.Geo.GPX.Gpx(
+module Data.Geo.GPX.Type.Gpx(
   Gpx
 , gpx
 ) where
 
-import Data.Geo.GPX.Metadata
-import Data.Geo.GPX.Wpt
-import Data.Geo.GPX.Rte
-import Data.Geo.GPX.Trk
-import Data.Geo.GPX.Extensions
+import Data.Geo.GPX.Type.Metadata
+import Data.Geo.GPX.Type.Wpt
+import Data.Geo.GPX.Type.Rte
+import Data.Geo.GPX.Type.Trk
+import Data.Geo.GPX.Type.Extensions
 import Data.Geo.GPX.Lens.VersionL
 import Data.Geo.GPX.Lens.CreatorL
 import Data.Geo.GPX.Lens.MetadataL
