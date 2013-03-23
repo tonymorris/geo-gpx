@@ -1,7 +1,6 @@
 :set -isrc
-:m + Test.QuickCheck
 :l Data.Geo.GPX
-:m + Data.Geo.GPX
+:m + Data.Geo.GPX Test.QuickCheck
 :set prompt ">> "
 :set -Wall
 :set -fno-warn-name-shadowing
