@@ -18,7 +18,7 @@ import Data.Geo.GPX.Lens.ExtensionsL
 import Data.Geo.GPX.Lens.TrksegsL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow.Pickle
+-- import Text.XML.HXT.Arrow.Pickle
 
 data Trk = Trk (Maybe String) (Maybe String) (Maybe String) (Maybe String) [Link] (Maybe Int) (Maybe String) (Maybe Extensions) [Trkseg]
   deriving Eq
@@ -73,6 +73,7 @@ instance TrksegsL Trk where
   trksegsL =
     Lens $ \(Trk name cmt desc src links number typ extensions trksegs) -> store (\trksegs -> Trk name cmt desc src links number typ extensions trksegs) trksegs
 
+{-
 instance XmlPickler Trk where
   xpickle =
     xpWrap (\(a, b, c, d, e, f, g, h, i) -> trk a b c d e f g h i, \(Trk a b c d e f g h i) -> (a, b, c, d, e, f, g, h, i)) (xp9Tuple
@@ -85,4 +86,4 @@ instance XmlPickler Trk where
       (xpOption (xpElem "type" xpText))
       (xpOption (xpElem "extensions" xpickle))
       (xpList (xpElem "trkseg" xpickle)))
-
+-}

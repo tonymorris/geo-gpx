@@ -12,11 +12,11 @@ import Data.Geo.GPX.Lens.EleL
 import Data.Geo.GPX.Lens.TimeL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow.Pickle
 import Text.XML.XSD.DateTime
+-- import Text.XML.HXT.Arrow.Pickle
 
 data Pt = Pt Latitude Longitude (Maybe Double) (Maybe DateTime)
-  deriving (Eq, Ord)
+  deriving Eq
 
 pt ::
   Latitude -- ^ The lat.
@@ -43,6 +43,7 @@ instance TimeL Pt where
   timeL =
     Lens $ \(Pt lat lon ele time) -> store (\time -> Pt lat lon ele time) time
 
+{-
 instance XmlPickler Pt where
   xpickle =
     xpWrap (\(lat', lon', ele', time') -> pt lat' lon' ele' time',
@@ -51,4 +52,4 @@ instance XmlPickler Pt where
              (xpAttr "lon" xpickle)
              (xpOption (xpElem "ele" xpPrim))
              (xpOption (xpElem "time" (xpWrapMaybe (dateTime, show) xpText))))
-
+-}

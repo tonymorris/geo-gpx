@@ -8,7 +8,7 @@ import Data.Geo.GPX.Lens.IdL
 import Data.Geo.GPX.Lens.DomainL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow.Pickle
+-- import Text.XML.HXT.Arrow.Pickle
 
 data Email = Email String String
   deriving (Eq, Ord)
@@ -28,9 +28,10 @@ instance DomainL Email where
   domainL =
     Lens $ \(Email id domain) -> store (\domain -> Email id domain) domain
 
+{-
 instance XmlPickler Email where
   xpickle =
     xpWrap (uncurry email, \(Email id' domain') -> (id', domain'))
            (xpPair (xpAttr "id" xpText) (xpAttr "domain" xpText))
-
+-}
 

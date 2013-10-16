@@ -10,7 +10,7 @@ import Data.Geo.GPX.Lens.TrkptsL
 import Data.Geo.GPX.Lens.ExtensionsL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow.Pickle
+-- import Text.XML.HXT.Arrow.Pickle
 
 data Trkseg = Trkseg [Wpt] (Maybe Extensions)
   deriving Eq
@@ -30,9 +30,10 @@ instance ExtensionsL Trkseg where
   extensionsL =
     Lens $ \(Trkseg trkpts extensions) -> store (\extensions -> Trkseg trkpts extensions) extensions
 
+{-
 instance XmlPickler Trkseg where
   xpickle =
     xpWrap (uncurry trkseg, \(Trkseg trkpt' extensions') -> (trkpt', extensions')) (xpPair
       (xpList (xpElem "trkpt" xpickle))
       (xpOption (xpElem "extensions" xpickle)))
-
+-}

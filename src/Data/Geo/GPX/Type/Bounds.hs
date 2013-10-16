@@ -12,7 +12,7 @@ import Data.Geo.GPX.Lens.MinlonL
 import Data.Geo.GPX.Lens.MaxlonL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow.Pickle
+-- import Text.XML.HXT.Arrow.Pickle
 
 data Bounds = Bounds (Latitude, Longitude) (Latitude, Longitude)
   deriving (Eq, Ord)
@@ -40,6 +40,7 @@ instance MaxlonL Bounds where
   maxlonL =
     Lens $ \(Bounds (minlat, minlon) (maxlat, maxlon)) -> store (\maxlon -> Bounds (minlat, minlon) (maxlat, maxlon)) maxlon
 
+{-
 instance XmlPickler Bounds where
   xpickle =
     xpWrap (\(minlat', minlon', maxlat', maxlon') -> bounds (minlat', minlon') (maxlat', maxlon'),
@@ -48,4 +49,4 @@ instance XmlPickler Bounds where
               (xpAttr "minlon" xpickle)
               (xpAttr "maxlat" xpickle)
               (xpAttr "maxlon" xpickle))
-
+-}

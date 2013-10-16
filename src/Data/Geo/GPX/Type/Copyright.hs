@@ -11,7 +11,7 @@ import Data.Geo.GPX.Lens.YearL
 import Data.Geo.GPX.Lens.LicenseL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow.Pickle
+-- import Text.XML.HXT.Arrow.Pickle
 
 data Copyright = Copyright String (Maybe String) (Maybe String)
   deriving (Eq, Ord)
@@ -36,9 +36,11 @@ instance LicenseL Copyright where
   licenseL =
     Lens $ \(Copyright author year license) -> store (\license -> Copyright author year license) license
 
+{-
 instance XmlPickler Copyright where
   xpickle =
     xpWrap (\(author', year', license') -> copyright author' year' license', \(Copyright author' year' license') -> (author', year', license')) (xpTriple
            (xpAttr "author" xpText)
            (xpOption (xpElem "year" xpText))
            (xpOption (xpElem "license" xpText)))
+-}
