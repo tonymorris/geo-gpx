@@ -1,5 +1,5 @@
 :set -isrc
-:l src/Data/Geo/Gpx/Gpx.hs
+:l src/Data/Geo/Gpx.hs
 :set prompt ">> "
 :set -Wall
 

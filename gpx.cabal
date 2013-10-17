@@ -34,7 +34,8 @@ library
 
   hs-source-dirs:   src
 
-  exposed-modules:  Data.Geo.Gpx.Gpx
+  exposed-modules:  Data.Geo.Gpx
+                    Data.Geo.Gpx.Gpx
                     Data.Geo.Gpx.DgpsStation
                     Data.Geo.Gpx.Fix
                     Data.Geo.Gpx.Degrees
