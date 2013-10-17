@@ -70,15 +70,7 @@ xpCopyrightElem ::
   PU Copyright
 xpCopyrightElem =
    xpElem "copyright"
-     (xpWrap
-       (
-         \(author', year', license') -> Copyright author' year' license'
-       , \(Copyright author' year' license') -> (author', year', license')
-       )
-       (xpTriple
-         (xpAttr "author" xpText0)
-         (xpOption (xpElem "year" xpText0))
-         (xpOption (xpElem "license" xpText0))))
+     xpCopyright
 
 xpCopyright ::
   PU Copyright
