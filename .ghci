@@ -1,5 +1,7 @@
 :set -isrc
 :l src/Data/Geo/Gpx.hs
+:m + Control.Lens
+:m + Text.XML.HXT.Core
 :set prompt ">> "
 :set -Wall
 
