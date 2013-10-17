@@ -1,14 +1,30 @@
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE TypeSynonymInstances #-}
+{-# LANGUAGE FlexibleInstances #-}
+
 -- | Complex Type: @copyrightType@ <http://www.topografix.com/GPX/1/1/#type_copyrightType>
 module Data.Geo.GPX.Type.Copyright(
   Copyright
 , copyright
 , xpCopyright
+, author
+, year
+, license
 ) where
 
 import Text.XML.HXT.Core
+import Control.Lens
 
-data Copyright = Copyright String (Maybe String) (Maybe String)
-  deriving (Eq, Ord, Show)
+data Copyright =
+  Copyright {
+    _copyrightAuthor :: String
+  , _copyRightYear :: Maybe String
+  , _copyRightLicense :: Maybe String
+  } deriving (Eq, Ord, Show)
+
+makeFields ''Copyright
 
 copyright
   :: String -- ^ The author.

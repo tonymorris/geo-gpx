@@ -29,7 +29,8 @@ library
                     , containers
                     , comonad-transformers
                     , data-lens
-                    , xsd
+                    , lens >= 3.9.2
+                    , xsd >= 0.4.0
                     , newtype
 
   ghc-options:      -Wall
