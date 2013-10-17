@@ -1,47 +1,33 @@
-{-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE FunctionalDependencies #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeSynonymInstances #-}
-{-# LANGUAGE FlexibleInstances #-}
-
 -- | Simple Type: @degreesType@ <http://www.topografix.com/GPX/1/1/#type_degreesType>
 module Data.Geo.Gpx.Degrees(
   Degrees
 , degrees
-, runDegrees
+, xpDegrees
 ) where
 
-import Data.Fixed
+import Text.XML.HXT.Core
 import Control.Lens
 
 newtype Degrees =
- Degrees {
-   _deg :: Double
- } deriving (Eq, Ord, Show)
+ Degrees Double deriving (Eq, Ord, Show)
 
-makeIso ''Degrees
-{-
+data DegreesOutOfRange =
+  TooLow
+  | TooHigh
+  deriving (Eq, Show)
+
 degrees ::
-  Double -- ^ The value which will be between 0 and 360 (values out of the range are truncated using a modulus operation).
-  -> Degrees
-degrees n =
-  Degrees (n `mod'` 360)
-  -}
-runDegrees ::
-  Degrees
-  -> Double
-runDegrees (Degrees d) =
-  d
-   {-
+  Prism' Double Degrees -- ^ A prism to a value which will be between 0 and 360.
+degrees =
+  prism'
+    (\(Degrees d) -> d)
+    (\d -> if d >= 0 && d <= 360 then Just (Degrees d) else Nothing)
+
+xpDegrees ::
+  PU Degrees
+xpDegrees =
+  xpWrapMaybe ((^? degrees), (#) degrees) xpPrim
+
 instance XmlPickler Degrees where
   xpickle =
-    xpWrap (degrees, \(Degrees n) -> n) xpPrim
-     -}
-
-{-
-instance Newtype Degrees Double where
-  pack = 
-    degrees
-  unpack (Degrees x) =
-    x
--}
+    xpDegrees

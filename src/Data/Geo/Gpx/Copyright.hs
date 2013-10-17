@@ -7,7 +7,6 @@
 -- | Complex Type: @copyrightType@ <http://www.topografix.com/GPX/1/1/#type_copyrightType>
 module Data.Geo.Gpx.Copyright(
   Copyright
-, copyright
 , xpCopyright
 , author
 , year
@@ -25,14 +24,6 @@ data Copyright =
   } deriving (Eq, Ord, Show)
 
 makeFields ''Copyright
-
-copyright
-  :: String -- ^ The author.
-  -> Maybe String -- ^ The year.
-  -> Maybe String -- ^ The license.
-  -> Copyright
-copyright =
-  Copyright
 
 -- | Pickler for @Copyright@.
 --
@@ -67,7 +58,7 @@ xpCopyright ::
 xpCopyright =
    xpWrap
      (
-       \(author', year', license') -> copyright author' year' license'
+       \(author', year', license') -> Copyright author' year' license'
      , \(Copyright author' year' license') -> (author', year', license')
      )
      (xpElem "copyright"
