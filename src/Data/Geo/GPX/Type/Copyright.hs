@@ -22,6 +22,30 @@ copyright =
 --
 -- >>> fmap (unpickleDoc' xpCopyright) (runLA xread "<copyright author=\"Bob\"><year>2010</year><license>BSD3</license></copyright>")
 -- [Right (Copyright "Bob" (Just "2010") (Just "BSD3"))]
+--
+-- >>> any (either (const False) (const True) . unpickleDoc' xpCopyright) (runLA xread "<copyright><year>2010</year><license>BSD3</license></copyright>")
+-- False
+--
+-- >>> fmap (unpickleDoc' xpCopyright) (runLA xread "<copyright author=\"Bob\"><year>2010</year></copyright>")
+-- [Right (Copyright "Bob" (Just "2010") Nothing)]
+--
+-- >>> fmap (unpickleDoc' xpCopyright) (runLA xread "<copyright author=\"Bob\"><license>BSD3</license></copyright>")
+-- [Right (Copyright "Bob" Nothing (Just "BSD3"))]
+--
+-- >>> fmap (unpickleDoc' xpCopyright) (runLA xread "<copyright author=\"Bob\"></copyright>")
+-- [Right (Copyright "Bob" Nothing Nothing)]
+--
+-- >>> fmap (unpickleDoc' xpCopyright) (runLA xread "<copyright author=\"\"><year>2010</year><license>BSD3</license></copyright>")
+-- [Right (Copyright "" (Just "2010") (Just "BSD3"))]
+--
+-- >>> fmap (unpickleDoc' xpCopyright) (runLA xread "<copyright author=\"Bob\"><year></year><license>BSD3</license></copyright>")
+-- [Right (Copyright "Bob" (Just "") (Just "BSD3"))]
+--
+-- >>> fmap (unpickleDoc' xpCopyright) (runLA xread "<copyright author=\"Bob\"><year>2010</year><license></license></copyright>")
+-- [Right (Copyright "Bob" (Just "2010") (Just ""))]
+--
+-- >>> any (either (const False) (const True) . unpickleDoc' xpCopyright) (runLA xread "<copyright author=\"Bob\"><x>x</x></copyright>")
+-- False
 xpCopyright ::
   PU Copyright
 xpCopyright =
@@ -32,9 +56,9 @@ xpCopyright =
      )
      (xpElem "copyright"
        (xpTriple
-         (xpAttr "author" xpText)
-         (xpOption (xpElem "year" xpText))
-         (xpOption (xpElem "license" xpText))))
+         (xpAttr "author" xpText0)
+         (xpOption (xpElem "year" xpText0))
+         (xpOption (xpElem "license" xpText0))))
 
 instance XmlPickler Copyright where
   xpickle =
