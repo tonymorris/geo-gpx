@@ -8,8 +8,6 @@ module Data.Geo.Gpx.Ptseg(
 ) where
 
 import Data.Geo.Gpx.Pt
-import Control.Newtype
--- import Text.XML.HXT.Arrow.Pickle
 
 newtype Ptseg = Ptseg [Pt]
   deriving Eq
@@ -32,9 +30,10 @@ instance XmlPickler Ptseg where
     xpWrap (ptseg, \(Ptseg k) -> k) (xpList (xpElem "pt" xpickle))
 -}
 
+{-
 instance Newtype Ptseg [Pt] where
   pack = 
     Ptseg
   unpack (Ptseg x) =
     x
-
+-}

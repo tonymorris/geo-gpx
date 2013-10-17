@@ -8,8 +8,6 @@ module Data.Geo.Gpx.Longitude(
 ) where
 
 import Data.Fixed
-import Control.Newtype
--- import Text.XML.HXT.Arrow.Pickle
 
 newtype Longitude = Longitude Double
   deriving (Eq, Ord, Enum, Num, Fractional, Floating, Real, RealFrac, RealFloat)
@@ -34,9 +32,10 @@ instance XmlPickler Longitude where
   xpickle = xpWrap (longitude, \(Longitude n) -> n) xpPrim
 -}
 
+{-
 instance Newtype Longitude Double where
   pack = 
     longitude
   unpack (Longitude x) =
     x
-
+-}

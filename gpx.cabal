@@ -27,11 +27,8 @@ library
   build-depends:    base < 5 && >= 3
                     , hxt > 9
                     , containers
-                    , comonad-transformers
-                    , data-lens
                     , lens >= 3.9.2
                     , xsd >= 0.4.0
-                    , newtype
 
   ghc-options:      -Wall
 

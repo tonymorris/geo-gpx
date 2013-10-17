@@ -8,8 +8,6 @@ module Data.Geo.Gpx.Latitude(
 ) where
 
 import Data.Fixed
-import Control.Newtype
--- import Text.XML.HXT.Arrow.Pickle
 
 newtype Latitude = Latitude Double
   deriving (Eq, Ord, Enum, Num, Fractional, Floating, Real, RealFrac, RealFloat)
@@ -34,9 +32,10 @@ instance XmlPickler Latitude where
   xpickle = xpWrap (latitude, \(Latitude n) -> n) xpPrim
 -}
 
+{-
 instance Newtype Latitude Double where
   pack = 
     latitude
   unpack (Latitude x) =
     x
-
+-}

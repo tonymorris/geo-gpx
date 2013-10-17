@@ -7,10 +7,7 @@ module Data.Geo.Gpx.Degrees(
 , runDegrees
 ) where
 
-
 import Data.Fixed
-import Control.Newtype
--- import Text.XML.HXT.Arrow.Pickle
 
 newtype Degrees = Degrees Double
   deriving (Eq, Ord, Show)
@@ -32,9 +29,10 @@ instance XmlPickler Degrees where
     xpWrap (degrees, \(Degrees n) -> n) xpPrim
      -}
 
+{-
 instance Newtype Degrees Double where
   pack = 
     degrees
   unpack (Degrees x) =
     x
-
+-}
