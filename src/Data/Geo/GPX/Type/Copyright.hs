@@ -1,20 +1,14 @@
-{-# LANGUAGE MultiParamTypeClasses, FlexibleInstances, TypeSynonymInstances #-}
-
 -- | Complex Type: @copyrightType@ <http://www.topografix.com/GPX/1/1/#type_copyrightType>
 module Data.Geo.GPX.Type.Copyright(
   Copyright
 , copyright
+, xpCopyright
 ) where
 
-import Data.Geo.GPX.Lens.AuthorL
-import Data.Geo.GPX.Lens.YearL
-import Data.Geo.GPX.Lens.LicenseL
-import Data.Lens.Common
-import Control.Comonad.Trans.Store
--- import Text.XML.HXT.Arrow.Pickle
+import Text.XML.HXT.Core
 
 data Copyright = Copyright String (Maybe String) (Maybe String)
-  deriving (Eq, Ord)
+  deriving (Eq, Ord, Show)
 
 copyright
   :: String -- ^ The author.
@@ -24,23 +18,24 @@ copyright
 copyright =
   Copyright
 
-instance AuthorL Copyright String where
-  authorL =
-    Lens $ \(Copyright author year license) -> store (\author -> Copyright author year license) author
+-- | Pickler for @Copyright@.
+--
+-- >>> fmap (unpickleDoc' xpCopyright) (runLA xread "<copyright author=\"Bob\"><year>2010</year><license>BSD3</license></copyright>")
+-- [Right (Copyright "Bob" (Just "2010") (Just "BSD3"))]
+xpCopyright ::
+  PU Copyright
+xpCopyright =
+   xpWrap
+     (
+       \(author', year', license') -> copyright author' year' license'
+     , \(Copyright author' year' license') -> (author', year', license')
+     )
+     (xpElem "copyright"
+       (xpTriple
+         (xpAttr "author" xpText)
+         (xpOption (xpElem "year" xpText))
+         (xpOption (xpElem "license" xpText))))
 
-instance YearL Copyright where
-  yearL =
-    Lens $ \(Copyright author year license) -> store (\year -> Copyright author year license) year
-
-instance LicenseL Copyright where
-  licenseL =
-    Lens $ \(Copyright author year license) -> store (\license -> Copyright author year license) license
-
-{-
 instance XmlPickler Copyright where
   xpickle =
-    xpWrap (\(author', year', license') -> copyright author' year' license', \(Copyright author' year' license') -> (author', year', license')) (xpTriple
-           (xpAttr "author" xpText)
-           (xpOption (xpElem "year" xpText))
-           (xpOption (xpElem "license" xpText)))
--}
+    xpCopyright
