@@ -11,11 +11,6 @@ import Control.Lens
 newtype Degrees =
  Degrees Double deriving (Eq, Ord, Show)
 
-data DegreesOutOfRange =
-  TooLow
-  | TooHigh
-  deriving (Eq, Show)
-
 degrees ::
   Prism' Double Degrees -- ^ A prism to a value which will be between 0 and 360.
 degrees =
