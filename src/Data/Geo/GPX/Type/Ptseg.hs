@@ -8,11 +8,11 @@ module Data.Geo.GPX.Type.Ptseg(
 ) where
 
 import Data.Geo.GPX.Type.Pt
-import Text.XML.HXT.Arrow.Pickle
 import Control.Newtype
+-- import Text.XML.HXT.Arrow.Pickle
 
 newtype Ptseg = Ptseg [Pt]
-  deriving (Eq, Ord)
+  deriving Eq
 
 ptseg ::
   [Pt] -- ^ The points (pt).
@@ -26,9 +26,11 @@ runPtseg ::
 runPtseg (Ptseg p) =
   p
 
+{-
 instance XmlPickler Ptseg where
   xpickle =
     xpWrap (ptseg, \(Ptseg k) -> k) (xpList (xpElem "pt" xpickle))
+-}
 
 instance Newtype Ptseg [Pt] where
   pack = 

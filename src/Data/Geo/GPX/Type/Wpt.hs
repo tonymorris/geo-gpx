@@ -35,8 +35,8 @@ import Data.Geo.GPX.Lens.DgpsidL
 import Data.Geo.GPX.Lens.ExtensionsL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow.Pickle
 import Text.XML.XSD.DateTime
+-- import Text.XML.HXT.Arrow.Pickle
 
 data Wpt =
   Wpt
@@ -202,6 +202,7 @@ instance ExtensionsL Wpt where
   extensionsL =
     Lens $ \(Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) -> store (\extensions -> Wpt lat lon ele time magvar geoidheight name cmt desc src links sym typ fix sat hdop vdop pdop ageofdgpsdata dgpsid extensions) extensions
 
+{-
 instance XmlPickler Wpt where
   xpickle =
     xpWrap (\(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u) -> wpt a b c d e f g h i j k l m n o p q r s t u,
@@ -227,4 +228,4 @@ instance XmlPickler Wpt where
               (xpOption (xpElem "ageofdgpsdata" xpPrim))
               (xpOption (xpElem "dgpsid" xpickle))
               (xpOption (xpElem "extensions" xpickle)))
-
+-}

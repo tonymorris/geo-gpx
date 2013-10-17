@@ -10,7 +10,7 @@ module Data.Geo.GPX.Type.Fix(
 , fix
 ) where
 
-import Text.XML.HXT.Arrow.Pickle
+-- import Text.XML.HXT.Arrow.Pickle
 
 data Fix = None | Twod | Threed | Dgps | Pps
   deriving (Eq, Ord, Show, Enum)
@@ -69,8 +69,8 @@ fix "dgps" = Just dgps
 fix "pps" = Just pps
 fix _ = Nothing
 
+{-
 instance XmlPickler Fix where
   xpickle =
     xpWrapMaybe (fix, show) xpText
-
-
+-}

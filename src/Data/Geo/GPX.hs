@@ -11,17 +11,19 @@ module Data.Geo.GPX(
 import Data.Geo.GPX.Type
 import Data.Geo.GPX.Lens
 import Control.Arrow
-import Text.XML.HXT.Arrow.Pickle
 import Control.Newtype
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
+-- import Text.XML.HXT.Arrow.Pickle
 
 -- | Top-level GPX data type with the root XML element applied.
 newtype GPX = GPX Gpx
   deriving Eq
 
+{-
 instance XmlPickler GPX where
   xpickle = xpWrap (GPX, \(GPX g) -> g) (xpElem "gpx" xpickle)
+-}
 
 instance GpxP GPX where
   gpx v c m w r t e =

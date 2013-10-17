@@ -11,7 +11,7 @@ import Data.Geo.GPX.Lens.EmailL
 import Data.Geo.GPX.Lens.LinkL
 import Data.Lens.Common
 import Control.Comonad.Trans.Store
-import Text.XML.HXT.Arrow.Pickle
+-- import Text.XML.HXT.Arrow.Pickle
 
 data Person = Person (Maybe String) (Maybe Email) (Maybe Link)
   deriving (Eq, Ord)
@@ -36,10 +36,11 @@ instance LinkL Person where
   linkL =
     Lens $ \(Person name email link) -> store (\link -> Person name email link) link
 
+{-
 instance XmlPickler Person where
   xpickle =
     xpWrap (\(name', email', link') -> person name' email' link', \(Person name' email' link') -> (name', email', link')) (xpTriple
            (xpOption (xpElem "name" xpText))
            (xpOption (xpElem "email" xpickle))
            (xpOption (xpElem "link" xpickle)))
-
+-}
