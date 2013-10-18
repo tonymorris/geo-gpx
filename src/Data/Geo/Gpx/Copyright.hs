@@ -9,9 +9,11 @@ module Data.Geo.Gpx.Copyright(
   Copyright(..)
 , xpCopyrightElem
 , xpCopyright
+{-
 , author
 , year
 , license
+-}
 ) where
 
 import Text.XML.HXT.Core
@@ -21,12 +23,16 @@ import Control.Lens
 -- >>> let unpickleCopyrightElem = fmap (unpickleDoc' xpCopyrightElem) . runLA xread
 -- >>> let allFailedCopyrightElem = all (either (const False) (const True) . unpickleDoc' xpCopyrightElem) . runLA xread
 
+-- <edwardk> dobblego: i gave the local field its own name, so that when i made the instance of HasFoo then i could use foo = barFoo
+
 data Copyright =
   Copyright {
-    _author :: String
-  , _year :: Maybe String
-  , _license :: Maybe String
+    _copyrightAuthor :: String
+  , _copyrightYear :: Maybe String
+  , _copyrightLicense :: Maybe String
   } deriving (Eq, Ord)
+
+makeClassy ''Copyright
 
 instance Show Copyright where
   show (Copyright a y l) =
@@ -39,8 +45,6 @@ instance Show Copyright where
       , maybe [] (\l' -> ", license=\"" ++ l' ++ "\"") l
       , "}"
       ]
-
-makeClassy ''Copyright
 
 -- | Pickler for @Copyright@.
 --
