@@ -17,11 +17,15 @@ module Data.Geo.Gpx.Copyright(
 import Text.XML.HXT.Core
 import Control.Lens
 
+-- $setup
+-- >>> let unpickleCopyrightElem = fmap (unpickleDoc' xpCopyrightElem) . runLA xread
+-- >>> let allFailedCopyrightElem = all (either (const False) (const True) . unpickleDoc' xpCopyrightElem) . runLA xread
+
 data Copyright =
   Copyright {
-    _copyrightAuthor :: String
-  , _copyrightYear :: Maybe String
-  , _copyrightLicense :: Maybe String
+    _author :: String
+  , _year :: Maybe String
+  , _license :: Maybe String
   } deriving (Eq, Ord)
 
 instance Show Copyright where
@@ -36,35 +40,35 @@ instance Show Copyright where
       , "}"
       ]
 
-makeFields ''Copyright
+makeClassy ''Copyright
 
 -- | Pickler for @Copyright@.
 --
--- >>> fmap (unpickleDoc' xpCopyrightElem) (runLA xread "<copyright author=\"Bob\"><year>2010</year><license>BSD3</license></copyright>")
+-- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><year>2010</year><license>BSD3</license></copyright>"
 -- [Right Copyright {author="Bob", year="2010", license="BSD3"}]
 --
--- >>> any (either (const False) (const True) . unpickleDoc' xpCopyrightElem) (runLA xread "<copyright><year>2010</year><license>BSD3</license></copyright>")
+-- >>> allFailedCopyrightElem "<copyright><year>2010</year><license>BSD3</license></copyright>"
 -- False
 --
--- >>> fmap (unpickleDoc' xpCopyrightElem) (runLA xread "<copyright author=\"Bob\"><year>2010</year></copyright>")
+-- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><year>2010</year></copyright>"
 -- [Right Copyright {author="Bob", year="2010"}]
 --
--- >>> fmap (unpickleDoc' xpCopyrightElem) (runLA xread "<copyright author=\"Bob\"><license>BSD3</license></copyright>")
+-- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><license>BSD3</license></copyright>"
 -- [Right Copyright {author="Bob", license="BSD3"}]
 --
--- >>> fmap (unpickleDoc' xpCopyrightElem) (runLA xread "<copyright author=\"Bob\"></copyright>")
+-- >>> unpickleCopyrightElem "<copyright author=\"Bob\"></copyright>"
 -- [Right Copyright {author="Bob"}]
 --
--- >>> fmap (unpickleDoc' xpCopyrightElem) (runLA xread "<copyright author=\"\"><year>2010</year><license>BSD3</license></copyright>")
+-- >>> unpickleCopyrightElem "<copyright author=\"\"><year>2010</year><license>BSD3</license></copyright>"
 -- [Right Copyright {author="", year="2010", license="BSD3"}]
 --
--- >>> fmap (unpickleDoc' xpCopyrightElem) (runLA xread "<copyright author=\"Bob\"><year></year><license>BSD3</license></copyright>")
+-- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><year></year><license>BSD3</license></copyright>"
 -- [Right Copyright {author="Bob", year="", license="BSD3"}]
 --
--- >>> fmap (unpickleDoc' xpCopyrightElem) (runLA xread "<copyright author=\"Bob\"><year>2010</year><license></license></copyright>")
+-- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><year>2010</year><license></license></copyright>"
 -- [Right Copyright {author="Bob", year="2010", license=""}]
 --
--- >>> any (either (const False) (const True) . unpickleDoc' xpCopyrightElem) (runLA xread "<copyright author=\"Bob\"><x>x</x></copyright>")
+-- >>> allFailedCopyrightElem "<copyright author=\"Bob\"><x>x</x></copyright>"
 -- False
 xpCopyrightElem ::
   PU Copyright
