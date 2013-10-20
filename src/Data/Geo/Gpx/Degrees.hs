@@ -42,6 +42,9 @@ degrees =
 --
 -- >>> allUnpickledMagvarElem "<magvar>-0.1</magvar>"
 -- False
+--
+-- >>> allUnpickledMagvarElem "<magvar>361</magvar>"
+-- False
 xpMagvarElem ::
   PU Degrees
 xpMagvarElem =
