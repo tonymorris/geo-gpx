@@ -9,11 +9,9 @@ module Data.Geo.Gpx.Copyright(
   Copyright(..)
 , xpCopyrightElem
 , xpCopyright
-{-
 , author
 , year
 , license
--}
 ) where
 
 import Text.XML.HXT.Core
@@ -21,15 +19,16 @@ import Control.Lens
 
 -- $setup
 -- >>> let unpickleCopyrightElem = fmap (unpickleDoc' xpCopyrightElem) . runLA xread
--- >>> let allFailedCopyrightElem = all (either (const False) (const True) . unpickleDoc' xpCopyrightElem) . runLA xread
-
--- <edwardk> dobblego: i gave the local field its own name, so that when i made the instance of HasFoo then i could use foo = barFoo
+-- >>> let allUnpickledCopyrightElem = all (either (const False) (const True) . unpickleDoc' xpCopyrightElem) . runLA xread
 
 data Copyright =
   Copyright {
-    _copyrightAuthor :: String
-  , _copyrightYear :: Maybe String
-  , _copyrightLicense :: Maybe String
+    _author ::
+      String
+  , _year ::
+      Maybe String
+  , _license ::
+      Maybe String
   } deriving (Eq, Ord)
 
 makeClassy ''Copyright
@@ -46,12 +45,12 @@ instance Show Copyright where
       , "}"
       ]
 
--- | Pickler for @Copyright@.
+-- | Pickler for the @copyright@ element.
 --
 -- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><year>2010</year><license>BSD3</license></copyright>"
 -- [Right Copyright {author="Bob", year="2010", license="BSD3"}]
 --
--- >>> allFailedCopyrightElem "<copyright><year>2010</year><license>BSD3</license></copyright>"
+-- >>> allUnpickledCopyrightElem "<copyright><year>2010</year><license>BSD3</license></copyright>"
 -- False
 --
 -- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><year>2010</year></copyright>"
@@ -72,7 +71,7 @@ instance Show Copyright where
 -- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><year>2010</year><license></license></copyright>"
 -- [Right Copyright {author="Bob", year="2010", license=""}]
 --
--- >>> allFailedCopyrightElem "<copyright author=\"Bob\"><x>x</x></copyright>"
+-- >>> allUnpickledCopyrightElem "<copyright author=\"Bob\"><x>x</x></copyright>"
 -- False
 xpCopyrightElem ::
   PU Copyright
@@ -80,6 +79,7 @@ xpCopyrightElem =
    xpElem "copyright"
      xpCopyright
 
+-- | Pickler for the @Copyright@ type.
 xpCopyright ::
   PU Copyright
 xpCopyright =
