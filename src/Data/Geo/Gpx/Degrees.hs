@@ -2,8 +2,8 @@
 module Data.Geo.Gpx.Degrees(
   Degrees
 , degrees
-, xpDegrees
 , xpMagvarElem
+, xpDegrees
 ) where
 
 import Text.XML.HXT.Core
@@ -14,7 +14,7 @@ import Control.Lens
 -- >>> let allUnpickledMagvarElem = all (either (const False) (const True) . unpickleDoc' xpMagvarElem) . runLA xread
 
 newtype Degrees =
- Degrees Double deriving (Eq, Ord, Show)
+  Degrees Double deriving (Eq, Ord, Show)
 
 degrees ::
   Prism' Double Degrees -- ^ A prism to a value which will be between 0 and 360.
@@ -48,8 +48,8 @@ degrees =
 xpMagvarElem ::
   PU Degrees
 xpMagvarElem =
-   xpElem "magvar"
-     xpDegrees
+  xpElem "magvar"
+    xpDegrees
 
 -- | Pickler for the @Degrees@ type.
 xpDegrees ::
