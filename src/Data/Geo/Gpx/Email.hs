@@ -5,6 +5,8 @@
 module Data.Geo.Gpx.Email(
   Email
 , email
+, id
+, domain
 , xpEmailElem
 , xpEmail
 ) where
