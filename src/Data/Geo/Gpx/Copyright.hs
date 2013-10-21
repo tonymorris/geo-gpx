@@ -61,6 +61,9 @@ makeClassy ''Copyright
 --
 -- >>> allUnpickledCopyrightElem "<copyright author=\"Bob\"><x>x</x></copyright>"
 -- False
+--
+-- >>> allUnpickledCopyrightElem "<c author=\"Bob\"><year>2010</year></c>"
+-- False
 xpCopyrightElem ::
   PU Copyright
 xpCopyrightElem =

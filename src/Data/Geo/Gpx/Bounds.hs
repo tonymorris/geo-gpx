@@ -13,10 +13,10 @@ module Data.Geo.Gpx.Bounds(
 , maxlon
 ) where
 
-import Data.Geo.Gpx.Latitude
-import Data.Geo.Gpx.Longitude
-import Text.XML.HXT.Core
-import Control.Lens
+import Data.Geo.Gpx.Latitude(Latitude)
+import Data.Geo.Gpx.Longitude(Longitude)
+import Text.XML.HXT.Core(XmlPickler(..), PU, xpWrap, xp4Tuple, xpElem, xpAttr)
+import Control.Lens(makeClassy)
 import Prelude(Eq, Ord, Show)
 
 -- $setup
