@@ -12,7 +12,8 @@ import Control.Lens
 -- >>> let unpickleDgpsidElem = fmap (unpickleDoc' xpDgpsidElem) . runLA xread
 -- >>> let allUnpickledDgpsidElem = all (either (const False) (const True) . unpickleDoc' xpDgpsidElem) . runLA xread
 
-newtype DgpsStation = DgpsStation Int
+newtype DgpsStation =
+  DgpsStation Int
   deriving (Eq, Ord, Show)
 
 dgpsStation ::

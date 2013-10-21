@@ -29,47 +29,35 @@ data Copyright =
       Maybe String
   , _license ::
       Maybe String
-  } deriving (Eq, Ord)
+  } deriving (Eq, Ord, Show)
 
 makeClassy ''Copyright
-
-instance Show Copyright where
-  show (Copyright a y l) =
-    concat
-      [
-        "Copyright {author=\""
-      , a
-      , "\""
-      , maybe [] (\y' -> ", year=\"" ++ y' ++ "\"") y
-      , maybe [] (\l' -> ", license=\"" ++ l' ++ "\"") l
-      , "}"
-      ]
 
 -- | Pickler for the @copyright@ element.
 --
 -- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><year>2010</year><license>BSD3</license></copyright>"
--- [Right Copyright {author="Bob", year="2010", license="BSD3"}]
+-- [Right (Copyright {_author = "Bob", _year = Just "2010", _license = Just "BSD3"})]
 --
 -- >>> allUnpickledCopyrightElem "<copyright><year>2010</year><license>BSD3</license></copyright>"
 -- False
 --
 -- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><year>2010</year></copyright>"
--- [Right Copyright {author="Bob", year="2010"}]
+-- [Right (Copyright {_author = "Bob", _year = Just "2010", _license = Nothing})]
 --
 -- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><license>BSD3</license></copyright>"
--- [Right Copyright {author="Bob", license="BSD3"}]
+-- [Right (Copyright {_author = "Bob", _year = Nothing, _license = Just "BSD3"})]
 --
 -- >>> unpickleCopyrightElem "<copyright author=\"Bob\"></copyright>"
--- [Right Copyright {author="Bob"}]
+-- [Right (Copyright {_author = "Bob", _year = Nothing, _license = Nothing})]
 --
 -- >>> unpickleCopyrightElem "<copyright author=\"\"><year>2010</year><license>BSD3</license></copyright>"
--- [Right Copyright {author="", year="2010", license="BSD3"}]
+-- [Right (Copyright {_author = "", _year = Just "2010", _license = Just "BSD3"})]
 --
 -- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><year></year><license>BSD3</license></copyright>"
--- [Right Copyright {author="Bob", year="", license="BSD3"}]
+-- [Right (Copyright {_author = "Bob", _year = Just "", _license = Just "BSD3"})]
 --
 -- >>> unpickleCopyrightElem "<copyright author=\"Bob\"><year>2010</year><license></license></copyright>"
--- [Right Copyright {author="Bob", year="2010", license=""}]
+-- [Right (Copyright {_author = "Bob", _year = Just "2010", _license = Just ""})]
 --
 -- >>> allUnpickledCopyrightElem "<copyright author=\"Bob\"><x>x</x></copyright>"
 -- False
