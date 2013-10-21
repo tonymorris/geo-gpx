@@ -1,3 +1,5 @@
+{-# LANGUAGE NoImplicitPrelude #-}
+
 -- | Simple Type: @degreesType@ <http://www.topografix.com/GPX/1/1/#type_degreesType>
 module Data.Geo.Gpx.Degrees(
   Degrees
@@ -6,18 +8,22 @@ module Data.Geo.Gpx.Degrees(
 , xpDegrees
 ) where
 
-import Text.XML.HXT.Core
-import Control.Lens
+import Text.XML.HXT.Core(XmlPickler(..), PU, xpElem, xpWrapMaybe, xpPrim)
+import Control.Lens(Prism', prism', (^?), (#))
+import Prelude(Maybe(..), Eq, Ord(..), Show, Double, (&&))
 
 -- $setup
+-- >>> import Prelude
+-- >>> import Text.XML.HXT.Core
 -- >>> let unpickleMagvarElem = fmap (unpickleDoc' xpMagvarElem) . runLA xread
 -- >>> let allUnpickledMagvarElem = all (either (const False) (const True) . unpickleDoc' xpMagvarElem) . runLA xread
 
 newtype Degrees =
   Degrees Double deriving (Eq, Ord, Show)
 
+-- | A prism to a value which will be between 0 and 360.
 degrees ::
-  Prism' Double Degrees -- ^ A prism to a value which will be between 0 and 360.
+  Prism' Double Degrees
 degrees =
   prism'
     (\(Degrees d) -> d)

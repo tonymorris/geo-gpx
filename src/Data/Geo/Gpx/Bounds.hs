@@ -1,47 +1,65 @@
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+
 -- | Complex Type: @boundsType@ <http://www.topografix.com/GPX/1/1/#type_boundsType>
 module Data.Geo.Gpx.Bounds(
   Bounds
+, xpBoundsElem
+, xpBounds
 , bounds
+, minlat
+, minlon
+, maxlat
+, maxlon
 ) where
 
 import Data.Geo.Gpx.Latitude
 import Data.Geo.Gpx.Longitude
+import Text.XML.HXT.Core
+import Control.Lens
+import Prelude(Eq, Ord, Show)
 
-data Bounds = Bounds (Latitude, Longitude) (Latitude, Longitude)
-  deriving (Eq, Ord)
+-- $setup
+-- >>> import Prelude
+-- >>> import Text.XML.HXT.Core
+-- >>> let unpickleBoundsElem = fmap (unpickleDoc' xpBoundsElem) . runLA xread
+-- >>> let allUnpickledBoundsElem = all (either (const False) (const True) . unpickleDoc' xpBoundsElem) . runLA xread
 
-bounds :: 
-  (Latitude, Longitude) -- ^ The minimum latitude and longitude.
-  -> (Latitude, Longitude) -- ^ The maximum latitude and longitude.
-  -> Bounds
-bounds =
-  Bounds
+data Bounds =
+  Bounds {
+    _minlat ::
+      Latitude
+  , _minlon ::
+      Longitude
+  , _maxlat ::
+      Latitude
+  , _maxlon ::
+      Longitude
+  } deriving (Eq, Ord, Show)
 
-{-
-instance MinlatL Bounds where
-  minlatL =
-    Lens $ \(Bounds (minlat, minlon) (maxlat, maxlon)) -> store (\minlat -> Bounds (minlat, minlon) (maxlat, maxlon)) minlat
+makeClassy ''Bounds
 
-instance MinlonL Bounds where
-  minlonL =
-    Lens $ \(Bounds (minlat, minlon) (maxlat, maxlon)) -> store (\minlon -> Bounds (minlat, minlon) (maxlat, maxlon)) minlon
+-- | Pickler for the @bounds@ element.
+--
+-- >>> unpickleBoundsElem "<bounds minlat=\"10\" minlon=\"100\" maxlat=\"-10\" maxlon=\"-100\"/>"
+-- [Right (Bounds {_minlat = Latitude 10.0, _minlon = Longitude 100.0, _maxlat = Latitude (-10.0), _maxlon = Longitude (-100.0)})]
+xpBoundsElem ::
+  PU Bounds
+xpBoundsElem =
+  xpElem "bounds"
+    xpBounds
 
-instance MaxlatL Bounds where
-  maxlatL =
-    Lens $ \(Bounds (minlat, minlon) (maxlat, maxlon)) -> store (\maxlat -> Bounds (minlat, minlon) (maxlat, maxlon)) maxlat
+-- | Pickler for the @Bounds@ type.
+xpBounds ::
+  PU Bounds
+xpBounds =
+  xpWrap (\(minlat', minlon', maxlat', maxlon') -> Bounds minlat' minlon' maxlat' maxlon',
+              \(Bounds minlat' minlon' maxlat' maxlon') -> (minlat', minlon', maxlat', maxlon')) (xp4Tuple
+                (xpAttr "minlat" xpickle)
+                (xpAttr "minlon" xpickle)
+                (xpAttr "maxlat" xpickle)
+                (xpAttr "maxlon" xpickle))
 
-instance MaxlonL Bounds where
-  maxlonL =
-    Lens $ \(Bounds (minlat, minlon) (maxlat, maxlon)) -> store (\maxlon -> Bounds (minlat, minlon) (maxlat, maxlon)) maxlon
--}
-
-{-
 instance XmlPickler Bounds where
   xpickle =
-    xpWrap (\(minlat', minlon', maxlat', maxlon') -> bounds (minlat', minlon') (maxlat', maxlon'),
-            \(Bounds (minlat', minlon') (maxlat', maxlon')) -> (minlat', minlon', maxlat', maxlon')) (xp4Tuple
-              (xpAttr "minlat" xpickle)
-              (xpAttr "minlon" xpickle)
-              (xpAttr "maxlat" xpickle)
-              (xpAttr "maxlon" xpickle))
--}
+    xpBounds

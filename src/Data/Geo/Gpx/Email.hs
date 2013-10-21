@@ -1,8 +1,4 @@
 {-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE FunctionalDependencies #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeSynonymInstances #-}
-{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 
 -- | Complex Type: @emailType@ <http://www.topografix.com/GPX/1/1/#type_emailType>
@@ -13,11 +9,13 @@ module Data.Geo.Gpx.Email(
 , xpEmail
 ) where
 
+import Text.XML.HXT.Core(XmlPickler(..), PU, xpElem, xpWrap, xpAttr, xpPair, xpText0)
+import Control.Lens(makeClassy)
 import Prelude(Eq(..), Ord(..), Show(..), Functor(..), Bool(..), (.), all, const, either, String)
-import Text.XML.HXT.Core
-import Control.Lens
 
 -- $setup
+-- >>> import Prelude
+-- >>> import Text.XML.HXT.Core
 -- >>> let unpickleEmailElem = fmap (unpickleDoc' xpEmailElem) . runLA xread
 -- >>> let allUnpickledEmailElem = all (either (const False) (const True) . unpickleDoc' xpEmailElem) . runLA xread
 
@@ -65,3 +63,7 @@ xpEmail =
      (xpPair
        (xpAttr "id" xpText0)
        (xpAttr "domain" xpText0))
+
+instance XmlPickler Email where
+  xpickle =
+    xpEmail

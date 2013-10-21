@@ -1,8 +1,5 @@
+{-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE FunctionalDependencies #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeSynonymInstances #-}
-{-# LANGUAGE FlexibleInstances #-}
 
 -- | Complex Type: @copyrightType@ <http://www.topografix.com/GPX/1/1/#type_copyrightType>
 module Data.Geo.Gpx.Copyright(
@@ -14,10 +11,13 @@ module Data.Geo.Gpx.Copyright(
 , license
 ) where
 
-import Text.XML.HXT.Core
-import Control.Lens
+import Text.XML.HXT.Core(XmlPickler(..), PU, xpAttr, xpElem, xpText0, xpOption, xpWrap, xpTriple)
+import Control.Lens(makeClassy)
+import Prelude(Maybe(..), String, Eq, Ord, Show)
 
 -- $setup
+-- >>> import Prelude
+-- >>> import Text.XML.HXT.Core
 -- >>> let unpickleCopyrightElem = fmap (unpickleDoc' xpCopyrightElem) . runLA xread
 -- >>> let allUnpickledCopyrightElem = all (either (const False) (const True) . unpickleDoc' xpCopyrightElem) . runLA xread
 

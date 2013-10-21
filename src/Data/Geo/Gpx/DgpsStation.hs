@@ -1,14 +1,20 @@
+{-# LANGUAGE NoImplicitPrelude #-}
+
 -- | Simple Type: @dgpsStationType@ <http://www.topografix.com/GPX/1/1/#type_dgpsStationType>
 module Data.Geo.Gpx.DgpsStation(
   DgpsStation
 , dgpsStation
+, xpDgpsidElem
 , xpDgpsStation
 ) where
 
-import Text.XML.HXT.Core
-import Control.Lens
+import Text.XML.HXT.Core(XmlPickler(..), PU, xpElem, xpWrapMaybe, xpPrim)
+import Control.Lens(Prism', prism', (^?), (#))
+import Prelude(Maybe(..), Int, Eq, Ord(..), Show, (&&))
 
 -- $setup
+-- >>> import Prelude
+-- >>> import Text.XML.HXT.Core
 -- >>> let unpickleDgpsidElem = fmap (unpickleDoc' xpDgpsidElem) . runLA xread
 -- >>> let allUnpickledDgpsidElem = all (either (const False) (const True) . unpickleDoc' xpDgpsidElem) . runLA xread
 
@@ -16,8 +22,9 @@ newtype DgpsStation =
   DgpsStation Int
   deriving (Eq, Ord, Show)
 
+-- | A prism to a value which will be between 0 and 1023.
 dgpsStation ::
-  Prism' Int DgpsStation -- ^ A prism to a value which will be between 0 and 1023.
+  Prism' Int DgpsStation
 dgpsStation =
   prism'
     (\(DgpsStation i) -> i)
