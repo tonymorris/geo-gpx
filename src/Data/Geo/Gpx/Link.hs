@@ -1,20 +1,24 @@
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+
 -- | Complex Type: @linkType@ <http://www.topografix.com/GPX/1/1/#type_linkType>
 module Data.Geo.Gpx.Link(
   Link
 , link
 ) where
 
+import Text.XML.HXT.Core(XmlPickler(..), PU, xpAttr, xpElem, xpText0, xpOption, xpWrap, xpTriple)
+import Control.Lens(makeClassy)
+import Prelude(Eq, Ord, Show, String, Maybe(..))
 
-data Link = Link String (Maybe String) (Maybe String)
-  deriving (Eq, Ord)
+data Link =
+  Link {
+    _href :: String
+  , _text :: Maybe String
+  , _tyype :: Maybe String
+  } deriving (Eq, Ord)
 
-link ::
-  String -- ^ The href.
-  -> Maybe String -- ^ The text.
-  -> Maybe String -- ^ The type.
-  -> Link
-link =
-  Link
+makeClassy ''Link
 
 {-
 instance HrefL Link where

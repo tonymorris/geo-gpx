@@ -9,11 +9,16 @@ module Data.Geo.Gpx.Copyright(
 , author
 , year
 , license
+, author'
+, year'
+, license'
+, copyright'
 ) where
 
 import Text.XML.HXT.Core(XmlPickler(..), PU, xpAttr, xpElem, xpText0, xpOption, xpWrap, xpTriple)
-import Control.Lens(makeClassy)
-import Prelude(Maybe(..), String, Eq, Ord, Show)
+import Control.Lens(makeClassy, Prism', prism')
+import Prelude(Maybe(..), String, Eq, Ord, Show, fmap)
+import Control.Applicative((<$), (<$>), Applicative(..))
 
 -- $setup
 -- >>> import Prelude
@@ -32,6 +37,34 @@ data Copyright =
   } deriving (Eq, Ord, Show)
 
 makeClassy ''Copyright
+
+author' ::
+  Prism' Copyright String
+author' =
+  prism'
+    (\a -> Copyright a Nothing Nothing)
+    (\(Copyright a y l) -> a <$ y <* l)
+
+year' ::
+  Prism' Copyright (String, String, Maybe String)
+year' =
+  prism'
+    (\(a, y, l) -> Copyright a (Just y) l)
+    (\(Copyright a y l) -> fmap (\y' -> (a, y', l)) y)
+
+license' ::
+  Prism' Copyright (String, Maybe String, String)
+license' =
+  prism'
+    (\(a, y, l) -> Copyright a y (Just l))
+    (\(Copyright a y l) -> fmap (\l' -> (a, y, l')) l)
+
+copyright' ::
+  Prism' Copyright (String, String, String)
+copyright' =
+  prism'
+    (\(a, y, l) -> Copyright a (Just y) (Just l))
+    (\(Copyright a y l) -> (\y' l' -> (a, y', l')) <$> y <*> l)
 
 -- | Pickler for the @copyright@ element.
 --
@@ -76,8 +109,8 @@ xpCopyright ::
 xpCopyright =
    xpWrap
      (
-       \(author', year', license') -> Copyright author' year' license'
-     , \(Copyright author' year' license') -> (author', year', license')
+       \(a', y', l') -> Copyright a' y' l'
+     , \(Copyright a' y' l') -> (a', y', l')
      )
      (xpTriple
        (xpAttr "author" xpText0)
