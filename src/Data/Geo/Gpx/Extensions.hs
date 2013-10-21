@@ -10,8 +10,8 @@ module Data.Geo.Gpx.Extensions(
 ) where
 
 import Text.XML.HXT.Core(XmlPickler(..), PU, xpWrap, xpTrees, xpElem)
-import Text.XML.HXT.DOM.TypeDefs
-import Control.Lens
+import Text.XML.HXT.DOM.TypeDefs(XmlTrees)
+import Control.Lens(makeIso)
 import Prelude(Eq, Show)
 
 -- $setup
