@@ -4,11 +4,9 @@
 -- | Complex Type: @copyrightType@ <http://www.topografix.com/GPX/1/1/#type_copyrightType>
 module Data.Geo.Gpx.Copyright(
   Copyright(..)
+, HasCopyright(..)
 , xpCopyrightElem
 , xpCopyright
-, author
-, year
-, license
 , author'
 , year'
 , license'
@@ -35,8 +33,6 @@ data Copyright =
   , _license ::
       Maybe String
   } deriving (Eq, Ord, Show)
-
-makeClassy ''Copyright
 
 author' ::
   Prism' Copyright String
@@ -120,3 +116,5 @@ xpCopyright =
 instance XmlPickler Copyright where
   xpickle =
     xpCopyright
+
+makeClassy ''Copyright

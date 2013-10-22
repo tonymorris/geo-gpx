@@ -4,12 +4,9 @@
 -- | Complex Type: @linkType@ <http://www.topografix.com/GPX/1/1/#type_linkType>
 module Data.Geo.Gpx.Link(
   Link
+, HasLink(..)
 , xpLinkElem
 , xpLink
-, link
-, href
-, text
-, tyype
 , link'
 , href'
 , text'
@@ -33,8 +30,6 @@ data Link =
   , _text :: Maybe String
   , _tyype :: Maybe String
   } deriving (Eq, Ord, Show)
-
-makeClassy ''Link
 
 href' ::
   Prism' Link String
@@ -114,3 +109,5 @@ xpLink =
 instance XmlPickler Link where
   xpickle =
     xpLink
+
+makeClassy ''Link

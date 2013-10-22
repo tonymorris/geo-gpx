@@ -4,13 +4,9 @@
 -- | Complex Type: @boundsType@ <http://www.topografix.com/GPX/1/1/#type_boundsType>
 module Data.Geo.Gpx.Bounds(
   Bounds
+, HasBounds(..)
 , xpBoundsElem
 , xpBounds
-, bounds
-, minlat
-, minlon
-, maxlat
-, maxlon
 ) where
 
 import Data.Geo.Gpx.Latitude(Latitude)
@@ -37,8 +33,6 @@ data Bounds =
       Longitude
   } deriving (Eq, Ord, Show)
 
-makeClassy ''Bounds
-
 -- | Pickler for the @bounds@ element.
 --
 -- >>> unpickleBoundsElem "<bounds minlat=\"10\" minlon=\"100\" maxlat=\"-10\" maxlon=\"-100\"/>"
@@ -63,3 +57,5 @@ xpBounds =
 instance XmlPickler Bounds where
   xpickle =
     xpBounds
+
+makeClassy ''Bounds

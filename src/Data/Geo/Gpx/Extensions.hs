@@ -23,8 +23,6 @@ import Prelude(Eq, Show)
 newtype Extensions = Extensions XmlTrees
   deriving (Eq, Show)
 
-makeIso ''Extensions
-
 -- | Pickler for the @extensions@ element.
 --
 -- >>> unpickleExtensionsElem "<extensions><ext>abc</ext></extensions>"
@@ -47,3 +45,5 @@ xpExtensions =
 instance XmlPickler Extensions where
   xpickle =
     xpExtensions
+
+makeIso ''Extensions

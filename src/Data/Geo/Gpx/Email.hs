@@ -4,9 +4,7 @@
 -- | Complex Type: @emailType@ <http://www.topografix.com/GPX/1/1/#type_emailType>
 module Data.Geo.Gpx.Email(
   Email
-, email
-, id
-, domain
+, HasEmail(..)
 , xpEmailElem
 , xpEmail
 ) where
@@ -29,12 +27,10 @@ data Email =
       String
   } deriving (Eq, Ord, Show)
 
-makeClassy ''Email
-
 -- | Pickler for the @email@ element.
 --
--- >>> unpickleEmailElem "<email id=\"the id\" domain=\"thedomain\"/>"
--- [Right (Email {_id = "the id", _domain = "thedomain"})]
+-- >>> unpickleEmailElem "<email id=\"theid\" domain=\"thedomain\"></email>"
+-- [Right (Email {_id = "theid", _domain = "thedomain"})]
 --
 -- >>> unpickleEmailElem "<email id=\"\" domain=\"thedomain\"/>"
 -- [Right (Email {_id = "", _domain = "thedomain"})]
@@ -69,3 +65,5 @@ xpEmail =
 instance XmlPickler Email where
   xpickle =
     xpEmail
+
+makeClassy ''Email
