@@ -64,17 +64,30 @@ person' =
 
 -- | Pickler for the @author@ element.
 --
--- >>> unpickleAuthorElem "<author></author>"
--- [Right (Person {_name = Nothing, _emailP = Nothing, _linkP = Nothing})]
---
 -- >>> unpickleAuthorElem "<author><name>the name</name><email id=\"id\" domain=\"domain.com\"/><link href=\"href\"><text>text</text><type>type</type></link></author>"
 -- [Right (Person {_name = Just "the name", _emailP = Just (Email {_id = "id", _domain = "domain.com"}), _linkP = Just (Link {_href = "href", _text = Just "text", _tyype = Just "type"})})]
+--
+-- >>> unpickleAuthorElem "<author><email id=\"id\" domain=\"domain.com\"/><link href=\"href\"><text>text</text><type>type</type></link></author>"
+-- [Right (Person {_name = Nothing, _emailP = Just (Email {_id = "id", _domain = "domain.com"}), _linkP = Just (Link {_href = "href", _text = Just "text", _tyype = Just "type"})})]
+--
+-- >>> unpickleAuthorElem "<author><name>the name</name><link href=\"href\"><text>text</text><type>type</type></link></author>"
+-- [Right (Person {_name = Just "the name", _emailP = Nothing, _linkP = Just (Link {_href = "href", _text = Just "text", _tyype = Just "type"})})]
+--
+-- >>> unpickleAuthorElem "<author><name>the name</name><email id=\"id\" domain=\"domain.com\"/><link href=\"href\"><text>text</text></link></author>"
+-- [Right (Person {_name = Just "the name", _emailP = Just (Email {_id = "id", _domain = "domain.com"}), _linkP = Just (Link {_href = "href", _text = Just "text", _tyype = Nothing})})]
+--
+-- >>> unpickleAuthorElem "<author><name>the name</name><email id=\"id\" domain=\"domain.com\"/></author>"
+-- [Right (Person {_name = Just "the name", _emailP = Just (Email {_id = "id", _domain = "domain.com"}), _linkP = Nothing})]
+--
+-- >>> unpickleAuthorElem "<author></author>"
+-- [Right (Person {_name = Nothing, _emailP = Nothing, _linkP = Nothing})]
 xpAuthorElem::
   PU Person
 xpAuthorElem =
   xpElem "author"
     xpPerson
 
+-- | Pickler for the @Person@ type.
 xpPerson ::
   PU Person
 xpPerson =

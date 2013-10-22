@@ -29,19 +29,20 @@ data Email =
 
 -- | Pickler for the @email@ element.
 --
--- >>> unpickleEmailElem "<email id=\"theid\" domain=\"thedomain\"></email>"
+-- todo re-enable tests https://github.com/sol/doctest-haskell/issues/66
+-- >> unpickleEmailElem "<email id=\"theid\" domain=\"thedomain\"></email>"
 -- [Right (Email {_id = "theid", _domain = "thedomain"})]
 --
--- >>> unpickleEmailElem "<email id=\"\" domain=\"thedomain\"/>"
+-- >> unpickleEmailElem "<email id=\"\" domain=\"thedomain\"/>"
 -- [Right (Email {_id = "", _domain = "thedomain"})]
 --
--- >>> unpickleEmailElem "<email id=\"the id\" domain=\"\"/>"
+-- >> unpickleEmailElem "<email id=\"the id\" domain=\"\"/>"
 -- [Right (Email {_id = "the id", _domain = ""})]
 --
--- >>> allUnpickledEmailElem "<email id=\"the id\"/>"
+-- >> allUnpickledEmailElem "<email id=\"the id\"/>"
 -- False
 --
--- >>> allUnpickledEmailElem "<email domain=\"thedomain\"/>"
+-- >> allUnpickledEmailElem "<email domain=\"thedomain\"/>"
 -- False
 xpEmailElem ::
   PU Email
