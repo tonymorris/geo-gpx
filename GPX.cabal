@@ -1,5 +1,5 @@
 Name:                GPX
-Version:             0.7.0
+Version:             0.7.1
 License:             BSD3
 License-File:        LICENSE
 Synopsis:            Parse GPX files
@@ -24,8 +24,9 @@ Library
                      , hxt >= 9
                      , containers
                      , comonad-transformers
+                     , comonad >= 4.0
                      , data-lens
-                     , xsd
+                     , xsd >= 0.3 && < 0.4
                      , newtype
 
   GHC-Options:      -Wall
